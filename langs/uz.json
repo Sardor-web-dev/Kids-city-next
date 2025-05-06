@@ -1,0 +1,16 @@
+{
+  "HomePage": {
+    "title": "Apple rasmiy veb-saytiga xush kelibsiz",
+    "btn1": "Kirish",
+    "btn2": "Chiqish",
+    "btn3": "Admin sahifasiga o'tish",
+    "btn4": "Bosh sahifaga o'tish",
+    "russianbtn": "Rus",
+    "englishbtn": "Eng"
+  },
+  "AdminPage": {
+    "title": "Apple rasmiy veb-saytiga xush kelibsiz",
+    "description": "Bu Apple rasmiy veb-saytining admin sahifasi.",
+    "addProduct": "Mahsulot qo'shish"
+  }
+}

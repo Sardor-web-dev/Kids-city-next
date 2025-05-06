@@ -1,0 +1,16 @@
+{
+  "HomePage": {
+    "title": "Welcome to the Apple official website",
+    "btn1": "Sign In",
+    "btn2": "Sign Out",
+    "btn3": "Go to Admin",
+    "btn4": "Go to Home",
+    "russianbtn": "Rus",
+    "englishbtn": "Eng"
+  },
+  "AdminPage": {
+    "title": "Welcome to the Apple official website",
+    "description": "This is the admin page of the Apple official website.",
+    "addProduct": "Add Product"
+  }
+}
