@@ -11,20 +11,22 @@ const adminData: Prisma.AdminCreateInput[] = [
     clothes: {
       create: [
         {
-          name: "Join the Prisma Discord",
-          description: "https://pris.ly/discord",
-          Image: "https://i.pin",
-          Price: 100,
-          Size: "L",
-          gender: "girl",
+          name: "T-shirt",
+          description: "Summer T-shirt",
+          Image:
+            "https://png.pngtree.com/png-clipart/20230607/ourmid/pngtree-black-t-shirt-mockup-new-model-realistic-png-image_7122610.png",
+          Price: 200,
+          Size: "M",
+          gender: "boy",
         },
         {
-          name: "Join the Prisma Discord",
-          description: "https://pris.ly/discord",
-          Image: "https://i.pin",
+          name: "Hoodie",
+          description: "Winter Hoodie",
+          Image:
+            "https://img.pikbest.com/png-images/20240712/mockup-blank-flat-blue-hoodie_10664614.png!sw800",
           Price: 100,
           Size: "L",
-          gender: "girl",
+          gender: "boy",
         },
       ],
     },

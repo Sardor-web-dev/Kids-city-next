@@ -41,7 +41,7 @@ export default function Home() {
                 <p className="text-blue-600">одежда для мальчиков</p>
               </div>
               <Button
-                onClick={() => router.push("/catalog")}
+                onClick={() => router.push("/catalogue")}
                 className="cursor-pointer"
               >
                 Посмотреть в каталоге
@@ -57,7 +57,7 @@ export default function Home() {
                 <p className="text-pink-400">одежда для девочек</p>
               </div>
               <Button
-                onClick={() => router.push("/catalog")}
+                onClick={() => router.push("/catalogue")}
                 className="cursor-pointer"
               >
                 Посмотреть в каталоге
