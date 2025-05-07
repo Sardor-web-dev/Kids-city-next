@@ -1,12 +1,14 @@
 {
-  "HomePage": {
-    "title": "Apple rasmiy veb-saytiga xush kelibsiz",
-    "btn1": "Kirish",
-    "btn2": "Chiqish",
-    "btn3": "Admin sahifasiga o'tish",
-    "btn4": "Bosh sahifaga o'tish",
+  "HomePage":{
+    "title": "Kids City - bu sizning ishonchli bolalar kiyimlari do'koningiz!",
+    "description": "👕 Kichkintoydan tortib to o'smirlargacha bo'lgan barcha yoshdagi bolalar uchun zamonaviy va qulay kiyimlarning keng assortimentini taklif etamiz. Farzandingiz o'zini qulay his qilishi va eng zo'r ko'rinishi uchun har bir element mehr bilan tanlangan!",
+    "about": "Biz haqimizda",
+    "causes": "Nimaga biz",
+    "products": "Xizmatlar va tovarlar",
+    "contacts": "Kontaktlar",
     "russianbtn": "Rus",
-    "englishbtn": "Eng"
+    "englishbtn": "Ing",
+    "uzbekbtn": "Uzb"
   },
   "AdminPage": {
     "title": "Apple rasmiy veb-saytiga xush kelibsiz",

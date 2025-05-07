@@ -1,24 +1,22 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
+  const t = useTranslations("HomePage");
+
   return (
     <>
       <div className="">
         <div className="bg-[url('https://avatars.mds.yandex.net/get-altay/15223195/2a00000194ab8c65ded07e225b5837097cdf/orig')] w-full h-150 bg-cover">
           <div className="flex flex-col items-center justify-center w-full h-full gap-10">
             <p className="text-white font-bold text-5xl text-center">
-              Kids City – ваш надежный магазин качественной детской одежды!
+              {t("title")}
             </p>
-            <span className="text-white font-medium text-2xl text-center">
-              👕 Мы предлагаем широкий ассортимент стильной и удобной одежды для
-              детей всех
-              <br /> возрастов, от малышей до подростков. Каждый предмет
-              подобран с любовью, чтобы ваш
-              <br /> ребенок чувствовал себя комфортно и выглядел на все 100!{" "}
-              <br />
+            <span className="text-white max-w-[1000px] font-medium text-2xl text-center">
+              {t("description")}
             </span>
           </div>
         </div>

@@ -1,12 +1,14 @@
 {
   "HomePage": {
-    "title": "Welcome to the Apple official website",
-    "btn1": "Sign In",
-    "btn2": "Sign Out",
-    "btn3": "Go to Admin",
-    "btn4": "Go to Home",
-    "russianbtn": "Rus",
-    "englishbtn": "Eng"
+    "title": "Kids City - is your reliable store of high-quality children's clothing!",
+    "description": "👕 We offer a wide range of stylish and comfortable clothing for children of all ages, from toddlers to teens. Each item is carefully selected to ensure your child feels comfortable and looks their best!",
+    "about": "About us",
+    "causes": "Why we",
+    "products": "Services and clothes",
+    "contacts": "Contacts",
+    "russianbtn": "Ru",
+    "englishbtn": "En",
+    "uzbekbtn": "Uz"
   },
   "AdminPage": {
     "title": "Welcome to the Apple official website",
