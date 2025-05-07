@@ -8,7 +8,8 @@
     "contacts": "Контакты",
     "russianbtn": "Рус",
     "englishbtn": "Англ",
-    "uzbekbtn": "Узб"
+    "uzbekbtn": "Узб",
+    "admin": "Перейти в Админку"
   },
   "AdminPage": {
     "title": "Добро пожаловать на официальный сайт Apple",

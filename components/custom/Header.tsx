@@ -16,76 +16,57 @@ const Header = () => {
   }
 
   return (
-    <div className="flex justify-between items-center pr-10">
-      <div className="w-full h-15 flex items-center justify-start pl-5 gap-10">
-        <Link href="/">
-          <img
-            className="opacity-75 hover:opacity-100 cursor-pointer hover:scale-105 transition-all"
-            src="/logo.png"
-            alt=""
-          />
-        </Link>
-        <Link
-          className="text-2xl text-gray-500 opacity-60 hover:underline hover:text-black cursor-pointer hover:opacity-100 font-medium transition-all"
-          href="/"
-        >
-          {t("about")}
-        </Link>
-        <Link
-          className="text-2xl text-gray-500 opacity-60 hover:underline hover:text-black cursor-pointer hover:opacity-100 font-medium transition-all"
-          href="/"
-        >
-          {t("causes")}
-        </Link>
-        <Link
-          className="text-2xl text-gray-500 opacity-60 hover:underline hover:text-black cursor-pointer hover:opacity-100 font-medium transition-all"
-          href="/"
-        >
-          {t("products")}
-        </Link>
-        <Link
-          className="text-2xl text-gray-500 opacity-60 hover:underline hover:text-black cursor-pointer hover:opacity-100 font-medium transition-all"
-          href=">"
-        >
-          {t("contacts")}
-        </Link>
-        {!session ? (
-          <Button
-            className="bg-blue-500 text-white hover:bg-blue-600 transition-all rounded-md px-4 py-2"
-            onClick={() => signIn()}
-          >
-            Sign In
-          </Button>
-        ) : (
-          <Button
-            className="bg-blue-500 text-white hover:bg-blue-600 transition-all rounded-md px-4 py-2"
-            onClick={() => signOut()}
-          >
-            Sign Out
-          </Button>
-        )}
+    <header className="w-full px-6 md:px-12 py-4 shadow-md bg-white sticky top-0 z-50">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-8 flex-wrap">
+          <Link href="/">
+            <img
+              className="h-10 opacity-80 hover:opacity-100 cursor-pointer hover:scale-105 transition-transform"
+              src="/logo.png"
+              alt="Logo"
+            />
+          </Link>
+
+          {[
+            { href: "/", label: t("about") },
+            { href: "/", label: t("causes") },
+            { href: "/", label: t("products") },
+            { href: "/", label: t("contacts") },
+            { href: "/admin", label: t("admin") },
+          ].map((link, i) => (
+            <Link
+              key={i}
+              className="text-lg text-gray-500 opacity-70 hover:underline hover:text-black hover:opacity-100 transition-all"
+              href={link.href}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          {!session ? (
+            <Button
+              className="bg-blue-500 text-white hover:bg-blue-600 transition-colors rounded-md px-4 py-2"
+              onClick={() => signIn()}
+            >
+              Sign In
+            </Button>
+          ) : (
+            <Button
+              className="bg-blue-500 text-white hover:bg-blue-600 transition-colors rounded-md px-4 py-2"
+              onClick={() => signOut()}
+            >
+              Sign Out
+            </Button>
+          )}
+        </div>
+
+        <div className="flex gap-2">
+          <Button onClick={() => handleChange("ru")}>{t("russianbtn")}</Button>
+          <Button onClick={() => handleChange("en")}>{t("englishbtn")}</Button>
+          <Button onClick={() => handleChange("uz")}>{t("uzbekbtn")}</Button>
+        </div>
       </div>
-      <div className="flex gap-2">
-        <Button
-          className="bg-blue-500 cursor-pointer text-white hover:bg-blue-600 transition-all rounded-md px-4 py-2"
-          onClick={() => handleChange("ru")}
-        >
-          {t("russianbtn")}
-        </Button>
-        <Button
-          className="bg-blue-500 cursor-pointer text-white hover:bg-blue-600 transition-all rounded-md px-4 py-2"
-          onClick={() => handleChange("en")}
-        >
-          {t("englishbtn")}
-        </Button>
-        <Button
-          className="bg-blue-500 cursor-pointer text-white hover:bg-blue-600 transition-all rounded-md px-4 py-2"
-          onClick={() => handleChange("uz")}
-        >
-          {t("uzbekbtn")}
-        </Button>
-      </div>
-    </div>
+    </header>
   );
 };
 

@@ -8,7 +8,9 @@
     "contacts": "Kontaktlar",
     "russianbtn": "Rus",
     "englishbtn": "Ing",
-    "uzbekbtn": "Uzb"
+    "uzbekbtn": "Uzb",
+    "admin": "Admin betga otish"
+
   },
   "AdminPage": {
     "title": "Apple rasmiy veb-saytiga xush kelibsiz",
