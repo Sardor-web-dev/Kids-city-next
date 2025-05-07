@@ -1,103 +1,169 @@
-import Image from "next/image";
+"use client";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <div className="">
+        <div className="bg-[url('https://avatars.mds.yandex.net/get-altay/15223195/2a00000194ab8c65ded07e225b5837097cdf/orig')] w-full h-150 bg-cover">
+          <div className="flex flex-col items-center justify-center w-full h-full gap-10">
+            <p className="text-white font-bold text-5xl text-center">
+              Kids City – ваш надежный магазин качественной детской одежды!
+            </p>
+            <span className="text-white font-medium text-2xl text-center">
+              👕 Мы предлагаем широкий ассортимент стильной и удобной одежды для
+              детей всех
+              <br /> возрастов, от малышей до подростков. Каждый предмет
+              подобран с любовью, чтобы ваш
+              <br /> ребенок чувствовал себя комфортно и выглядел на все 100!{" "}
+              <br />
+            </span>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        {/* products */}
+        <div className="flex flex-col items-center justify-center gap-30 mt-12">
+          <div className="text-center flex flex-col gap-3">
+            <p className="text-4xl font-bold">Наши товары</p>
+            <span className="text-2xl font-normal">
+              Самая лучшая и высококачественная детская одежда в Самарканде!
+            </span>
+          </div>
+          <div className="flex items-center justify-center gap-10">
+            <div className="flex flex-col w-100 h-120 items-center justify-center gap-4">
+              <div className="flex flex-col gap-5 items-center justify-center">
+                <img
+                  className="rounded-2xl hover:scale-105 transition-all cursor-pointer"
+                  src="/clothes.jpg"
+                  alt=""
+                />
+                <p className="text-blue-600">одежда для мальчиков</p>
+              </div>
+              <Button
+                onClick={() => router.push("/catalog")}
+                className="cursor-pointer"
+              >
+                Посмотреть в каталоге
+              </Button>
+            </div>
+            <div className="flex w-100 h-120  flex-col items-center justify-center gap-4">
+              <div className="flex flex-col gap-5 items-center justify-center">
+                <img
+                  className="rounded-2xl hover:scale-105 transition-all cursor-pointer"
+                  src="/paijamas.jpg"
+                  alt=""
+                />
+                <p className="text-pink-400">одежда для девочек</p>
+              </div>
+              <Button
+                onClick={() => router.push("/catalog")}
+                className="cursor-pointer"
+              >
+                Посмотреть в каталоге
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* about us */}
+
+        <div className="mt-50 flex items-center justify-center gap-20">
+          <div className="text-left max-w-110 h-155 flex flex-col gap-5">
+            <p className="text-2xl font-bold">О нас</p>
+            <span className="font-medium">
+              В 2020 году во время пандемии COVID-19, основательница нашего
+              магазина запустила интернет-магазин детской одежды в Самарканде.
+              Сама идея возникла после нескольких неудачных покупок в
+              интернет-магазинах, так как у нее были 3 детей, а магазины все
+              закрыты,то не тот размер отправляют, то качество очень низкое.
+              Затем она решила поискать оптовых поставщиков детской одежды
+              сначала экспортные товары с Узбекистана, позже и с Турции и Китая
+              , этим же она хотела помочь другим мамочкам иметь возможность
+              приобрести качественные вещи по приемлемым ценам для своих детей.
+              Первыми клиентами были, конечно же родственники, подруги, знакомые
+              и их знакомые. В режиме онлайн работали около 3 лет, позже решили
+              также открыть офф-лайн магазин, так как очень многие клиенты
+              хотели не только оформлять заказы онлайн, а приезжать на примерку
+              вместе со своими детьми, поближе ознакомиться с ассортиментом
+              товаров . С апреля 2023 года мы начали работать в оффлайн режиме,
+              предлагая своим клиентам иметь возможность приобретать
+              качественную одежду для своих детей от 0 до 14 лет, работаем
+              только с проверенными производителями с Китая, Турции и США.
+            </span>
+          </div>
+          <img className="h-150" src="/shop.png" alt="" />
+        </div>
+
+        {/* why best  */}
+
+        <div className="flex flex-col w-full items-center justify-center mt-50">
+          <p className="text-4xl font-bold">Почему мы лучшие?</p>
+          <span className="text-2xl font-medium">
+            Три преимущества нашего магазина
+          </span>
+          <div className="flex w-full gap-15 items-center justify-center">
+            <div className="flex hover:scale-105 cursor-pointer transition-all flex-col items-center justify-center gap-2 text-center">
+              <img
+                className="w-50 h-50"
+                src="https://cdn-icons-png.flaticon.com/512/5499/5499068.png"
+                alt=""
+              />
+              <p>Высококачеставенная импортная одежда</p>
+              <span>
+                У нас широкий ассортимент <br /> высококачественной одежды по{" "}
+                <br /> хорошим ценнам, из Китая, США и Турции.
+              </span>
+            </div>
+            <div className="flex hover:scale-105 cursor-pointer transition-all flex-col items-center justify-center gap-2 text-center">
+              <img className="w-60 h-60" src="/delievery.png" alt="" />
+              <p>Доставка по всей Республике</p>
+              <span>
+                Нашу одежду можно заказывать онлайн <br /> и можно приехать в
+                магазин и <br /> примерить понравившеюся вам <br /> одежду, а
+                также имеется доставка по <br /> всей республике и не только
+              </span>
+            </div>
+            <div className="flex hover:scale-105 cursor-pointer transition-all flex-col items-center justify-center gap-2 text-center">
+              <img className="w-60 h-60" src="/discount.png" alt="" />
+              <p>Постоянные скидки и акции</p>
+              <span>
+                В нашем магазине постоянно <br /> проводятся разные акции и
+                скидки в <br /> связи с какими нибудь праздниками <br /> либо
+                просто при покупке более 2 <br /> вещей
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* photos */}
+
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex mt-10 flex-col mb-8 text-center">
+            <p className="text-2xl font-bold">Фотографии нашего магазина</p>
+            <span className="text-xl font-medium">
+              Это фотографии нашего магазина внутри и снаружи
+            </span>
+          </div>
+          <div className="flex gap-6">
+            <img
+              className="w-90 h-100 hover:scale-105 transition-all cursor-pointer opacity-90 hover:opacity-100"
+              src="/inside.jpg"
+              alt=""
+            />
+            <img
+              className="w-90 h-100 hover:scale-105 transition-all cursor-pointer opacity-90 hover:opacity-100"
+              src="/polka.jpg"
+              alt=""
+            />
+            <img
+              className="w-90 h-100 hover:scale-105 transition-all cursor-pointer opacity-90 hover:opacity-100"
+              src="/main.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

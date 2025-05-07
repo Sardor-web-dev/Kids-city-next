@@ -5,6 +5,8 @@ import { getLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/components/custom/SessionProvider";
+import Header from "@/components/custom/Header";
+import Footer from "@/components/custom/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +37,9 @@ export default async function RootLayout({
       >
         <SessionProvider session={session}>
           <NextIntlClientProvider locale={locale}>
+            <Header />
             {children}
+            <Footer/>
           </NextIntlClientProvider>
         </SessionProvider>
       </body>
