@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Kids City",
-  description: "Лучший детский магазие в Самарканде-Kids City",
+  description: "Лучший магазин детской одежды в Самарканде - Kids City",
 };
 
 export default async function RootLayout({
