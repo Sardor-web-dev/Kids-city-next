@@ -169,11 +169,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:Sardor%202010@localhost:5432/kidscity?schema=public"
+        "value": null
       }
     }
   },
