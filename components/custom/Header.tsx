@@ -26,13 +26,11 @@ const Header = () => {
               alt="Logo"
             />
           </Link>
-
           {[
             { href: "/", label: t("about") },
             { href: "/", label: t("causes") },
             { href: "/", label: t("products") },
             { href: "/", label: t("contacts") },
-            { href: "/admin", label: t("admin") },
           ].map((link, i) => (
             <Link
               key={i}
@@ -43,6 +41,14 @@ const Header = () => {
             </Link>
           ))}
 
+          {session && (
+            <Link
+              className="text-lg text-gray-500 opacity-70 hover:underline hover:text-black hover:opacity-100 transition-all"
+              href="/admin"
+            >
+              {t("admin")}
+            </Link>
+          )}
           {!session ? (
             <Button
               className="bg-blue-500 text-white hover:bg-blue-600 transition-colors rounded-md px-4 py-2"
