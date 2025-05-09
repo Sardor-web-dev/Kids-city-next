@@ -76,17 +76,32 @@ const Header = () => {
 
         <div className="flex gap-2">
           <DropdownMenu>
-            <DropdownMenuTrigger className="cursor-pointer">Language</DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuTrigger className="cursor-pointer">
+              <img
+              className="w-12z` h-7"
+                src="https://img.favpng.com/23/13/17/computer-icons-language-icon-png-favpng-NQSGiSmKDpKJpGXw1p4tMdi6Z.jpg"
+                alt=""
+              />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="pt-2">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange("ru")}>
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={() => handleChange("ru")}
+              >
                 {t("russianbtn")}
               </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange("en")}>
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={() => handleChange("en")}
+              >
                 {t("englishbtn")}
               </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange("uz")}>
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={() => handleChange("uz")}
+              >
                 {t("uzbekbtn")}
               </DropdownMenuItem>
             </DropdownMenuContent>

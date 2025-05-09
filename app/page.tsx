@@ -1,10 +1,7 @@
-"use client";
-import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import Overview from "@/components/custom/Overview";
 
 export default function Home() {
-  const router = useRouter();
   const t = useTranslations("HomePage");
 
   return (
@@ -20,8 +17,13 @@ export default function Home() {
             </span>
           </div>
         </div>
+        
+        
         {/* products */}
-        <div id="clothes" className="flex flex-col items-center justify-center gap-30 mt-12">
+        <div
+          id="clothes"
+          className="flex flex-col items-center justify-center gap-30 mt-12"
+        >
           <div className="text-center flex flex-col gap-3">
             <p className="text-4xl font-bold">Наши товары</p>
             <span className="text-2xl font-normal">
@@ -29,44 +31,17 @@ export default function Home() {
             </span>
           </div>
           <div className="flex items-center justify-center gap-10">
-            <div className="flex flex-col w-100 h-120 items-center justify-center gap-4">
-              <div className="flex flex-col gap-5 items-center justify-center">
-                <img
-                  className="rounded-2xl hover:scale-105 transition-all cursor-pointer"
-                  src="/clothes.jpg"
-                  alt=""
-                />
-                <p className="text-blue-600">одежда для мальчиков</p>
-              </div>
-              <Button
-                onClick={() => router.push("/catalogue")}
-                className="cursor-pointer"
-              >
-                Посмотреть в каталоге
-              </Button>
-            </div>
-            <div className="flex w-100 h-120  flex-col items-center justify-center gap-4">
-              <div className="flex flex-col gap-5 items-center justify-center">
-                <img
-                  className="rounded-2xl hover:scale-105 transition-all cursor-pointer"
-                  src="/paijamas.jpg"
-                  alt=""
-                />
-                <p className="text-pink-400">одежда для девочек</p>
-              </div>
-              <Button
-                onClick={() => router.push("/catalogue")}
-                className="cursor-pointer"
-              >
-                Посмотреть в каталоге
-              </Button>
-            </div>
+            <Overview img="/clothes.jpg" text="одежда для мальчиков" />
+            <Overview img="/paijamas.jpg" text="одежда для девочек" />
           </div>
         </div>
 
         {/* about us */}
 
-        <div id="about_us" className="mt-50 flex items-center justify-center gap-20">
+        <div
+          id="about_us"
+          className="mt-50 flex items-center justify-center gap-20"
+        >
           <div className="text-left max-w-110 h-155 flex flex-col gap-5">
             <p className="text-2xl font-bold">О нас</p>
             <span className="font-medium">
@@ -90,12 +65,15 @@ export default function Home() {
               только с проверенными производителями с Китая, Турции и США.
             </span>
           </div>
-          <img className="h-150" src="/shop.png" alt="" />
+          <img className="h-140" src="/shop.png" alt="" />
         </div>
 
         {/* why best  */}
 
-        <div id="why_best" className="flex flex-col w-full items-center justify-center mt-50">
+        <div
+          id="why_best"
+          className="flex flex-col w-full items-center justify-center mt-50"
+        >
           <p className="text-4xl font-bold">Почему мы лучшие?</p>
           <span className="text-2xl font-medium">
             Три преимущества нашего магазина
