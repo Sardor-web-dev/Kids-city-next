@@ -27,7 +27,7 @@ const Form = () => {
       body: JSON.stringify({
         name,
         description,
-        Image: imageUrl, // <-- используем загруженный URL
+        Image: imageUrl, 
         Price,
         Size,
         gender,
@@ -75,7 +75,6 @@ const Form = () => {
           />
         </div>
 
-        {/* UploadThing загрузка */}
         <div>
           <label className="block text-lg mb-2">Картинка</label>
           <UploadButton
@@ -83,7 +82,6 @@ const Form = () => {
             onClientUploadComplete={(res) => {
               if (res && res[0]) {
                 setImageUrl(res[0].url);
-                alert("Файл успешно загружен");
               }
             }}
             onUploadError={(error: Error) => {
