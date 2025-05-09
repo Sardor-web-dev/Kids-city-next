@@ -1,6 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 const Form = () => {
+  const router = useRouter();
   const postData = async (e: any) => {
     e.preventDefault();
 
@@ -30,6 +33,7 @@ const Form = () => {
 
     if (response.ok) {
       console.log("Post created successfully");
+      router.push("/catalogue")
     } else {
       const error = await response.json();
       console.error("Error creating post:", error);

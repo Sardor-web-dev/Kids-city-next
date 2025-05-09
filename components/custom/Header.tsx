@@ -4,6 +4,14 @@ import { Button } from "../ui/button";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const { data: session } = useSession();
@@ -27,10 +35,10 @@ const Header = () => {
             />
           </Link>
           {[
-            { href: "/", label: t("about") },
-            { href: "/", label: t("causes") },
-            { href: "/", label: t("products") },
-            { href: "/", label: t("contacts") },
+            { href: "#clothes", label: t("products") },
+            { href: "#about_us", label: t("about") },
+            { href: "#why_best", label: t("causes") },
+            { href: "#contacts", label: t("contacts") },
           ].map((link, i) => (
             <Link
               key={i}
@@ -67,9 +75,22 @@ const Header = () => {
         </div>
 
         <div className="flex gap-2">
-          <Button onClick={() => handleChange("ru")}>{t("russianbtn")}</Button>
-          <Button onClick={() => handleChange("en")}>{t("englishbtn")}</Button>
-          <Button onClick={() => handleChange("uz")}>{t("uzbekbtn")}</Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="cursor-pointer">Language</DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange("ru")}>
+                {t("russianbtn")}
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange("en")}>
+                {t("englishbtn")}
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange("uz")}>
+                {t("uzbekbtn")}
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>

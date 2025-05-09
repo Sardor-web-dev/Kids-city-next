@@ -21,7 +21,7 @@ export default function Home() {
           </div>
         </div>
         {/* products */}
-        <div className="flex flex-col items-center justify-center gap-30 mt-12">
+        <div id="clothes" className="flex flex-col items-center justify-center gap-30 mt-12">
           <div className="text-center flex flex-col gap-3">
             <p className="text-4xl font-bold">Наши товары</p>
             <span className="text-2xl font-normal">
@@ -66,7 +66,7 @@ export default function Home() {
 
         {/* about us */}
 
-        <div className="mt-50 flex items-center justify-center gap-20">
+        <div id="about_us" className="mt-50 flex items-center justify-center gap-20">
           <div className="text-left max-w-110 h-155 flex flex-col gap-5">
             <p className="text-2xl font-bold">О нас</p>
             <span className="font-medium">
@@ -95,7 +95,7 @@ export default function Home() {
 
         {/* why best  */}
 
-        <div className="flex flex-col w-full items-center justify-center mt-50">
+        <div id="why_best" className="flex flex-col w-full items-center justify-center mt-50">
           <p className="text-4xl font-bold">Почему мы лучшие?</p>
           <span className="text-2xl font-medium">
             Три преимущества нашего магазина
