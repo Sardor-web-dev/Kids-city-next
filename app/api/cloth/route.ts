@@ -29,7 +29,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const post = await prisma.cloth.create({
+    const cloth = await prisma.cloth.create({
       data: {
         name,
         description,
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       },
     });
 
-    return NextResponse.json(post, { status: 201 });
+    return NextResponse.json(cloth, { status: 201 });
   } catch (error) {
     console.error("Server error:", error); 
     return NextResponse.json(
