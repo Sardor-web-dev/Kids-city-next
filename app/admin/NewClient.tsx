@@ -1,9 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { UploadButton } from "@/lib/uploadthing";
 
 const Form = () => {
   const router = useRouter();
+  const [imageUrl, setImageUrl] = useState("");
+
   const postData = async (e: any) => {
     e.preventDefault();
 
@@ -12,7 +16,6 @@ const Form = () => {
     const description = fm.get("description");
     const priceStr = fm.get("price");
     const Price = parseInt(priceStr as string);
-    const Image = fm.get("imageUrl");
     const Size = fm.get("size");
     const gender = fm.get("gender");
 
@@ -24,7 +27,7 @@ const Form = () => {
       body: JSON.stringify({
         name,
         description,
-        Image,
+        Image: imageUrl, // <-- используем загруженный URL
         Price,
         Size,
         gender,
@@ -33,7 +36,7 @@ const Form = () => {
 
     if (response.ok) {
       console.log("Post created successfully");
-      router.push("/catalogue")
+      router.push("/catalogue");
     } else {
       const error = await response.json();
       console.error("Error creating post:", error);
@@ -42,85 +45,83 @@ const Form = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Create post by client side</h1>
+      <h1 className="text-2xl font-bold mb-6">Создать товар</h1>
       <form onSubmit={postData} className="space-y-6">
+        {/* Остальные поля */}
         <div>
-          <label htmlFor="title" className="block text-lg mb-2">
-            Название товара
-          </label>
+          <label className="block text-lg mb-2">Название товара</label>
           <input
             type="text"
-            id="name"
             name="name"
-            placeholder="Enter your post title"
             className="w-full px-4 py-2 border rounded-lg"
           />
         </div>
+
         <div>
-          <label htmlFor="content" className="block text-lg mb-2">
-            Описание товара
-          </label>
+          <label className="block text-lg mb-2">Описание товара</label>
           <textarea
-            id="description"
             name="description"
-            placeholder="Write your post content here..."
-            rows={6}
+            rows={4}
             className="w-full px-4 py-2 border rounded-lg"
           />
         </div>
+
         <div>
-          <label htmlFor="content" className="block text-lg mb-2">
-            Цена товара
-          </label>
+          <label className="block text-lg mb-2">Цена</label>
           <input
             type="number"
-            id="price"
             name="price"
-            placeholder="Write your post content here..."
             className="w-full px-4 py-2 border rounded-lg"
           />
         </div>
+
+        {/* UploadThing загрузка */}
         <div>
-          <label htmlFor="content" className="block text-lg mb-2">
-            Картинка товара
-          </label>
-          <input
-            id="ImageUrl"
-            name="imageUrl"
-            placeholder="Write your post content here..."
-            type="string"
-            className="w-full px-4 py-2 border rounded-lg"
+          <label className="block text-lg mb-2">Картинка</label>
+          <UploadButton
+            endpoint="imageUploader"
+            onClientUploadComplete={(res) => {
+              if (res && res[0]) {
+                setImageUrl(res[0].url);
+                alert("Файл успешно загружен");
+              }
+            }}
+            onUploadError={(error: Error) => {
+              alert(`Ошибка загрузки: ${error.message}`);
+            }}
           />
+          {imageUrl && (
+            <img
+              src={imageUrl}
+              alt="Uploaded"
+              className="w-32 h-32 mt-2 rounded"
+            />
+          )}
         </div>
+
         <div>
-          <label htmlFor="content" className="block text-lg mb-2">
-            Размер товара
-          </label>
+          <label className="block text-lg mb-2">Размер</label>
           <input
-            id="size"
+            type="text"
             name="size"
-            placeholder="Write your post content here..."
-            type="string"
             className="w-full px-4 py-2 border rounded-lg"
           />
         </div>
+
         <div>
-          <label htmlFor="content" className="block text-lg mb-2">
-            Гендер товара
-          </label>
+          <label className="block text-lg mb-2">Гендер</label>
           <input
-            id="gender"
+            type="text"
             name="gender"
-            placeholder="Write your post content here..."
-            type="string"
             className="w-full px-4 py-2 border rounded-lg"
           />
         </div>
+
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600"
         >
-          Create Post
+          Создать товар
         </button>
       </form>
     </div>
