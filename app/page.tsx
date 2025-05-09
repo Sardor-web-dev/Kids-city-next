@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import ProductSection from "@/containers/ProductsSection";
 import AboutSection from "@/containers/AboutSection";
 import WhyWeBestSection from "@/containers/WhyWeBestSection";
