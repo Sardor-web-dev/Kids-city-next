@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import { signIn, signOut, useSession } from "next-auth/react";
+// import { Button } from "../ui/button";
+// import { signIn, signOut, useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import {
@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const Header = () => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const t = useTranslations("HomePage");
   const router = useRouter();
 
@@ -49,7 +49,7 @@ const Header = () => {
             </Link>
           ))}
 
-          {session && (
+          {/* {session && (
             <Link
               className="text-lg text-gray-500 opacity-70 hover:underline hover:text-black hover:opacity-100 transition-all"
               href="/admin"
@@ -71,7 +71,7 @@ const Header = () => {
             >
               Sign Out
             </Button>
-          )}
+          )} */}
         </div>
 
         <div className="flex gap-2">
