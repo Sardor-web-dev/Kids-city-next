@@ -78,32 +78,33 @@ const Header = () => {
           <DropdownMenu>
             <DropdownMenuTrigger className="cursor-pointer">
               <img
-              className="w-12z` h-7"
+                className="w-12z` h-7"
                 src="https://img.favpng.com/23/13/17/computer-icons-language-icon-png-favpng-NQSGiSmKDpKJpGXw1p4tMdi6Z.jpg"
                 alt=""
               />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="pt-2">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="cursor-pointer"
                 onClick={() => handleChange("ru")}
               >
                 {t("russianbtn")}
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="cursor-pointer"
                 onClick={() => handleChange("en")}
               >
                 {t("englishbtn")}
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="cursor-pointer"
                 onClick={() => handleChange("uz")}
               >
                 {t("uzbekbtn")}
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { UploadButton } from "@/lib/uploadthing";
+import { UploadDropzone } from "@/lib/uploadthing";
 
 const Form = () => {
   const router = useRouter();
@@ -27,7 +27,7 @@ const Form = () => {
       body: JSON.stringify({
         name,
         description,
-        Image: imageUrl, 
+        Image: imageUrl,
         Price,
         Size,
         gender,
@@ -77,7 +77,7 @@ const Form = () => {
 
         <div>
           <label className="block text-lg mb-2">Картинка</label>
-          <UploadButton
+          <UploadDropzone
             endpoint="imageUploader"
             onClientUploadComplete={(res) => {
               if (res && res[0]) {

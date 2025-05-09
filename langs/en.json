@@ -12,8 +12,12 @@
     "admin": "Go to AdminPage"
   },
   "AdminPage": {
-    "title": "Welcome to the Apple official website",
-    "description": "This is the admin page of the Apple official website.",
+    "title": "Welcome to the admin pannel of official Kids City's website",
+    "description": "Here you can manage your products.",
     "addProduct": "Add Product"
+  },
+  "Catalogue": {
+    "title": "Our Clothes",
+    "description": "The best and highest quality children's clothing in Samarkand!"
   }
 }

@@ -32,6 +32,12 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang={locale}>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="0p3dzVZBftt1SfcmFS_eusWN86qGivUV6xhcrVR_x6s"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -39,7 +45,7 @@ export default async function RootLayout({
           <NextIntlClientProvider locale={locale}>
             <Header />
             {children}
-            <Footer/>
+            <Footer />
           </NextIntlClientProvider>
         </SessionProvider>
       </body>

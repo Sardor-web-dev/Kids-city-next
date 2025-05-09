@@ -1,16 +1,17 @@
 import prisma from "@/lib/prisma";
+import { getTranslations } from "next-intl/server";
 
 export default async function Admin() {
   const clothes = await prisma.cloth.findMany();
-
+  const t = await getTranslations("Catalogue");
   return (
     <div className="flex flex-col items-center justify-center gap-12 py-16 px-4 md:px-12">
       <div className="text-center max-w-2xl">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-          Наши товары
+          {t("title")}
         </h1>
         <p className="text-lg md:text-2xl text-gray-600">
-          Самая лучшая и высококачественная детская одежда в Самарканде!
+          {t("description")}
         </p>
       </div>
 

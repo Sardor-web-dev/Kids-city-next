@@ -1,5 +1,5 @@
 {
-  "HomePage":{
+  "HomePage": {
     "title": "Kids City - bu sizning ishonchli bolalar kiyimlari do'koningiz!",
     "description": "👕 Kichkintoydan tortib to o'smirlargacha bo'lgan barcha yoshdagi bolalar uchun zamonaviy va qulay kiyimlarning keng assortimentini taklif etamiz. Farzandingiz o'zini qulay his qilishi va eng zo'r ko'rinishi uchun har bir element mehr bilan tanlangan!",
     "about": "Biz haqimizda",
@@ -10,11 +10,14 @@
     "englishbtn": "Ingglizcha",
     "uzbekbtn": "Uzbekcha",
     "admin": "Admin betga otish"
-
   },
   "AdminPage": {
     "title": "Apple rasmiy veb-saytiga xush kelibsiz",
     "description": "Bu Apple rasmiy veb-saytining admin sahifasi.",
     "addProduct": "Mahsulot qo'shish"
+  },
+  "Catalogue": {
+    "title": "Bizning kiyimlarimiz",
+    "description": "Samarqandda eng yaxshi va sifatli bolalar kiyimlari!"
   }
 }
