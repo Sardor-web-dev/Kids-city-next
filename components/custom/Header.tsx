@@ -8,10 +8,10 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { IoMenuSharp } from "react-icons/io5";
 
 const Header = () => {
   // const { data: session } = useSession();
@@ -25,8 +25,8 @@ const Header = () => {
 
   return (
     <header className="w-full max-w-[1250px] mx-auto px-6 md:px-12 py-4 shadow-md bg-white sticky top-0 z-50">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-8 flex-wrap">
+      <div className="flex lg:flex-col md:flex-row items-center justify-between gap-4">
+        <div className=" flex items-center gap-8 flex-wrap">
           <Link href="/">
             <img
               className="h-10 opacity-80 hover:opacity-100 cursor-pointer hover:scale-105 transition-transform"
@@ -42,13 +42,12 @@ const Header = () => {
           ].map((link, i) => (
             <Link
               key={i}
-              className="text-lg text-gray-500 opacity-70 hover:underline hover:text-black hover:opacity-100 transition-all"
+              className="text-lg lg:flex hidden text-gray-500 opacity-70 hover:underline hover:text-black hover:opacity-100 transition-all"
               href={link.href}
             >
               {link.label}
             </Link>
           ))}
-
           {/* {session && (
             <Link
               className="text-lg text-gray-500 opacity-70 hover:underline hover:text-black hover:opacity-100 transition-all"
@@ -105,6 +104,30 @@ const Header = () => {
                 {t("uzbekbtn")}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger className="cursor-pointer">
+              <IoMenuSharp size="24" className="flex lg:hidden" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="pt-2">
+                {[
+                  { href: "#clothes", label: t("products") },
+                  { href: "#about_us", label: t("about") },
+                  { href: "#why_best", label: t("causes") },
+                  { href: "#contacts", label: t("contacts") },
+                ].map((link, i) => (
+                  <DropdownMenuItem>
+                    <Link
+                      key={i}
+                      className="text-lg text-gray-500 opacity-70 hover:text-black hover:opacity-100 transition-all"
+                      href={link.href}
+                    >
+                      {link.label}
+                    </Link>
+              </DropdownMenuItem>
+                ))}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
