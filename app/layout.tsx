@@ -43,9 +43,11 @@ export default async function RootLayout({
       >
         <SessionProvider session={session}>
           <NextIntlClientProvider locale={locale}>
+            <section className="pl-2 pr-2 ">
               <Header />
               {children}
               <Footer />
+            </section>
           </NextIntlClientProvider>
         </SessionProvider>
       </body>
