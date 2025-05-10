@@ -3,7 +3,7 @@ const AboutSection = () => {
       <>
         <div
           id="about_us"
-          className="mt-50 flex items-center justify-center gap-20"
+          className="mt-50 flex flex-col lg:flex-row items-center justify-center gap-20"
         >
           <div className="text-left max-w-110 h-155 flex flex-col gap-5">
             <p className="text-2xl font-bold">О нас</p>
@@ -28,7 +28,7 @@ const AboutSection = () => {
               только с проверенными производителями с Китая, Турции и США.
             </span>
           </div>
-          <img className="h-140" src="/shop.png" alt="" />
+          <img className="h-140 hover:scale-105 transition-all rounded-2xl" src="/shop.png" alt="" />
         </div>
       </>
     );

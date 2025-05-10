@@ -1,4 +1,4 @@
-const PhotosSection = () => {
+const PhotosSection = () => {lg:
   return (
     <>
       <div className="flex flex-col items-center justify-center">
@@ -8,19 +8,19 @@ const PhotosSection = () => {
             Это фотографии нашего магазина внутри и снаружи
           </span>
         </div>
-        <div className="flex gap-6">
+        <div className="flex flex-col lg:flex-row gap-6">
           <img
-            className="w-90 h-100 hover:scale-105 transition-all cursor-pointer opacity-90 hover:opacity-100"
+            className="w-90 rounded-2xl h-100 hover:scale-105 transition-all cursor-pointer lg:opacity-90 hover:opacity-100"
             src="/inside.jpg"
             alt=""
           />
           <img
-            className="w-90 h-100 hover:scale-105 transition-all cursor-pointer opacity-90 hover:opacity-100"
+            className="w-90 rounded-2xl h-100 hover:scale-105 transition-all cursor-pointer lg:opacity-90 hover:opacity-100"
             src="/polka.jpg"
             alt=""
           />
           <img
-            className="w-90 h-100 hover:scale-105 transition-all cursor-pointer opacity-90 hover:opacity-100"
+            className="w-90 rounded-2xl h-100 hover:scale-105 transition-all cursor-pointer lg:opacity-90 hover:opacity-100"
             src="/main.jpg"
             alt=""
           />

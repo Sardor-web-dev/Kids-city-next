@@ -9,7 +9,7 @@ const WhyWeBestSection = () => {
         <span className="text-2xl font-medium">
           Три преимущества нашего магазина
         </span>
-        <div className="flex w-full gap-15 items-center justify-center">
+        <div className="flex flex-col lg:flex-row w-full gap-15 items-center justify-center">
           <div className="flex hover:scale-105 cursor-pointer transition-all flex-col items-center justify-center gap-2 text-center">
             <img
               className="w-50 h-50"
