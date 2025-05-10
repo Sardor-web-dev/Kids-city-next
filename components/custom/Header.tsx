@@ -112,22 +112,22 @@ const Header = () => {
               <IoMenuSharp size="24" className="flex lg:hidden" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="pt-2">
-                {[
-                  { href: "#clothes", label: t("products") },
-                  { href: "#about_us", label: t("about") },
-                  { href: "#why_best", label: t("causes") },
-                  { href: "#contacts", label: t("contacts") },
-                ].map((link, i) => (
-                  <DropdownMenuItem>
-                    <Link
-                      key={i}
-                      className="text-lg text-gray-500 opacity-70 hover:text-black hover:opacity-100 transition-all"
-                      href={link.href}
-                    >
-                      {link.label}
-                    </Link>
-              </DropdownMenuItem>
-                ))}
+              {[
+                { href: "#clothes", label: t("products") },
+                { href: "#about_us", label: t("about") },
+                { href: "#why_best", label: t("causes") },
+                { href: "#contacts", label: t("contacts") },
+              ].map((link, i) => (
+                <DropdownMenuItem>
+                  <Link
+                    key={i}
+                    className="text-lg text-gray-500 opacity-70 hover:text-black hover:opacity-100 transition-all"
+                    href={link.href}
+                  >
+                    {link.label}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
