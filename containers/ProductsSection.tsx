@@ -12,7 +12,7 @@ const ProductSection = () => {
           Самая лучшая и высококачественная детская одежда в Самарканде!
         </span>
       </div>
-      <div className="flex flex-col gap-50 lg:flex-row items-center justify-center lg:gap-10">
+      <div className="flex flex-col gap-10 lg:flex-row items-center justify-center lg:gap-10">
         <Overview img="/clothes.jpg" text="одежда для мальчиков" location="/catalogueBoy" />
         <Overview img="/paijamas.jpg" text="одежда для девочек" location="/catalogueGirl" />
       </div>

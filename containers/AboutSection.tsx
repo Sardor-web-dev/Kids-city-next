@@ -3,9 +3,9 @@ const AboutSection = () => {
       <>
         <div
           id="about_us"
-          className="mt-50 flex flex-col lg:flex-row items-center justify-center gap-20"
+          className="mt-20 flex flex-col lg:flex-row items-center justify-center gap-[50px]"
         >
-          <div className="text-left max-w-110 h-155 flex flex-col gap-5">
+          <div className="text-left max-w-[400px] h-full flex flex-col gap-5">
             <p className="text-2xl font-bold">О нас</p>
             <span className="font-medium">
               В 2020 году во время пандемии COVID-19, основательница нашего

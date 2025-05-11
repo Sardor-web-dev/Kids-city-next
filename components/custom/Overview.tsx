@@ -14,10 +14,10 @@ const Overview = ({
   const router = useRouter();
   return (
     <>
-      <div className="flex flex-col w-100 h-120 items-center justify-center gap-4">
+      <div className="flex flex-col lg:w-[400px] h-full max-w-xs items-center justify-center gap-4">
         <div className="flex flex-col gap-5 items-center justify-center">
           <img
-            className="rounded-2xl hover:scale-105 transition-all cursor-pointer"
+            className="rounded-2xl lg:hover:scale-105 transition-all cursor-pointer"
             src={img}
             alt=""
           />

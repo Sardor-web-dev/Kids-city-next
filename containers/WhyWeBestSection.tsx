@@ -3,7 +3,7 @@ const WhyWeBestSection = () => {
     <>
       <div
         id="why_best"
-        className="flex flex-col w-full items-center justify-center mt-50"
+        className="flex flex-col w-full items-center justify-center mt-20"
       >
         <p className="text-4xl font-bold">Почему мы лучшие?</p>
         <span className="text-2xl font-medium">
