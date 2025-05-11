@@ -1,7 +1,5 @@
 "use client";
 import Link from "next/link";
-// import { Button } from "../ui/button";
-// import { signIn, signOut, useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { MdLanguage } from "react-icons/md";
@@ -16,7 +14,6 @@ import { IoMenuSharp } from "react-icons/io5";
 import Image from "next/image";
 
 const Header = () => {
-  // const { data: session } = useSession();
   const t = useTranslations("HomePage");
   const router = useRouter();
 
@@ -28,11 +25,11 @@ const Header = () => {
   return (
     <header className="w-full max-w-[1250px] mx-auto px-6 md:px-12 py-4 shadow-md bg-white sticky top-0 z-50">
       <div className="flex md:flex-row items-center justify-between gap-4">
-        <div className=" flex items-center gap-8 flex-wrap">
+        <div className="flex items-center gap-8 flex-wrap">
           <Link href="/">
             <Image
-            width={150}
-            height={150}
+              width={150}
+              height={150}
               className="lg:opacity-80 hover:opacity-100 cursor-pointer hover:scale-105 transition-transform"
               src="/logo.png"
               alt="Logo"
@@ -52,29 +49,6 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
-          {/* {session && (
-            <Link
-              className="text-lg text-gray-500 opacity-70 hover:underline hover:text-black hover:opacity-100 transition-all"
-              href="/admin"
-            >
-              {t("admin")}
-            </Link>
-          )}
-          {!session ? (
-            <Button
-              className="bg-blue-500 text-white hover:bg-blue-600 transition-colors rounded-md px-4 py-2"
-              onClick={() => signIn()}
-            >
-              Sign In
-            </Button>
-          ) : (
-            <Button
-              className="bg-blue-500 text-white hover:bg-blue-600 transition-colors rounded-md px-4 py-2"
-              onClick={() => signOut()}
-            >
-              Sign Out
-            </Button>
-          )} */}
         </div>
 
         <div className="flex gap-2">
