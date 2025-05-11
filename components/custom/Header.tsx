@@ -4,6 +4,7 @@ import Link from "next/link";
 // import { signIn, signOut, useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import { MdLanguage } from "react-icons/md";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -76,11 +77,7 @@ const Header = () => {
         <div className="flex gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger className="cursor-pointer">
-              <img
-                className="w-12z` h-7"
-                src="https://img.favpng.com/23/13/17/computer-icons-language-icon-png-favpng-NQSGiSmKDpKJpGXw1p4tMdi6Z.jpg"
-                alt=""
-              />
+              <MdLanguage />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="pt-2">
               <DropdownMenuItem
