@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Kids City",
-  description: "Лучший магазин детской одежды в Самарканде - Kids City",
+  description: "Лучший магазин детской одежды в Самарканде",
 };
 
 export default async function RootLayout({
@@ -33,6 +33,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
+        <link rel="icon" href="/favicon.ico" />
         <meta
           name="google-site-verification"
           content="0p3dzVZBftt1SfcmFS_eusWN86qGivUV6xhcrVR_x6s"
@@ -47,7 +48,7 @@ export default async function RootLayout({
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.kidscity.uz/" />
-        <meta property="og:image" content="/og-image.jpg" />
+        <meta property="og:image" content="/logo.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta
