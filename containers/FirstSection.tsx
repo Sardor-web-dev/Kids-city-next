@@ -12,9 +12,9 @@ const FirstSection = () => {
       }}
     >
       <div className="flex p-4 flex-col items-center justify-center w-full h-full gap-10">
-        <p className="text-white font-bold text-2xl lg:text-5xl text-center">
+        <h1 className="text-white font-bold text-2xl lg:text-5xl text-center">
           {t("title")}
-        </p>
+        </h1>
         <span className="text-white max-w-[1000px] font-bold text-lg lg:text-2xl text-center">
           {t("description")}
         </span>

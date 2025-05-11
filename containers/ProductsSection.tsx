@@ -8,7 +8,7 @@ const ProductSection = () => {
       className="flex flex-col h-full items-center justify-center gap-30 mt-12"
     >
       <div className="text-center flex flex-col gap-3">
-        <h2 className="text-4xl font-bold">Наши товары</h2>
+        <p className="text-4xl font-bold">Наши товары</p>
         <span className="text-2xl font-normal">
           Самая лучшая и высококачественная детская одежда в Самарканде!
         </span>
