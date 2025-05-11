@@ -3,9 +3,9 @@ import { categories } from "@/utils/categories";
 
 const ProductSection = () => {
   return (
-    <section
+    <div
       id="clothes"
-      className="flex flex-col h-full items-center justify-center gap-30 mt-12"
+      className="flex flex-col h-full items-center justify-center gap-10 mt-12"
     >
       <div className="text-center flex flex-col gap-3">
         <p className="text-4xl font-bold">Наши товары</p>
@@ -18,7 +18,7 @@ const ProductSection = () => {
           <Overview key={i} {...item} />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ const FirstSection = () => {
   const t = useTranslations("HomePage");
 
   return (
-    <div
+    <section
       className="rounded-2xl w-full h-150 bg-cover"
       style={{
         backgroundImage: `url('https://avatars.mds.yandex.net/get-altay/15223195/2a00000194ab8c65ded07e225b5837097cdf/orig')`,
@@ -19,7 +19,7 @@ const FirstSection = () => {
           {t("description")}
         </span>
       </div>
-    </div>
+    </section>
   );
 };
 
