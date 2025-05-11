@@ -77,7 +77,7 @@ const Header = () => {
         <div className="flex gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger className="cursor-pointer">
-              <MdLanguage />
+              <MdLanguage size="24" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="pt-2">
               <DropdownMenuItem
