@@ -2,7 +2,15 @@
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 
-const Overview = ({ img, text }: {img:string, text:string}) => {
+const Overview = ({
+  img,
+  text,
+  location,
+}: {
+  location: string;
+  img: string;
+  text: string;
+}) => {
   const router = useRouter();
   return (
     <>
@@ -16,7 +24,7 @@ const Overview = ({ img, text }: {img:string, text:string}) => {
           <p className="text-gray-500 text-lg font-bold">{text}</p>
         </div>
         <Button
-          onClick={() => router.push("/catalogue")}
+          onClick={() => router.push(location)}
           className="cursor-pointer"
         >
           Посмотреть в каталоге

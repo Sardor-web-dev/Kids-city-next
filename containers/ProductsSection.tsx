@@ -13,8 +13,8 @@ const ProductSection = () => {
         </span>
       </div>
       <div className="flex flex-col gap-50 lg:flex-row items-center justify-center lg:gap-10">
-        <Overview img="/clothes.jpg" text="одежда для мальчиков" />
-        <Overview img="/paijamas.jpg" text="одежда для девочек" />
+        <Overview img="/clothes.jpg" text="одежда для мальчиков" location="/catalogueBoy" />
+        <Overview img="/paijamas.jpg" text="одежда для девочек" location="/catalogueGirl" />
       </div>
     </section>
   );
