@@ -48,7 +48,8 @@ export default async function RootLayout({
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.kidscity.uz/" />
-        <meta property="og:image" content="/logo.png" />
+        <meta property="og:site_name" content="Kids City" />
+        <meta property="og:image" content="https://www.kidscity.uz/logo.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta
