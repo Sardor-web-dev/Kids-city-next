@@ -31,8 +31,8 @@ const Header = () => {
         <div className=" flex items-center gap-8 flex-wrap">
           <Link href="/">
             <Image
-            width={200}
-            height={200}
+            width={150}
+            height={150}
               className="lg:opacity-80 hover:opacity-100 cursor-pointer hover:scale-105 transition-transform"
               src="/logo.png"
               alt="Logo"
