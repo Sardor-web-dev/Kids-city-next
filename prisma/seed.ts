@@ -15,8 +15,6 @@ const adminData: Prisma.AdminCreateInput[] = [
           description: "Summer T-shirt",
           Image:
             "https://png.pngtree.com/png-clipart/20230607/ourmid/pngtree-black-t-shirt-mockup-new-model-realistic-png-image_7122610.png",
-          Price: 200,
-          Size: "M",
           gender: "boy",
         },
         {
@@ -24,8 +22,6 @@ const adminData: Prisma.AdminCreateInput[] = [
           description: "Winter Hoodie",
           Image:
             "https://img.pikbest.com/png-images/20240712/mockup-blank-flat-blue-hoodie_10664614.png!sw800",
-          Price: 100,
-          Size: "L",
           gender: "boy",
         },
       ],
