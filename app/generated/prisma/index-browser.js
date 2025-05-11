@@ -133,8 +133,6 @@ exports.Prisma.ClothScalarFieldEnum = {
   description: 'description',
   authorId: 'authorId',
   Image: 'Image',
-  Price: 'Price',
-  Size: 'Size',
   gender: 'gender'
 };
 

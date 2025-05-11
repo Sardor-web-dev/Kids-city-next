@@ -17,13 +17,11 @@ model Admin {
 }
 
 model Cloth {
-  id          Int     @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
   name        String
-  description String?
+  description String
   authorId    Int
-  author      Admin   @relation(fields: [authorId], references: [id])
-  Image       String?
-  Price       Int?
-  Size        String?
-  gender      String?
+  author      Admin  @relation(fields: [authorId], references: [id])
+  Image       String
+  gender      String
 }

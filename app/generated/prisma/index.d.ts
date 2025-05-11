@@ -2096,13 +2096,11 @@ export namespace Prisma {
   export type ClothAvgAggregateOutputType = {
     id: number | null
     authorId: number | null
-    Price: number | null
   }
 
   export type ClothSumAggregateOutputType = {
     id: number | null
     authorId: number | null
-    Price: number | null
   }
 
   export type ClothMinAggregateOutputType = {
@@ -2111,8 +2109,6 @@ export namespace Prisma {
     description: string | null
     authorId: number | null
     Image: string | null
-    Price: number | null
-    Size: string | null
     gender: string | null
   }
 
@@ -2122,8 +2118,6 @@ export namespace Prisma {
     description: string | null
     authorId: number | null
     Image: string | null
-    Price: number | null
-    Size: string | null
     gender: string | null
   }
 
@@ -2133,8 +2127,6 @@ export namespace Prisma {
     description: number
     authorId: number
     Image: number
-    Price: number
-    Size: number
     gender: number
     _all: number
   }
@@ -2143,13 +2135,11 @@ export namespace Prisma {
   export type ClothAvgAggregateInputType = {
     id?: true
     authorId?: true
-    Price?: true
   }
 
   export type ClothSumAggregateInputType = {
     id?: true
     authorId?: true
-    Price?: true
   }
 
   export type ClothMinAggregateInputType = {
@@ -2158,8 +2148,6 @@ export namespace Prisma {
     description?: true
     authorId?: true
     Image?: true
-    Price?: true
-    Size?: true
     gender?: true
   }
 
@@ -2169,8 +2157,6 @@ export namespace Prisma {
     description?: true
     authorId?: true
     Image?: true
-    Price?: true
-    Size?: true
     gender?: true
   }
 
@@ -2180,8 +2166,6 @@ export namespace Prisma {
     description?: true
     authorId?: true
     Image?: true
-    Price?: true
-    Size?: true
     gender?: true
     _all?: true
   }
@@ -2275,12 +2259,10 @@ export namespace Prisma {
   export type ClothGroupByOutputType = {
     id: number
     name: string
-    description: string | null
+    description: string
     authorId: number
-    Image: string | null
-    Price: number | null
-    Size: string | null
-    gender: string | null
+    Image: string
+    gender: string
     _count: ClothCountAggregateOutputType | null
     _avg: ClothAvgAggregateOutputType | null
     _sum: ClothSumAggregateOutputType | null
@@ -2308,8 +2290,6 @@ export namespace Prisma {
     description?: boolean
     authorId?: boolean
     Image?: boolean
-    Price?: boolean
-    Size?: boolean
     gender?: boolean
     author?: boolean | AdminDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cloth"]>
@@ -2320,8 +2300,6 @@ export namespace Prisma {
     description?: boolean
     authorId?: boolean
     Image?: boolean
-    Price?: boolean
-    Size?: boolean
     gender?: boolean
     author?: boolean | AdminDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cloth"]>
@@ -2332,8 +2310,6 @@ export namespace Prisma {
     description?: boolean
     authorId?: boolean
     Image?: boolean
-    Price?: boolean
-    Size?: boolean
     gender?: boolean
     author?: boolean | AdminDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cloth"]>
@@ -2344,12 +2320,10 @@ export namespace Prisma {
     description?: boolean
     authorId?: boolean
     Image?: boolean
-    Price?: boolean
-    Size?: boolean
     gender?: boolean
   }
 
-  export type ClothOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "authorId" | "Image" | "Price" | "Size" | "gender", ExtArgs["result"]["cloth"]>
+  export type ClothOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "authorId" | "Image" | "gender", ExtArgs["result"]["cloth"]>
   export type ClothInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | AdminDefaultArgs<ExtArgs>
   }
@@ -2368,12 +2342,10 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
-      description: string | null
+      description: string
       authorId: number
-      Image: string | null
-      Price: number | null
-      Size: string | null
-      gender: string | null
+      Image: string
+      gender: string
     }, ExtArgs["result"]["cloth"]>
     composites: {}
   }
@@ -2803,8 +2775,6 @@ export namespace Prisma {
     readonly description: FieldRef<"Cloth", 'String'>
     readonly authorId: FieldRef<"Cloth", 'Int'>
     readonly Image: FieldRef<"Cloth", 'String'>
-    readonly Price: FieldRef<"Cloth", 'Int'>
-    readonly Size: FieldRef<"Cloth", 'String'>
     readonly gender: FieldRef<"Cloth", 'String'>
   }
     
@@ -3250,8 +3220,6 @@ export namespace Prisma {
     description: 'description',
     authorId: 'authorId',
     Image: 'Image',
-    Price: 'Price',
-    Size: 'Size',
     gender: 'gender'
   };
 
@@ -3390,24 +3358,20 @@ export namespace Prisma {
     NOT?: ClothWhereInput | ClothWhereInput[]
     id?: IntFilter<"Cloth"> | number
     name?: StringFilter<"Cloth"> | string
-    description?: StringNullableFilter<"Cloth"> | string | null
+    description?: StringFilter<"Cloth"> | string
     authorId?: IntFilter<"Cloth"> | number
-    Image?: StringNullableFilter<"Cloth"> | string | null
-    Price?: IntNullableFilter<"Cloth"> | number | null
-    Size?: StringNullableFilter<"Cloth"> | string | null
-    gender?: StringNullableFilter<"Cloth"> | string | null
+    Image?: StringFilter<"Cloth"> | string
+    gender?: StringFilter<"Cloth"> | string
     author?: XOR<AdminScalarRelationFilter, AdminWhereInput>
   }
 
   export type ClothOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    description?: SortOrderInput | SortOrder
+    description?: SortOrder
     authorId?: SortOrder
-    Image?: SortOrderInput | SortOrder
-    Price?: SortOrderInput | SortOrder
-    Size?: SortOrderInput | SortOrder
-    gender?: SortOrderInput | SortOrder
+    Image?: SortOrder
+    gender?: SortOrder
     author?: AdminOrderByWithRelationInput
   }
 
@@ -3417,24 +3381,20 @@ export namespace Prisma {
     OR?: ClothWhereInput[]
     NOT?: ClothWhereInput | ClothWhereInput[]
     name?: StringFilter<"Cloth"> | string
-    description?: StringNullableFilter<"Cloth"> | string | null
+    description?: StringFilter<"Cloth"> | string
     authorId?: IntFilter<"Cloth"> | number
-    Image?: StringNullableFilter<"Cloth"> | string | null
-    Price?: IntNullableFilter<"Cloth"> | number | null
-    Size?: StringNullableFilter<"Cloth"> | string | null
-    gender?: StringNullableFilter<"Cloth"> | string | null
+    Image?: StringFilter<"Cloth"> | string
+    gender?: StringFilter<"Cloth"> | string
     author?: XOR<AdminScalarRelationFilter, AdminWhereInput>
   }, "id">
 
   export type ClothOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    description?: SortOrderInput | SortOrder
+    description?: SortOrder
     authorId?: SortOrder
-    Image?: SortOrderInput | SortOrder
-    Price?: SortOrderInput | SortOrder
-    Size?: SortOrderInput | SortOrder
-    gender?: SortOrderInput | SortOrder
+    Image?: SortOrder
+    gender?: SortOrder
     _count?: ClothCountOrderByAggregateInput
     _avg?: ClothAvgOrderByAggregateInput
     _max?: ClothMaxOrderByAggregateInput
@@ -3448,12 +3408,10 @@ export namespace Prisma {
     NOT?: ClothScalarWhereWithAggregatesInput | ClothScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Cloth"> | number
     name?: StringWithAggregatesFilter<"Cloth"> | string
-    description?: StringNullableWithAggregatesFilter<"Cloth"> | string | null
+    description?: StringWithAggregatesFilter<"Cloth"> | string
     authorId?: IntWithAggregatesFilter<"Cloth"> | number
-    Image?: StringNullableWithAggregatesFilter<"Cloth"> | string | null
-    Price?: IntNullableWithAggregatesFilter<"Cloth"> | number | null
-    Size?: StringNullableWithAggregatesFilter<"Cloth"> | string | null
-    gender?: StringNullableWithAggregatesFilter<"Cloth"> | string | null
+    Image?: StringWithAggregatesFilter<"Cloth"> | string
+    gender?: StringWithAggregatesFilter<"Cloth"> | string
   }
 
   export type AdminCreateInput = {
@@ -3508,75 +3466,61 @@ export namespace Prisma {
 
   export type ClothCreateInput = {
     name: string
-    description?: string | null
-    Image?: string | null
-    Price?: number | null
-    Size?: string | null
-    gender?: string | null
+    description: string
+    Image: string
+    gender: string
     author: AdminCreateNestedOneWithoutClothesInput
   }
 
   export type ClothUncheckedCreateInput = {
     id?: number
     name: string
-    description?: string | null
+    description: string
     authorId: number
-    Image?: string | null
-    Price?: number | null
-    Size?: string | null
-    gender?: string | null
+    Image: string
+    gender: string
   }
 
   export type ClothUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    Image?: NullableStringFieldUpdateOperationsInput | string | null
-    Price?: NullableIntFieldUpdateOperationsInput | number | null
-    Size?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    Image?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
     author?: AdminUpdateOneRequiredWithoutClothesNestedInput
   }
 
   export type ClothUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
     authorId?: IntFieldUpdateOperationsInput | number
-    Image?: NullableStringFieldUpdateOperationsInput | string | null
-    Price?: NullableIntFieldUpdateOperationsInput | number | null
-    Size?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    Image?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
   }
 
   export type ClothCreateManyInput = {
     id?: number
     name: string
-    description?: string | null
+    description: string
     authorId: number
-    Image?: string | null
-    Price?: number | null
-    Size?: string | null
-    gender?: string | null
+    Image: string
+    gender: string
   }
 
   export type ClothUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    Image?: NullableStringFieldUpdateOperationsInput | string | null
-    Price?: NullableIntFieldUpdateOperationsInput | number | null
-    Size?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    Image?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
   }
 
   export type ClothUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
     authorId?: IntFieldUpdateOperationsInput | number
-    Image?: NullableStringFieldUpdateOperationsInput | string | null
-    Price?: NullableIntFieldUpdateOperationsInput | number | null
-    Size?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    Image?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3716,17 +3660,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type AdminScalarRelationFilter = {
     is?: AdminWhereInput
     isNot?: AdminWhereInput
@@ -3738,15 +3671,12 @@ export namespace Prisma {
     description?: SortOrder
     authorId?: SortOrder
     Image?: SortOrder
-    Price?: SortOrder
-    Size?: SortOrder
     gender?: SortOrder
   }
 
   export type ClothAvgOrderByAggregateInput = {
     id?: SortOrder
     authorId?: SortOrder
-    Price?: SortOrder
   }
 
   export type ClothMaxOrderByAggregateInput = {
@@ -3755,8 +3685,6 @@ export namespace Prisma {
     description?: SortOrder
     authorId?: SortOrder
     Image?: SortOrder
-    Price?: SortOrder
-    Size?: SortOrder
     gender?: SortOrder
   }
 
@@ -3766,31 +3694,12 @@ export namespace Prisma {
     description?: SortOrder
     authorId?: SortOrder
     Image?: SortOrder
-    Price?: SortOrder
-    Size?: SortOrder
     gender?: SortOrder
   }
 
   export type ClothSumOrderByAggregateInput = {
     id?: SortOrder
     authorId?: SortOrder
-    Price?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type ClothCreateNestedManyWithoutAuthorInput = {
@@ -3855,14 +3764,6 @@ export namespace Prisma {
     create?: XOR<AdminCreateWithoutClothesInput, AdminUncheckedCreateWithoutClothesInput>
     connectOrCreate?: AdminCreateOrConnectWithoutClothesInput
     connect?: AdminWhereUniqueInput
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type AdminUpdateOneRequiredWithoutClothesNestedInput = {
@@ -3984,50 +3885,19 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
   export type ClothCreateWithoutAuthorInput = {
     name: string
-    description?: string | null
-    Image?: string | null
-    Price?: number | null
-    Size?: string | null
-    gender?: string | null
+    description: string
+    Image: string
+    gender: string
   }
 
   export type ClothUncheckedCreateWithoutAuthorInput = {
     id?: number
     name: string
-    description?: string | null
-    Image?: string | null
-    Price?: number | null
-    Size?: string | null
-    gender?: string | null
+    description: string
+    Image: string
+    gender: string
   }
 
   export type ClothCreateOrConnectWithoutAuthorInput = {
@@ -4062,12 +3932,10 @@ export namespace Prisma {
     NOT?: ClothScalarWhereInput | ClothScalarWhereInput[]
     id?: IntFilter<"Cloth"> | number
     name?: StringFilter<"Cloth"> | string
-    description?: StringNullableFilter<"Cloth"> | string | null
+    description?: StringFilter<"Cloth"> | string
     authorId?: IntFilter<"Cloth"> | number
-    Image?: StringNullableFilter<"Cloth"> | string | null
-    Price?: IntNullableFilter<"Cloth"> | number | null
-    Size?: StringNullableFilter<"Cloth"> | string | null
-    gender?: StringNullableFilter<"Cloth"> | string | null
+    Image?: StringFilter<"Cloth"> | string
+    gender?: StringFilter<"Cloth"> | string
   }
 
   export type AdminCreateWithoutClothesInput = {
@@ -4115,40 +3983,32 @@ export namespace Prisma {
   export type ClothCreateManyAuthorInput = {
     id?: number
     name: string
-    description?: string | null
-    Image?: string | null
-    Price?: number | null
-    Size?: string | null
-    gender?: string | null
+    description: string
+    Image: string
+    gender: string
   }
 
   export type ClothUpdateWithoutAuthorInput = {
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    Image?: NullableStringFieldUpdateOperationsInput | string | null
-    Price?: NullableIntFieldUpdateOperationsInput | number | null
-    Size?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    Image?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
   }
 
   export type ClothUncheckedUpdateWithoutAuthorInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    Image?: NullableStringFieldUpdateOperationsInput | string | null
-    Price?: NullableIntFieldUpdateOperationsInput | number | null
-    Size?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    Image?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
   }
 
   export type ClothUncheckedUpdateManyWithoutAuthorInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    Image?: NullableStringFieldUpdateOperationsInput | string | null
-    Price?: NullableIntFieldUpdateOperationsInput | number | null
-    Size?: NullableStringFieldUpdateOperationsInput | string | null
-    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: StringFieldUpdateOperationsInput | string
+    Image?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
   }
 
 

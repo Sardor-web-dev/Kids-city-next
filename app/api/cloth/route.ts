@@ -34,8 +34,6 @@ export async function POST(request: Request) {
         name,
         description,
         Image,
-        Price,
-        Size,
         gender,
         authorId: admin.id
       },
