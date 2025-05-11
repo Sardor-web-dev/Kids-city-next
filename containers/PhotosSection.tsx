@@ -22,7 +22,6 @@ const PhotosSection = () => {
         </span>
       </div>
 
-      {/* Десктоп */}
       <div className="lg:flex hidden lg:flex-row gap-6">
         {images.map((img, i) => (
           <img
@@ -34,7 +33,6 @@ const PhotosSection = () => {
         ))}
       </div>
 
-      {/* Мобильный слайдер */}
       <div className="lg:hidden flex flex-col items-center">
         <Carousel className="relative flex flex-col items-center justify-center w-full max-w-xs">
           <CarouselContent>
@@ -49,7 +47,6 @@ const PhotosSection = () => {
             ))}
           </CarouselContent>
 
-          {/* Стрелки снизу */}
           <div className="flex justify-center gap-1 mt-10">
             <CarouselPrevious className="relative static cursor-pointer" />
             <CarouselNext className="relative static cursor-pointer" />

@@ -1,37 +1,29 @@
+import { aboutText } from "@/utils/aboutText";
+
 const AboutSection = () => {
-    return (
-      <>
-        <div
-          id="about_us"
-          className="mt-20 flex flex-col lg:flex-row items-center justify-center gap-[50px]"
-        >
-          <div className="text-left max-w-[400px] h-full flex flex-col gap-5">
-            <p className="text-2xl font-bold">О нас</p>
-            <span className="font-medium">
-              В 2020 году во время пандемии COVID-19, основательница нашего
-              магазина запустила интернет-магазин детской одежды в Самарканде.
-              Сама идея возникла после нескольких неудачных покупок в
-              интернет-магазинах, так как у нее были 3 детей, а магазины все
-              закрыты,то не тот размер отправляют, то качество очень низкое.
-              Затем она решила поискать оптовых поставщиков детской одежды
-              сначала экспортные товары с Узбекистана, позже и с Турции и Китая
-              , этим же она хотела помочь другим мамочкам иметь возможность
-              приобрести качественные вещи по приемлемым ценам для своих детей.
-              Первыми клиентами были, конечно же родственники, подруги, знакомые
-              и их знакомые. В режиме онлайн работали около 3 лет, позже решили
-              также открыть офф-лайн магазин, так как очень многие клиенты
-              хотели не только оформлять заказы онлайн, а приезжать на примерку
-              вместе со своими детьми, поближе ознакомиться с ассортиментом
-              товаров . С апреля 2023 года мы начали работать в оффлайн режиме,
-              предлагая своим клиентам иметь возможность приобретать
-              качественную одежду для своих детей от 0 до 14 лет, работаем
-              только с проверенными производителями с Китая, Турции и США.
-            </span>
-          </div>
-          <img className="h-140 hover:scale-105 transition-all rounded-2xl" src="/shop.png" alt="" />
-        </div>
-      </>
-    );
-}
- 
+  return (
+    <section
+      id="about_us"
+      className="mt-20 flex flex-col lg:flex-row items-center justify-center gap-[50px] px-4"
+    >
+      <div className="text-left max-w-[500px] h-full flex flex-col gap-5">
+        <h2 className="text-2xl font-bold text-center">О нас</h2>
+        {aboutText.map((paragraph, index) => (
+          <p
+            key={index}
+            className="font-medium text-start text-base leading-relaxed"
+          >
+            {paragraph}
+          </p>
+        ))}
+      </div>
+      <img
+        className="h-[500px] lg:hover:scale-105 transition-transform duration-300 rounded-2xl"
+        src="/shop.png"
+        alt="Наш магазин"
+      />
+    </section>
+  );
+};
+
 export default AboutSection;

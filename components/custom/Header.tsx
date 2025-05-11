@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { IoMenuSharp } from "react-icons/io5";
+import Image from "next/image";
 
 const Header = () => {
   // const { data: session } = useSession();
@@ -29,8 +30,10 @@ const Header = () => {
       <div className="flex md:flex-row items-center justify-between gap-4">
         <div className=" flex items-center gap-8 flex-wrap">
           <Link href="/">
-            <img
-              className="h-10 opacity-80 hover:opacity-100 cursor-pointer hover:scale-105 transition-transform"
+            <Image
+            width={200}
+            height={200}
+              className="lg:opacity-80 hover:opacity-100 cursor-pointer hover:scale-105 transition-transform"
               src="/logo.png"
               alt="Logo"
             />

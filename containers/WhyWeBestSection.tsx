@@ -1,48 +1,36 @@
+import { advantages } from "@/utils/advantages";
+
 const WhyWeBestSection = () => {
   return (
-    <>
-      <div
-        id="why_best"
-        className="flex flex-col w-full items-center justify-center mt-20"
-      >
+    <div
+      id="why_best"
+      className="flex flex-col w-full items-center justify-center mt-20 px-4"
+    >
+      <div className="flex flex-col gap-2 text-center mb-10">
         <p className="text-4xl font-bold">Почему мы лучшие?</p>
         <span className="text-2xl font-medium">
           Три преимущества нашего магазина
         </span>
-        <div className="flex flex-col lg:flex-row w-full gap-15 items-center justify-center">
-          <div className="flex hover:scale-105 cursor-pointer transition-all flex-col items-center justify-center gap-2 text-center">
-            <img
-              className="w-50 h-50"
-              src="https://cdn-icons-png.flaticon.com/512/5499/5499068.png"
-              alt=""
-            />
-            <p>Высококачеставенная импортная одежда</p>
-            <span>
-              У нас широкий ассортимент <br /> высококачественной одежды по{" "}
-              <br /> хорошим ценнам, из Китая, США и Турции.
-            </span>
-          </div>
-          <div className="flex hover:scale-105 cursor-pointer transition-all flex-col items-center justify-center gap-2 text-center">
-            <img className="w-60 h-60" src="/delievery.png" alt="" />
-            <p>Доставка по всей Республике</p>
-            <span>
-              Нашу одежду можно заказывать онлайн <br /> и можно приехать в
-              магазин и <br /> примерить понравившеюся вам <br /> одежду, а
-              также имеется доставка по <br /> всей республике и не только
-            </span>
-          </div>
-          <div className="flex hover:scale-105 cursor-pointer transition-all flex-col items-center justify-center gap-2 text-center">
-            <img className="w-60 h-60" src="/discount.png" alt="" />
-            <p>Постоянные скидки и акции</p>
-            <span>
-              В нашем магазине постоянно <br /> проводятся разные акции и скидки
-              в <br /> связи с какими нибудь праздниками <br /> либо просто при
-              покупке более 2 <br /> вещей
-            </span>
-          </div>
-        </div>
       </div>
-    </>
+
+      <div className="flex flex-col lg:flex-row gap-10 items-center justify-center w-full max-w-7xl">
+        {advantages.map((adv, idx) => {
+          const Icon = adv.icon;
+          return (
+            <div
+              key={idx}
+              className="flex hover:scale-105 transition-all cursor-pointer flex-col items-center justify-center gap-4 text-center max-w-sm"
+            >
+              <Icon size={120} />
+              <h3 className="text-xl font-semibold">{adv.title}</h3>
+              <span className="text-lg text-muted-foreground">
+                {adv.description}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 

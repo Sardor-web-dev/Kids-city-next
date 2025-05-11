@@ -1,4 +1,5 @@
 import Overview from "@/components/custom/Overview";
+import { categories } from "@/utils/categories";
 
 const ProductSection = () => {
   return (
@@ -13,8 +14,9 @@ const ProductSection = () => {
         </span>
       </div>
       <div className="flex flex-col gap-10 lg:flex-row items-center justify-center lg:gap-10">
-        <Overview img="/clothes.jpg" text="одежда для мальчиков" location="/catalogueBoy" />
-        <Overview img="/paijamas.jpg" text="одежда для девочек" location="/catalogueGirl" />
+        {categories.map((item, i) => (
+          <Overview key={i} {...item} />
+        ))}
       </div>
     </section>
   );
