@@ -12,6 +12,7 @@ import {
 
 const Form = () => {
   const [imageUrl, setImageUrl] = useState("");
+  const [gender, setGender]  = useState("");
 
   const postData = async (e: any) => {
     e.preventDefault();
@@ -19,8 +20,6 @@ const Form = () => {
     const fm = new FormData(e.currentTarget);
     const name = fm.get("name");
     const description = fm.get("description");
-    const gender = fm.get("gender");
-
     const response = await fetch("/api/cloth", {
       method: "POST",
       headers: {
@@ -88,13 +87,13 @@ const Form = () => {
 
         <div className="flex flex-col gap-2">
           <p className="text-lg">Выберите Гендер</p>
-          <Select>
+          <Select value={gender} onValueChange={setGender}>
             <SelectTrigger className="w-full px-4 py-2 border rounded-lg">
               <SelectValue placeholder="Гендер" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="boy">Boy</SelectItem>
-              <SelectItem value="gitl">Girl</SelectItem>
+              <SelectItem value="girl">Girl</SelectItem>
             </SelectContent>
           </Select>
         </div>
