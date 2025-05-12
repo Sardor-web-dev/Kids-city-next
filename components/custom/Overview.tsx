@@ -17,6 +17,7 @@ const Overview = ({
       <div className="flex flex-col lg:w-[400px] h-full max-w-xs items-center justify-center gap-4">
         <div className="flex flex-col gap-5 items-center justify-center">
           <img
+            onClick={() => router.push(location)}
             className="rounded-2xl lg:hover:scale-105 transition-all cursor-pointer"
             src={img}
             alt=""
