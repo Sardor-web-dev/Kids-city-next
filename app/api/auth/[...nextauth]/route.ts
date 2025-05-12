@@ -21,31 +21,36 @@ const authOptions: NextAuthOptions = {
           where: { email: credentials.email },
         });
 
-        if (user) {
-          if (user.password === credentials.password) {
-            return {
-              id: user.id.toString(),
-              name: user.name,
-              email: user.email,
-            };
-          }
+        if (!user) {
+          throw new Error("User not found");
         }
 
-        // Создание нового пользователя
-        const newUser = await prisma.admin.create({
-          data: {
-            email: credentials.email,
-            password: credentials.password,
-            name: credentials.email,
-          },
-        });
+        // ПРОСТАЯ проверка пароля (небезопасно — см. ниже)
+        if (user.password !== credentials.password) {
+          throw new Error("Invalid password");
+        }
 
         return {
-          id: newUser.id.toString(),
-          name: newUser.name,
-          email: newUser.email,
+          id: user.id.toString(),
+          name: user.name,
+          email: user.email,
         };
       },
+
+      // Создание нового пользователя
+      // const newUser = await prisma.admin.create({
+      //   data: {
+      //     email: credentials.email,
+      //     password: credentials.password,
+      //     name: credentials.email,
+      //   },
+      // });
+
+      // return {
+      //   id: newUser.id.toString(),
+      //   name: newUser.name,
+      //   email: newUser.email,
+      // };
     }),
   ],
   session: { strategy: "jwt" },
