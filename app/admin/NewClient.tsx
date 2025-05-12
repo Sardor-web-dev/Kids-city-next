@@ -1,11 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { UploadDropzone } from "@/lib/uploadthing";
 
 const Form = () => {
-  const router = useRouter();
   const [imageUrl, setImageUrl] = useState("");
 
   const postData = async (e: any) => {
@@ -31,7 +29,6 @@ const Form = () => {
 
     if (response.ok) {
       console.log("Post created successfully");
-      router.push("/catalogue");
     } else {
       const error = await response.json();
       console.error("Error creating post:", error);
