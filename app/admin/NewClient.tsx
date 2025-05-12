@@ -2,6 +2,13 @@
 
 import { useState } from "react";
 import { UploadDropzone } from "@/lib/uploadthing";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Form = () => {
   const [imageUrl, setImageUrl] = useState("");
@@ -79,13 +86,17 @@ const Form = () => {
           )}
         </div>
 
-        <div>
-          <label className="block text-lg mb-2">Гендер(boy либо girl)</label>
-          <input
-            type="text"
-            name="gender"
-            className="w-full px-4 py-2 border rounded-lg"
-          />
+        <div className="flex flex-col gap-2">
+          <p className="text-lg">Выберите Гендер</p>
+          <Select>
+            <SelectTrigger className="w-full px-4 py-2 border rounded-lg">
+              <SelectValue placeholder="Гендер" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="boy">Boy</SelectItem>
+              <SelectItem value="gitl">Girl</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <button
