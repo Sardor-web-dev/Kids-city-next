@@ -19,10 +19,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Kids City",
-  description: "Лучший магазин детской одежды в Самарканде",
-};
+export async function generateMetadata() {
+  const ogImage = `https://kidscity.uz/logo.png`;
+
+  return {
+    title: "Kids City",
+    description: "Лучший магазин детской одежды в Самарканде",
+    keywords:
+      "Качественная детская одежда для девочек и мальчиков. Быстрая доставка по Самарканду.",
+    openGraph: {
+      title: "Детская одежда в Самарканде — Kids City",
+      description:
+        "Качественная детская одежда для девочек и мальчиков. Быстрая доставка по Самарканду.",
+      type: "website",
+      siteName: "Kids City",
+      url: "https://www.kidscity.uz",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: "Kids City logo",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Лучшая детская одежда в Самарканде - Kids City",
+      description:
+        "Магазин детской одежды в Самарканде. Модные вещи для мальчиков и девочек.",
+      site: "@kidscity",
+      images: [ogImage],
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -35,32 +65,8 @@ export default async function RootLayout({
     <html lang={locale}>
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="google-site-verification"
-          content="0p3dzVZBftt1SfcmFS_eusWN86qGivUV6xhcrVR_x6s"
-        />
-        <meta
-          property="og:title"
-          content="Детская одежда в Самарканде — Kids City"
-        />
-        <meta
-          property="og:description"
-          content="Качественная детская одежда для девочек и мальчиков. Быстрая доставка по Самарканду."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.kidscity.uz/" />
-        <meta property="og:site_name" content="Kids City" />
-        <meta property="og:image" content="https://www.kidscity.uz/logo.png" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Kids City — Детская одежда в Самарканде"
-        />
-        <meta
-          name="twitter:description"
-          content="Магазин детской одежды в Самарканде. Модные вещи для мальчиков и девочек."
-        />
+        <link rel="canonical" href="https://www.kidscity.uz" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Yandex.Metrika */}
         <Script id="yandex-metrika" strategy="afterInteractive">
