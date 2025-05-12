@@ -3,8 +3,7 @@ import { getServerSession } from "next-auth";
 import prisma from "@/lib/prisma";
 
 export async function POST(request: Request) {
-  const { name, description, Image, Price, Size, gender} =
-    await request.json();
+  const { name, description, Image, gender } = await request.json();
 
   const session = await getServerSession();
 
@@ -35,13 +34,13 @@ export async function POST(request: Request) {
         description,
         Image,
         gender,
-        authorId: admin.id
+        authorId: admin.id,
       },
     });
 
     return NextResponse.json(cloth, { status: 201 });
   } catch (error) {
-    console.error("Server error:", error); 
+    console.error("Server error:", error);
     return NextResponse.json(
       { error: "Failed to create post" },
       { status: 500 }

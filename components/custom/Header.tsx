@@ -23,7 +23,7 @@ const Header = () => {
   }
 
   return (
-    <header className="w-full max-w-[1250px] mx-auto px-6 md:px-12 py-4 shadow-md bg-white sticky top-0 z-50">
+    <header className="w-full max-w-[1250px] mx-auto py-4">
       <div className="flex md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-8 flex-wrap">
           <Link href="/">

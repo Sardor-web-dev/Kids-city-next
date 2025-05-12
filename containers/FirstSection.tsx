@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 const FirstSection = () => {
   const t = useTranslations("HomePage");

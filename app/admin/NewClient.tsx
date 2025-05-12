@@ -14,9 +14,6 @@ const Form = () => {
     const fm = new FormData(e.currentTarget);
     const name = fm.get("name");
     const description = fm.get("description");
-    const priceStr = fm.get("price");
-    const Price = parseInt(priceStr as string);
-    const Size = fm.get("size");
     const gender = fm.get("gender");
 
     const response = await fetch("/api/cloth", {
@@ -86,7 +83,7 @@ const Form = () => {
         </div>
 
         <div>
-          <label className="block text-lg mb-2">Гендер</label>
+          <label className="block text-lg mb-2">Гендер(boy либо girl)</label>
           <input
             type="text"
             name="gender"
