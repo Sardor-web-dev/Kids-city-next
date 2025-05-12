@@ -12,7 +12,7 @@ import {
 
 const Form = () => {
   const [imageUrl, setImageUrl] = useState("");
-  const [gender, setGender]  = useState("");
+  const [gender, setGender] = useState("");
 
   const postData = async (e: any) => {
     e.preventDefault();
@@ -32,9 +32,16 @@ const Form = () => {
         gender,
       }),
     });
+    if (!name || !description || !gender || !imageUrl) {
+      alert("Пожалуйста, заполните все поля");
+      return;
+    }
 
     if (response.ok) {
       console.log("Post created successfully");
+      e.target.reset();
+      setGender("");
+      setImageUrl("");
     } else {
       const error = await response.json();
       console.error("Error creating post:", error);
