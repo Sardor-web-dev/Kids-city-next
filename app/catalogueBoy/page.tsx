@@ -1,4 +1,6 @@
+import ProductCard from "@/components/custom/ProductCard";
 import prisma from "@/lib/prisma";
+import { cloth } from "@/types/cloth";
 import { getTranslations } from "next-intl/server";
 
 export default async function Catalogue() {
@@ -18,23 +20,8 @@ export default async function Catalogue() {
       </div>
 
       <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
-        {clothes.map((cloth: any) => (
-          <div
-            key={cloth.id}
-            className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
-          >
-            <img
-              className="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
-              src={cloth.Image}
-              alt={cloth.name}
-            />
-            <div className="p-5 flex flex-col gap-2">
-              <h2 className="text-xl font-semibold text-gray-800">
-                {cloth.name}
-              </h2>
-              <p className="text-gray-600">{cloth.description}</p>
-            </div>
-          </div>
+        {clothes.map((cloth: cloth) => (
+          <ProductCard key={cloth.id} cloth={cloth} />
         ))}
       </div>
     </div>
