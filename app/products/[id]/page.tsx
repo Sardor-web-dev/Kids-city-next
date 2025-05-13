@@ -1,13 +1,7 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
-interface ProductPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default async function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({ params }: { params: any }) {
   const id = Number(params.id);
 
   if (isNaN(id)) return notFound();
