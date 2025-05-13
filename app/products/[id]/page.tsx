@@ -1,15 +1,14 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
-type Props = {
-  params: {
-    id: string; 
-  };
-};
 
-export default async function ProductPage({ params }: Props) {
+export default async function ProductPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const id = Number(params.id);
 
-  if (isNaN(id)) return notFound(); 
+  if (isNaN(id)) return notFound();
 
   const cloth = await prisma.cloth.findUnique({
     where: { id },
