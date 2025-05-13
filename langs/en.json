@@ -18,6 +18,7 @@
   },
   "Catalogue": {
     "title": "Our Clothes",
-    "description": "The best and highest quality children's clothing in Samarkand!"
+    "description": "The best and highest quality children's clothing in Samarkand!",
+    "button": "Add to Card"
   }
 }

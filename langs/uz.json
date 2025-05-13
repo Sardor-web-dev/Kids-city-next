@@ -18,6 +18,7 @@
   },
   "Catalogue": {
     "title": "Bizning kiyimlarimiz",
-    "description": "Samarqandda eng yaxshi va sifatli bolalar kiyimlari!"
+    "description": "Samarqandda eng yaxshi va sifatli bolalar kiyimlari!",
+    "button": "Savatga solish"
   }
 }
