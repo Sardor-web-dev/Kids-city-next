@@ -1,9 +1,9 @@
 "use client";
 
-import { cloth } from "@/types/cloth";
+import { Cloth } from "@/app/generated/prisma";
 import { useRouter } from "next/navigation";
 
-const ProductCard = ({ cloth }: { cloth: cloth }) => {
+const ProductCard = ({ cloth }: { cloth: Cloth }) => {
   const router = useRouter();
   return (
     <>

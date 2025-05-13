@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default async function ProductPage({ params }: Props) {
-  const id = parseInt(params.id, 10);
+  const id = Number(params.id);
 
   if (isNaN(id)) return notFound(); 
 
