@@ -7,9 +7,11 @@
     "products": "Xizmatlar va tovarlar",
     "contacts": "Kontaktlar",
     "russianbtn": "Russcha",
-    "englishbtn": "Ingglizcha",
+    "englishbtn": "Inglizcha",
     "uzbekbtn": "Uzbekcha",
-    "admin": "Admin betga otish"
+    "admin": "Admin betga otish",
+    "ourproducts": "Bizning Mahsulotlarimiz",
+    "desc": "Samarqanddagi eng yaxshi va sifatli bolalar kiyimlari!"
   },
   "AdminPage": {
     "title": "Apple rasmiy veb-saytiga xush kelibsiz",
@@ -20,5 +22,44 @@
     "title": "Bizning kiyimlarimiz",
     "description": "Samarqandda eng yaxshi va sifatli bolalar kiyimlari!",
     "button": "Savatga solish"
+  },
+  "OverviewComponent": {
+    "boy": "O'g'il bolalar kiyimlari",
+    "girl": "Qizlar kiyimlari"
+  },
+  "AboutSection": {
+    "title": "Biz haqimizda",
+    "paragraph": [
+      "2020-yilda, COVID-19 pandemiyasi davrida doʻkonimiz asoschisi Samarqandda bolalar kiyimlari onlayn doʻkonini ishga tushirdi. Bu gʻoya bir nechta omadsiz xaridlardan soʻng paydo boʻldi – oʻlchami notoʻgʻri, sifatsiz va doʻkonlar yopilgan.",
+      "U ulgurji yetkazib beruvchilarni izlashga qaror qildi: avval O‘zbekistonda, keyin Turkiya va Xitoyda. Shu tariqa maqsad paydo bo‘ldi - boshqa onalarga hamyonbop narxda sifatli kiyim sotib olishga yordam berish",
+      "Birinchi xaridorlar qarindoshlar va do'stlar edi. 3 yil davomida do'kon onlayn ishladi, lekin xaridorlarning ko'p so'rovlari tufayli oflayn do'kon ochildi.",
+      "2023-yil aprel oyidan boshlab biz 0 yoshdan 14 yoshgacha bo‘lgan bolalar uchun faqat Xitoy, Turkiya va AQShning ishonchli ishlab chiqaruvchilari bilan ishlagan holda yuqori sifatli kiyimlarni taklif qilamiz"
+    ]
+  },
+  "WhyBestSection": {
+    "title": "Nega biz eng zo'rmiz?",
+    "description": "Bizning do'konimizning uchta afzalligi",
+    "firstFactor": {
+      "name": "Import qilingan yuqori sifatli kiyim",
+      "cause": "Bizda Xitoy, AQSh va Turkiyadan yaxshi narxlarda yuqori sifatli kiyimlarning keng assortimenti mavjud."
+    },
+    "secondFactor": {
+      "name": "Respublika bo'ylab yetkazib berish",
+      "cause": "Siz bizning kiyimlarimizga onlayn buyurtma berishingiz, do'konga kelib, o'zingizga yoqqan buyumni sinab ko'rishingiz mumkin. Yetkazib berish butun respublika va undan tashqarida mavjud."
+    },
+    "thirdFactor": {
+      "name": "Doimiy chegirmalar va aktsiyalar",
+      "cause": "Bizda ko'pincha bayramlarda va ikki yoki undan ortiq mahsulotni sotib olayotganda promosyonlar va chegirmalar mavjud."
+    }
+  },
+  "PhotosSection": {
+    "title": "Bizning do'konimiz fotosuratlari",
+    "description": "Bu bizning do'konimiz ichidagi va tashqarisidagi fotosuratlar."
+  },
+  "Footer": {
+    "title": "Kontaktlar",
+    "phone": "Telefon: ",
+    "adress": "Manzil: Bustonsaroy ko'chasi (Birlik 24)"
   }
 }
+

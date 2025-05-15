@@ -7,7 +7,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useTranslations } from "next-intl";
 const PhotosSection = () => {
+  const t = useTranslations("PhotosSection");
   const images = [
     { src: "/inside.jpg", alt: "Интерьер магазина" },
     { src: "/polka.jpg", alt: "Полка с товарами" },
@@ -21,10 +23,8 @@ const PhotosSection = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex mt-10 flex-col mb-8 text-center">
-        <p className="text-2xl font-bold">Фотографии нашего магазина</p>
-        <span className="text-xl font-medium">
-          Это фотографии нашего магазина внутри и снаружи
-        </span>
+        <p className="text-2xl font-bold">{t("title")}</p>
+        <span className="text-xl font-medium">{t("description")}</span>
       </div>
 
       <div className="lg:flex mt-5 hidden lg:flex-row gap-6">
@@ -35,8 +35,8 @@ const PhotosSection = () => {
             }),
           ]}
           opts={{
-            align: "start", 
-            slidesToScroll: 1, 
+            align: "start",
+            slidesToScroll: 1,
           }}
           className="relative flex flex-col items-center justify-center w-full"
         >

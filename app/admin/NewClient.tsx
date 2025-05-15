@@ -9,12 +9,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useRouter } from "next/navigation";
 
 const Form = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [gender, setGender] = useState("");
-  const router = useRouter()
 
   const postData = async (e: any) => {
     e.preventDefault();

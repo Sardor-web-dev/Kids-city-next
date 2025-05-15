@@ -1,22 +1,27 @@
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
-const Footer = () => {
+export default async function Footer() {
+  const t = await getTranslations("Footer");
   return (
-    <footer id="contacts" className="rounded-2xl w-full max-w-[1250px] mx-auto mt-10 bg-[#9f887e] text-white py-10 px-4 flex flex-col items-center gap-6">
-      <h2 className="text-3xl font-extrabold">Контакты</h2>
+    <footer
+      id="contacts"
+      className="rounded-2xl w-full max-w-[1250px] mx-auto mt-10 bg-[#9f887e] text-white py-10 px-4 flex flex-col items-center gap-6"
+    >
+      <h2 className="text-3xl font-extrabold">{t("title")}</h2>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 text-center text-lg font-medium">
         <div className="space-y-2">
           <p>
-            Телефон:{" "}
-            <a
+            {t("phone")}
+            <Link
               href="tel:+998973970034"
               className="underline hover:text-gray-200"
             >
               +998 97 397 00 34
-            </a>
+            </Link>
           </p>
-          <p>Адрес: Ул. Бустонсарой (Бирлик 24)</p>
+          <p>{t("adress")}</p>
         </div>
 
         <div className="space-y-2">
@@ -50,6 +55,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

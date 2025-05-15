@@ -9,7 +9,9 @@
     "russianbtn": "Russian",
     "englishbtn": "English",
     "uzbekbtn": "Uzbek",
-    "admin": "Go to AdminPage"
+    "admin": "Go to AdminPage",
+    "ourproducts": "Our Products",
+    "desc": "The best and highest quality children's clothing in Samarkand!"
   },
   "AdminPage": {
     "title": "Welcome to the admin pannel of official Kids City's website",
@@ -20,5 +22,43 @@
     "title": "Our Clothes",
     "description": "The best and highest quality children's clothing in Samarkand!",
     "button": "Add to Card"
+  },
+  "OverviewComponent": {
+    "boy": "Boys clothes",
+    "girl": "Girls clothes"
+  },
+  "AboutSection": {
+    "title": "About us",
+    "paragraph": [
+      "In 2020, during the COVID-19 pandemic, the founder of our store launched an online children's clothing store in Samarkand. The idea came after several unsuccessful purchases - the wrong size, low quality, and the stores were closed.",
+      "She decided to look for wholesale suppliers: first in Uzbekistan, then in Turkey and China. That's how the goal emerged - to help other mothers buy quality clothes at an affordable price.",
+      "The first customers were relatives and friends. For 3 years the store worked online, but due to numerous requests from customers an offline store was opened.",
+      "Since April 2023, we offer high-quality clothing for children from 0 to 14 years old, working only with trusted manufacturers from China, Turkey and the USA."
+    ]
+  },
+  "WhyBestSection": {
+    "title": "Why we best?",
+    "description": "Three advantages of our store",
+    "firstFactor": {
+      "name": "High quality imported clothing",
+      "cause": "We have a wide range of high quality clothing at good prices from China, USA and Turkey."
+    },
+    "secondFactor": {
+      "name": "Delivery throughout the Republic",
+      "cause": "You can order our clothes online, come to the store and try on the item you like. Delivery is available throughout the republic and beyond."
+    },
+    "thirdFactor": {
+      "name": "Constant discounts and promotions",
+      "cause": "We often have promotions and discounts on holidays and when purchasing two or more items."
+    }
+  },
+  "PhotosSection": {
+    "title": "Photos of our store",
+    "description": "These are photos of our store inside and outside."
+  },
+  "Footer": {
+    "title": "Contacts",
+    "phone": "Phone number: ",
+    "adress": "Address: Bustonsaroy Street (Birlik 24)"
   }
 }
