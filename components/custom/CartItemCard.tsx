@@ -39,7 +39,16 @@ const CartItemCard = ({ cloth }: { cloth: CartItem }) => {
             <button
               className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-lg"
               onClick={() => {
-                addItem(cloth);
+                addItem({
+                  id: cloth.id,
+                  name: cloth.name,
+                  Image: cloth.Image,
+                  price: cloth.price,
+                  quantity: 1,
+                  description: cloth.description,
+                  gender: cloth.gender,
+                  authorId: cloth.authorId,
+                });
               }}
             >
               +
