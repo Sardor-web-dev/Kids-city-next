@@ -133,7 +133,24 @@ exports.Prisma.ClothScalarFieldEnum = {
   description: 'description',
   authorId: 'authorId',
   Image: 'Image',
-  gender: 'gender'
+  gender: 'gender',
+  price: 'price'
+};
+
+exports.Prisma.OrderScalarFieldEnum = {
+  id: 'id',
+  userEmail: 'userEmail',
+  total: 'total',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.CartItemScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  image: 'image',
+  price: 'price',
+  quantity: 'quantity',
+  orderId: 'orderId'
 };
 
 exports.Prisma.SortOrder = {
@@ -154,7 +171,9 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   Admin: 'Admin',
-  Cloth: 'Cloth'
+  Cloth: 'Cloth',
+  Order: 'Order',
+  CartItem: 'CartItem'
 };
 
 /**

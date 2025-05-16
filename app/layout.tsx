@@ -7,6 +7,7 @@ import SessionProvider from "@/components/custom/SessionProvider";
 import Header from "@/components/custom/Header";
 import Footer from "@/components/custom/Footer";
 import Script from "next/script";
+import { CartProvider } from "@/contexts/CartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -104,11 +105,13 @@ export default async function RootLayout({
 
         <SessionProvider session={session}>
           <NextIntlClientProvider locale={locale}>
-            <section className="pl-2 pr-2 ">
-              <Header />
-              {children}
-              <Footer />
-            </section>
+            <CartProvider>
+              <section className="pl-2 pr-2 ">
+                <Header />
+                {children}
+                <Footer />
+              </section>
+            </CartProvider>
           </NextIntlClientProvider>
         </SessionProvider>
       </body>

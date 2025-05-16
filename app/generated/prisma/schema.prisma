@@ -24,4 +24,23 @@ model Cloth {
   author      Admin  @relation(fields: [authorId], references: [id])
   Image       String
   gender      String
+  price       Int
+}
+
+model Order {
+  id        Int        @id @default(autoincrement())
+  userEmail String
+  items     CartItem[]
+  total     Int
+  createdAt DateTime   @default(now())
+}
+
+model CartItem {
+  id       Int     @id @default(autoincrement())
+  name     String
+  image    String?
+  price    Int
+  quantity Int
+  orderId  Int
+  order    Order   @relation(fields: [orderId], references: [id])
 }
