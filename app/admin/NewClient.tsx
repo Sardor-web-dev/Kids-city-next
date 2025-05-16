@@ -20,6 +20,8 @@ const Form = () => {
     const fm = new FormData(e.currentTarget);
     const name = fm.get("name");
     const description = fm.get("description");
+    const priceStr = fm.get("price");
+    const price = parseInt(priceStr as string);
     const response = await fetch("/api/cloth", {
       method: "POST",
       headers: {
@@ -27,6 +29,7 @@ const Form = () => {
       },
       body: JSON.stringify({
         name,
+        price,
         description,
         Image: imageUrl,
         gender,
@@ -65,6 +68,15 @@ const Form = () => {
           <label className="block text-lg mb-2">Описание товара</label>
           <textarea
             name="description"
+            rows={4}
+            className="w-full px-4 py-2 border rounded-lg"
+          />
+        </div>
+
+        <div>
+          <label className="block text-lg mb-2">Цена товара</label>
+          <textarea
+            name="price"
             rows={4}
             className="w-full px-4 py-2 border rounded-lg"
           />
