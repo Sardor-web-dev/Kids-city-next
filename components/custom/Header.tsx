@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { MdLanguage } from "react-icons/md";
+import { FiShoppingCart } from "react-icons/fi";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -51,7 +53,7 @@ const Header = () => {
           ))}
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger className="cursor-pointer">
               <MdLanguage size="24" />
@@ -104,6 +106,9 @@ const Header = () => {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+          <Link href={"/cart"}>
+            <FiShoppingCart size={23} />
+          </Link>
         </div>
       </div>
     </header>
