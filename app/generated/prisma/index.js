@@ -187,12 +187,11 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": null
+        "value": "postgresql://kidscity_owner:npg_y3LgxPXjJa4Q@ep-wild-darkness-a2zl6uvi-pooler.eu-central-1.aws.neon.tech/kidscity?sslmode=require"
       }
     }
   },
