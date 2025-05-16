@@ -25,7 +25,6 @@ const authOptions: NextAuthOptions = {
           throw new Error("User not found");
         }
 
-        // ПРОСТАЯ проверка пароля (небезопасно — см. ниже)
         if (user.password !== credentials.password) {
           throw new Error("Invalid password");
         }
