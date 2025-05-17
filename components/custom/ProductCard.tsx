@@ -20,7 +20,7 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
           className="bg-white cursor-pointer shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
         >
           <img
-            className="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-60 rounded-lg object-cover hover:scale-105 transition-transform duration-300"
             src={cloth.Image}
             alt={cloth.name}
           />
@@ -29,8 +29,8 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
               {cloth.name}
             </h2>
             <p className="text-gray-600">{cloth.description}</p>
+            <p>{cloth.price.toLocaleString()} сум</p>
           </div>
-          <p>{cloth.price} сум</p>
         </div>
         <Button
           className="cursor-pointer"

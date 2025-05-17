@@ -75,9 +75,9 @@ const Form = () => {
 
         <div>
           <label className="block text-lg mb-2">Цена товара</label>
-          <textarea
+          <input
             name="price"
-            rows={4}
+            type="number"
             className="w-full px-4 py-2 border rounded-lg"
           />
         </div>
