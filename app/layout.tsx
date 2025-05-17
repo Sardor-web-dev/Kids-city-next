@@ -24,7 +24,9 @@ export async function generateMetadata() {
 
   return {
     title: "Kids City",
-    description: "Лучший магазин детской одежды в Самарканде",
+    description:
+      "Лучший магазин детской одежды в Самарканде",
+    ogImage: ogImage,
     keywords:
       "детская одежда Самарканд, детская мода, вещи для девочек, мальчиков, магазин детской одежды, kids city, детские платья, костюмы, одежда 0-10 лет",
     openGraph: {
