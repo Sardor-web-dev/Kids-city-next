@@ -1,12 +1,26 @@
 "use client";
 
 import CartItemCard from "@/components/custom/CartItemCard";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useCart } from "@/contexts/CartContext";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function CartPage() {
+  const t = useTranslations("CartPage");
   const { items, clearCart } = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -20,7 +34,7 @@ export default function CartPage() {
 
   return (
     <div className="mx-auto max-w-[1200px]">
-      <h1 className="text-4xl mb-10 font-bold">Корзина</h1>
+      <h1 className="text-4xl mb-10 font-bold">{t("title")}</h1>
       {items.length === 0 ? (
         <div>
           <p>Корзина пустая</p>
@@ -43,6 +57,56 @@ export default function CartPage() {
             <p className="text-2xl font-bold">
               Общая сумма: {totalPrice.toLocaleString()} сум
             </p>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="cursor-pointer">
+                  Оформить заказ
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Оформление доставки</DialogTitle>
+                  <DialogDescription>
+                    Пожалуйста, заполните форму ниже, чтобы оформить заказ.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name" className="text-right">
+                      Имя
+                    </Label>
+                    <Input id="name" className="col-span-3" />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="username" className="text-right">
+                      Фамилия
+                    </Label>
+                    <Input id="username" className="col-span-3" />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="username" className="text-right">
+                      Адрес проживания
+                    </Label>
+                    <Input type="adress" id="username" className="col-span-3" />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="username" className="text-right">
+                      Номер телефона
+                    </Label>
+                    <Input type="number" id="username" className="col-span-3" />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="username" className="text-right">
+                      Электроная почта
+                    </Label>
+                    <Input type="email" id="username" className="col-span-3" />
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button type="submit">Заказать</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
             <button
               onClick={clearCart}
               className="bg-red-500 w-[220px] h-[60px] cursor-pointer hover:opacity-100 opacity-80 text-white rounded"

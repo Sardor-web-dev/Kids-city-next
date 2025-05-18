@@ -60,5 +60,8 @@
     "title": "Contacts",
     "phone": "Phone number: ",
     "adress": "Address: Bustonsaroy Street (Birlik 24)"
+  },
+  "CartPage": {
+    "title": "Your Cart"
   }
 }

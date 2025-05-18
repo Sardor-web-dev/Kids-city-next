@@ -60,6 +60,9 @@
     "title": "Kontaktlar",
     "phone": "Telefon: ",
     "adress": "Manzil: Bustonsaroy ko'chasi (Birlik 24)"
+  },
+  "CartPage":{
+    "title": "Sizning savatingiz"
   }
 }
 
