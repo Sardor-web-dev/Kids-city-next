@@ -34,7 +34,10 @@ export default function CartPage() {
 
   return (
     <div className="mx-auto max-w-[1200px]">
-      <h1 className="text-4xl mb-10 font-bold">{t("title")}</h1>
+      <div className="flex items-center mb-10 justify-between">
+        <h1 className="text-2xl lg:text-4xl font-bold">{t("title")}</h1>
+        <p className="cursor-pointer hover:scale-105 transition-all" onClick={clearCart}>Очистить корзину</p>
+      </div>
       {items.length === 0 ? (
         <div>
           <p>Корзина пустая</p>
@@ -107,12 +110,6 @@ export default function CartPage() {
                 </DialogFooter>
               </DialogContent>
             </Dialog>
-            <button
-              onClick={clearCart}
-              className="bg-red-500 w-[220px] h-[60px] cursor-pointer hover:opacity-100 opacity-80 text-white rounded"
-            >
-              Очистить корзину
-            </button>
           </div>
 
           <div className="flex gap-4">
