@@ -36,9 +36,14 @@ export default function CartPage() {
     <div className="mx-auto max-w-[1200px]">
       <div className="flex items-center mb-10 justify-between">
         <h1 className="text-2xl lg:text-4xl font-bold">{t("title")}</h1>
-        <p className="cursor-pointer hover:scale-105 transition-all" onClick={clearCart}>Очистить корзину</p>
+        <p
+          className="cursor-pointer hover:scale-105 transition-all"
+          onClick={clearCart}
+        >
+          {t("clear")}
+        </p>
       </div>
-      {items.length === 0 ? (
+      {/* {items.length === 0 ? (
         <div>
           <p>Корзина пустая</p>
           <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
@@ -48,7 +53,7 @@ export default function CartPage() {
             <Skeleton className="w-full h-100 bg-gray-300 rounded-lg" />
           </div>
         </div>
-      ) : (
+      ) : ( */}
         <div className="flex flex-col gap-10">
           <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
             {items.map((item) => (
@@ -117,7 +122,7 @@ export default function CartPage() {
             <Link href={"/catalogueGirl"}>Посмотреть каталог (девочки)</Link>
           </div>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 }

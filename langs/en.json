@@ -62,6 +62,7 @@
     "adress": "Address: Bustonsaroy Street (Birlik 24)"
   },
   "CartPage": {
-    "title": "Your Cart"
+    "title": "Your Cart",
+    "clear": "Clear Cart"
   }
 }

@@ -62,7 +62,8 @@
     "adress": "Manzil: Bustonsaroy ko'chasi (Birlik 24)"
   },
   "CartPage":{
-    "title": "Sizning savatingiz"
+    "title": "Sizning savatingiz",
+    "clear": "Savatchani tozalash"
   }
 }
 
