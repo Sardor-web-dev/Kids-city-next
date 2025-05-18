@@ -10,7 +10,6 @@ export default function CartPage() {
   const { items, clearCart } = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // Пересчет суммы при изменении корзины
   useEffect(() => {
     const total = items.reduce(
       (acc, item) => acc + item.price * item.quantity,
