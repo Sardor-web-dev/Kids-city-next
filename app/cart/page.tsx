@@ -48,11 +48,24 @@ export default function CartPage() {
     const adress = fm.get("adress");
     const number = fm.get("number");
     const email = fm.get("email");
-
     const TELEGRAM_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
     const CHAT_IDS =
       process.env.NEXT_PUBLIC_TELEGRAM_CHAT_IDS?.split(",") || [];
     const orderNumber = `ORDER-${Date.now()}`;
+
+    await fetch("/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        surname,
+        adress,
+        number,
+        email,
+        payment,
+        items, // массив товаров
+      }),
+    });
 
     try {
       for (const chatId of CHAT_IDS) {
@@ -74,7 +87,7 @@ export default function CartPage() {
               },
               body: JSON.stringify({
                 chat_id: chatId,
-                photo: item.Image, 
+                photo: item.Image,
                 caption: caption,
                 parse_mode: "Markdown",
               }),

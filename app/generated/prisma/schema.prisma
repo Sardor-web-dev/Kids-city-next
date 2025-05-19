@@ -28,19 +28,14 @@ model Cloth {
 }
 
 model Order {
-  id        Int        @id @default(autoincrement())
-  userEmail String
-  items     CartItem[]
+  id        String   @id @default(cuid())
+  name      String
+  surname   String
+  adress    String
+  number    String
+  email     String
+  payment   String
   total     Int
-  createdAt DateTime   @default(now())
-}
-
-model CartItem {
-  id       Int     @id @default(autoincrement())
-  name     String
-  image    String?
-  price    Int
-  quantity Int
-  orderId  Int
-  order    Order   @relation(fields: [orderId], references: [id])
+  items     Json // Prisma поддерживает JSON
+  createdAt DateTime @default(now())
 }

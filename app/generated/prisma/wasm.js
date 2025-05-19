@@ -139,23 +139,24 @@ exports.Prisma.ClothScalarFieldEnum = {
 
 exports.Prisma.OrderScalarFieldEnum = {
   id: 'id',
-  userEmail: 'userEmail',
-  total: 'total',
-  createdAt: 'createdAt'
-};
-
-exports.Prisma.CartItemScalarFieldEnum = {
-  id: 'id',
   name: 'name',
-  image: 'image',
-  price: 'price',
-  quantity: 'quantity',
-  orderId: 'orderId'
+  surname: 'surname',
+  adress: 'adress',
+  number: 'number',
+  email: 'email',
+  payment: 'payment',
+  total: 'total',
+  items: 'items',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -168,12 +169,17 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
 
 exports.Prisma.ModelName = {
   Admin: 'Admin',
   Cloth: 'Cloth',
-  Order: 'Order',
-  CartItem: 'CartItem'
+  Order: 'Order'
 };
 
 /**
