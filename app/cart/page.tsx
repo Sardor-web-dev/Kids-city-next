@@ -33,13 +33,60 @@ export default function CartPage() {
   const [payment, setPayment] = useState("");
 
   const data = [
-    { name: t("name"), type: "text" },
-    { name: t("surname"), type: "text" },
-    { name: t("adress"), type: "text" },
-    { name: t("number"), type: "number" },
-    { name: t("email"), type: "email" },
+    { name: t("name"), type: "text", identifier: "name" },
+    { name: t("surname"), type: "text", identifier: "surname" },
+    { name: t("adress"), type: "text", identifier: "adress" },
+    { name: t("number"), type: "number", identifier: "number" },
+    { name: t("email"), type: "email", identifier: "email" },
   ];
+  const order = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
+    const fm = new FormData(e.currentTarget);
+    const name = fm.get("name");
+    const surname = fm.get("surname");
+    const adress = fm.get("adress");
+    const number = fm.get("number");
+    const email = fm.get("email");
+
+    const message = `
+  🛒 Новый заказ:
+  
+  👤 Имя: ${name}
+  👤 Фамилия: ${surname}
+  🏠 Адрес: ${adress}
+  📞 Телефон: ${number}
+  📧 Email: ${email}
+  💳 Оплата: ${payment}
+  🧾 Сумма: ${totalPrice.toLocaleString()} сум
+  
+  📦 Товары:
+  ${items.map((item) => `• ${item.name} x${item.quantity}`).join("\n")}
+  `;
+
+    const TELEGRAM_API = `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELEGRAM_TOKEN}/sendMessage`;
+    const CHAT_ID = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
+
+    try {
+      await fetch(TELEGRAM_API, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: message,
+          parse_mode: "Markdown",
+        }),
+      });
+
+      alert("Заказ отправлен!");
+      clearCart();
+    } catch (error) {
+      console.error("Ошибка отправки:", error);
+      alert("Ошибка отправки заказа.");
+    }
+  };
   useEffect(() => {
     const total = items.reduce(
       (acc, item) => acc + item.price * item.quantity,
@@ -92,7 +139,7 @@ export default function CartPage() {
                 <DialogTitle>{t("dialogTitle")}</DialogTitle>
                 <DialogDescription>{t("dialogDescription")}</DialogDescription>
               </DialogHeader>
-              <div className="flex flex-col gap-4">
+              <form onSubmit={order} className="flex flex-col gap-4">
                 {data.map((item, i) => (
                   <div
                     key={i}
@@ -101,6 +148,7 @@ export default function CartPage() {
                     <Label className="text-right">{item.name}</Label>
                     <Input
                       id={item.name}
+                      name={item.identifier}
                       type={item.type}
                       className="lg:w-[300px] w-[220px]"
                     />
@@ -113,8 +161,8 @@ export default function CartPage() {
                       <SelectValue placeholder="Способ оплаты" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="boy">Наличные</SelectItem>
-                      <SelectItem value="girl">Карта</SelectItem>
+                      <SelectItem value="cash">Наличные</SelectItem>
+                      <SelectItem value="cart">Карта</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -148,10 +196,10 @@ export default function CartPage() {
                   </Label>
                   <Input type="email" id="username" className="col-span-3" />
                 </div> */}
-              </div>
-              <DialogFooter>
-                <Button type="submit">Заказать</Button>
-              </DialogFooter>
+                <DialogFooter>
+                  <Button type="submit">Заказать</Button>
+                </DialogFooter>
+              </form>
             </DialogContent>
           </Dialog>
         </div>
