@@ -74,7 +74,7 @@ export default function CartPage() {
               },
               body: JSON.stringify({
                 chat_id: chatId,
-                photo: item.Image, // <-- ссылка на фото
+                photo: item.Image, 
                 caption: caption,
                 parse_mode: "Markdown",
               }),
@@ -163,14 +163,14 @@ export default function CartPage() {
           </div>
 
           <div className="flex justify-between items-center">
-            <p className="text-2xl font-bold">
+            <p className="lg:text-2xl text-lg font-bold">
               {t("price")} {totalPrice.toLocaleString()} {t("priceValue")}
             </p>
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
                 <Button
                   variant="outline"
-                  className="cursor-pointer lg:w-[200px] lg:h-[50px] w-[120px] h-[35px] border-1 lg:rounded-lg rounded-md border-black bg-gray-800 text-white font-medium lg:text-md lg:font-bold"
+                  className="cursor-pointer lg:w-[200px] lg:h-[50px] w-[130px] h-[40px] border-1 lg:rounded-lg rounded-md border-black bg-gray-800 text-white font-medium lg:text-md lg:font-bold"
                 >
                   {t("button")}
                 </Button>
