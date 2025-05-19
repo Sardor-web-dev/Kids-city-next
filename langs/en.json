@@ -70,7 +70,7 @@
     "name": "Name",
     "surname": "Surname",
     "adress": "Residential address",
-    "number": "Phone number",
+    "number": "Phone number (without +998)",
     "email": "Email",
     "order": "Order",
     "dialogTitle": "Delivery order",

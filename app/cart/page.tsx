@@ -31,6 +31,7 @@ export default function CartPage() {
   const { items, clearCart } = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
   const [payment, setPayment] = useState("");
+  const [open, setOpen] = useState(false)
 
   const data = [
     { name: t("name"), type: "text", identifier: "name" },
@@ -49,27 +50,51 @@ export default function CartPage() {
     const number = fm.get("number");
     const email = fm.get("email");
 
-    const message = `
-  🛒 Новый заказ:
-  
-  👤 Имя: ${name}
-  👤 Фамилия: ${surname}
-  🏠 Адрес: ${adress}
-  📞 Телефон: +998${number}
-  📧 Email: ${email}
-  💳 Оплата: ${payment}
-  🧾 Сумма: ${totalPrice.toLocaleString()} сум
-  
-  📦 Товары:
-  ${items.map((item) => `• ${item.name} x${item.quantity}`).join("\n")}
-  `;
-
     const TELEGRAM_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
     const CHAT_IDS =
       process.env.NEXT_PUBLIC_TELEGRAM_CHAT_IDS?.split(",") || [];
+    const orderNumber = `ORDER-${Date.now()}`;
 
     try {
       for (const chatId of CHAT_IDS) {
+        for (const item of items) {
+          const caption = `
+🧾 Заказ: ${orderNumber}
+👕 Товар: ${item.name}
+🔢 Кол-во: ${item.quantity}
+💵 Цена: ${(item.price * item.quantity).toLocaleString()} сум
+👤 Владелец: ${name}  ${surname}
+          `;
+
+          await fetch(
+            `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendPhoto`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                chat_id: chatId,
+                photo: item.Image, // <-- ссылка на фото
+                caption: caption,
+                parse_mode: "Markdown",
+              }),
+            }
+          );
+        }
+
+        // Отправка общего сообщения о заказе после фоток
+        const message = `
+🧾 Заказ: ${orderNumber}
+👤 Имя: ${name}
+👤 Фамилия: ${surname}
+🏠 Адрес: ${adress}
+📞 Телефон: +998${number}
+📧 Email: ${email}
+💳 Оплата: ${payment}
+💰 Сумма: ${totalPrice.toLocaleString()} сум
+        `;
+
         await fetch(
           `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
           {
@@ -85,7 +110,7 @@ export default function CartPage() {
           }
         );
       }
-
+      setOpen(false);
       alert("Заказ отправлен!");
       clearCart();
     } catch (error) {
@@ -134,7 +159,7 @@ export default function CartPage() {
           <p className="text-2xl font-bold">
             {t("price")} {totalPrice.toLocaleString()} {t("priceValue")}
           </p>
-          <Dialog>
+          <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
               <Button variant="outline" className="cursor-pointer">
                 {t("button")}
@@ -156,7 +181,7 @@ export default function CartPage() {
                       id={item.name}
                       name={item.identifier}
                       type={item.type}
-                      className="lg:w-[300px] w-[220px]"
+                      className="lg:w-[220px] w-[170px]"
                     />
                   </div>
                 ))}
