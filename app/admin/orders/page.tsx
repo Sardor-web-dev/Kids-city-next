@@ -8,7 +8,7 @@ export default async function OrdersPage() {
   return (
     <div className="max-w-[1250px] mx-auto flex flex-col gap-4 items-center">
       <h1 className="text-2xl font-bold mb-4">Все заказы</h1>
-      <div className="space-y-4">
+      <div className="max-w-[300px]">
         {orders.map((order) => (
           <div key={order.id} className="p-4 border rounded shadow">
             <p>
