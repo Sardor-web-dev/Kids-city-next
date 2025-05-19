@@ -64,21 +64,27 @@ export default function CartPage() {
   ${items.map((item) => `• ${item.name} x${item.quantity}`).join("\n")}
   `;
 
-    const TELEGRAM_API = `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELEGRAM_TOKEN}/sendMessage`;
-    const CHAT_ID = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
+    const TELEGRAM_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
+    const CHAT_IDS =
+      process.env.NEXT_PUBLIC_TELEGRAM_CHAT_IDS?.split(",") || [];
 
     try {
-      await fetch(TELEGRAM_API, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message,
-          parse_mode: "Markdown",
-        }),
-      });
+      for (const chatId of CHAT_IDS) {
+        await fetch(
+          `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              chat_id: chatId,
+              text: message,
+              parse_mode: "Markdown",
+            }),
+          }
+        );
+      }
 
       alert("Заказ отправлен!");
       clearCart();
