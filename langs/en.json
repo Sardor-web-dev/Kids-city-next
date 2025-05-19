@@ -63,6 +63,18 @@
   },
   "CartPage": {
     "title": "Your Cart",
-    "clear": "Clear Cart"
+    "clear": "Clear Cart",
+    "price": "Total price: ",
+    "priceValue": "so'm",
+    "payment": "Payment method",
+    "name": "Name",
+    "surname": "Surname",
+    "adress": "Residential address",
+    "number": "Phone number",
+    "email": "Email",
+    "order": "Order",
+    "dialogTitle": "Delivery order",
+    "dialogDescription": "Please fill out the form below to arrange delivery.",
+    "button": "Order"
   }
 }

@@ -14,8 +14,8 @@
     "desc": "Samarqanddagi eng yaxshi va sifatli bolalar kiyimlari!"
   },
   "AdminPage": {
-    "title": "Apple rasmiy veb-saytiga xush kelibsiz",
-    "description": "Bu Apple rasmiy veb-saytining admin sahifasi.",
+    "title": "Kids City rasmiy veb-saytining admin sahifasiga xush kelibsiz",
+    "description": "Bu erda siz mahsulotlaringizni boshqarishingiz mumkin.",
     "addProduct": "Mahsulot qo'shish"
   },
   "Catalogue": {
@@ -61,9 +61,20 @@
     "phone": "Telefon: ",
     "adress": "Manzil: Bustonsaroy ko'chasi (Birlik 24)"
   },
-  "CartPage":{
+  "CartPage": {
     "title": "Sizning savatingiz",
-    "clear": "Savatchani tozalash"
+    "clear": "Savatchani tozalash",
+    "price": "Buyurtmangiz narxi: ",
+    "name": "Ism",
+    "priceValue": "so'm",
+    "payment": "To'lov usuli",
+    "surname": "Familiya",
+    "adress": "Yashash manzili",
+    "number": "Telefon raqami",
+    "email": "Elektron pochta",
+    "order": "Buyurtma berish",
+    "dialogTitle": "Yetkazib berish tartibi",
+    "dialogDescription": "Yetkazib berishni tashkil qilish uchun quyidagi shaklni to'ldiring.",
+    "button": "Buyurtma berish"
   }
 }
-

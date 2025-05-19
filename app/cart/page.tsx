@@ -13,7 +13,14 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+// import { Skeleton } from "@/components/ui/skeleton";
 import { useCart } from "@/contexts/CartContext";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -23,6 +30,15 @@ export default function CartPage() {
   const t = useTranslations("CartPage");
   const { items, clearCart } = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
+  const [payment, setPayment] = useState("");
+
+  const data = [
+    { name: t("name"), type: "text" },
+    { name: t("surname"), type: "text" },
+    { name: t("adress"), type: "text" },
+    { name: t("number"), type: "number" },
+    { name: t("email"), type: "email" },
+  ];
 
   useEffect(() => {
     const total = items.reduce(
@@ -54,75 +70,97 @@ export default function CartPage() {
           </div>
         </div>
       ) : ( */}
-        <div className="flex flex-col gap-10">
-          <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
-            {items.map((item) => (
-              <CartItemCard key={item.id} cloth={item} />
-            ))}
-          </div>
-
-          <div className="flex justify-between items-center">
-            <p className="text-2xl font-bold">
-              Общая сумма: {totalPrice.toLocaleString()} сум
-            </p>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline" className="cursor-pointer">
-                  Оформить заказ
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle>Оформление доставки</DialogTitle>
-                  <DialogDescription>
-                    Пожалуйста, заполните форму ниже, чтобы оформить заказ.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="grid gap-4 py-4">
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="name" className="text-right">
-                      Имя
-                    </Label>
-                    <Input id="name" className="col-span-3" />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="username" className="text-right">
-                      Фамилия
-                    </Label>
-                    <Input id="username" className="col-span-3" />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="username" className="text-right">
-                      Адрес проживания
-                    </Label>
-                    <Input type="adress" id="username" className="col-span-3" />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="username" className="text-right">
-                      Номер телефона
-                    </Label>
-                    <Input type="number" id="username" className="col-span-3" />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="username" className="text-right">
-                      Электроная почта
-                    </Label>
-                    <Input type="email" id="username" className="col-span-3" />
-                  </div>
-                </div>
-                <DialogFooter>
-                  <Button type="submit">Заказать</Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          </div>
-
-          <div className="flex gap-4">
-            <Link href={"/catalogueBoy"}>Посмотреть каталог (мальчики)</Link>
-            <Link href={"/catalogueGirl"}>Посмотреть каталог (девочки)</Link>
-          </div>
+      <div className="flex flex-col gap-10">
+        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
+          {items.map((item) => (
+            <CartItemCard key={item.id} cloth={item} />
+          ))}
         </div>
-      {/* )} */}
+
+        <div className="flex justify-between items-center">
+          <p className="text-2xl font-bold">
+            {t("price")} {totalPrice.toLocaleString()} {t("priceValue")}
+          </p>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="cursor-pointer">
+                {t("button")}
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>{t("dialogTitle")}</DialogTitle>
+                <DialogDescription>{t("dialogDescription")}</DialogDescription>
+              </DialogHeader>
+              <div className="flex flex-col gap-4">
+                {data.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between gap-4"
+                  >
+                    <Label className="text-right">{item.name}</Label>
+                    <Input
+                      id={item.name}
+                      type={item.type}
+                      className="lg:w-[300px] w-[220px]"
+                    />
+                  </div>
+                ))}
+                <div className="flex items-center justify-between gap-4">
+                  <Label className="text-right">{t("payment")}</Label>
+                  <Select value={payment} onValueChange={setPayment}>
+                    <SelectTrigger className="w-[220px] lg:w-[300px] border rounded-lg">
+                      <SelectValue placeholder="Способ оплаты" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="boy">Наличные</SelectItem>
+                      <SelectItem value="girl">Карта</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                {/* <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="name" className="text-right">
+                    Имя
+                  </Label>
+                  <Input id="name" className="col-span-3" />
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="username" className="text-right">
+                    Фамилия
+                  </Label>
+                  <Input id="username" className="col-span-3" />
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="username" className="text-right">
+                    Адрес проживания
+                  </Label>
+                  <Input type="adress" id="username" className="col-span-3" />
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="username" className="text-right">
+                    Номер телефона
+                  </Label>
+                  <Input type="number" id="username" className="col-span-3" />
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="username" className="text-right">
+                    Электроная почта
+                  </Label>
+                  <Input type="email" id="username" className="col-span-3" />
+                </div> */}
+              </div>
+              <DialogFooter>
+                <Button type="submit">Заказать</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </div>
+
+        <div className="flex gap-4">
+          <Link href={"/catalogueBoy"}>Посмотреть каталог (мальчики)</Link>
+          <Link href={"/catalogueGirl"}>Посмотреть каталог (девочки)</Link>
+        </div>
+      </div>
     </div>
   );
 }
