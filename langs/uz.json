@@ -68,6 +68,8 @@
     "name": "Ism",
     "priceValue": "so'm",
     "payment": "To'lov usuli",
+    "link": "Katalogga o'tish",
+    "empty": "Sizning savatingiz bo'sh",
     "surname": "Familiya",
     "adress": "Yashash manzili",
     "number": "Telefon raqami (+998 siz)",

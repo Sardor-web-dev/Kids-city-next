@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import { useTranslations } from "next-intl";
 import { useCart } from "@/contexts/CartContext";
+import ButtonCart from "./ButtonCart";
 
 const ProductCard = ({ cloth }: { cloth: Cloth }) => {
   const router = useRouter();
@@ -32,24 +33,7 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
             <p>{cloth.price.toLocaleString()} сум</p>
           </div>
         </div>
-        <Button
-          className="cursor-pointer"
-          onClick={() => {
-            router.push("/cart");
-            addItem({
-              id: cloth.id,
-              name: cloth.name,
-              Image: cloth.Image,
-              price: cloth.price,
-              quantity: 1,
-              description: cloth.description,
-              gender: cloth.gender,
-              authorId: cloth.authorId,
-            });
-          }}
-        >
-          {t("button")}
-        </Button>
+        <ButtonCart cloth={cloth}/>
       </div>
     </>
   );

@@ -1,3 +1,4 @@
+import ButtonCart from "@/components/custom/ButtonCart";
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
@@ -22,6 +23,7 @@ export default async function ProductPage({ params }: { params: any }) {
         />
         <h1 className="text-3xl font-bold mb-2">{cloth.name}</h1>
         <p>{cloth.description}</p>
+        <ButtonCart cloth={cloth} />
       </div>
     </>
   );

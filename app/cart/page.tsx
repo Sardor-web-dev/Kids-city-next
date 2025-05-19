@@ -20,7 +20,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-// import { Skeleton } from "@/components/ui/skeleton";
 import { useCart } from "@/contexts/CartContext";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -31,7 +30,7 @@ export default function CartPage() {
   const { items, clearCart } = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
   const [payment, setPayment] = useState("");
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const data = [
     { name: t("name"), type: "text", identifier: "name" },
@@ -137,67 +136,80 @@ export default function CartPage() {
           {t("clear")}
         </p>
       </div>
-      {/* {items.length === 0 ? (
-        <div>
-          <p>Корзина пустая</p>
-          <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
-            <Skeleton className="w-full h-100 bg-gray-300 rounded-lg" />
-            <Skeleton className="w-full h-100 bg-gray-300 rounded-lg" />
-            <Skeleton className="w-full h-100 bg-gray-300 rounded-lg" />
-            <Skeleton className="w-full h-100 bg-gray-300 rounded-lg" />
+      {items.length === 0 ? (
+        <div className="flex flex-col items-center justify-center gap-4">
+          <h2 className="text-2xl font-bold">{t("empty")}</h2>
+          <div className="flex items-center gap-10">
+            <Link
+              href={"/catalogueBoy"}
+              className="text-lg text-blue-500 hover:underline"
+            >
+              {t("link")}
+            </Link>
+            <Link
+              href={"/catalogueGirl"}
+              className="text-lg text-pink-500 hover:underline"
+            >
+              {t("link")}
+            </Link>
           </div>
         </div>
-      ) : ( */}
-      <div className="flex flex-col gap-10">
-        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
-          {items.map((item) => (
-            <CartItemCard key={item.id} cloth={item} />
-          ))}
-        </div>
+      ) : (
+        <div className="flex flex-col gap-10">
+          <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
+            {items.map((item) => (
+              <CartItemCard key={item.id} cloth={item} />
+            ))}
+          </div>
 
-        <div className="flex justify-between items-center">
-          <p className="text-2xl font-bold">
-            {t("price")} {totalPrice.toLocaleString()} {t("priceValue")}
-          </p>
-          <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-              <Button variant="outline" className="cursor-pointer">
-                {t("button")}
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>{t("dialogTitle")}</DialogTitle>
-                <DialogDescription>{t("dialogDescription")}</DialogDescription>
-              </DialogHeader>
-              <form onSubmit={order} className="flex flex-col gap-4">
-                {data.map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between gap-4"
-                  >
-                    <Label className="text-right">{item.name}</Label>
-                    <Input
-                      id={item.name}
-                      name={item.identifier}
-                      type={item.type}
-                      className="lg:w-[220px] w-[170px]"
-                    />
+          <div className="flex justify-between items-center">
+            <p className="text-2xl font-bold">
+              {t("price")} {totalPrice.toLocaleString()} {t("priceValue")}
+            </p>
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="cursor-pointer lg:w-[200px] lg:h-[50px] w-[120px] h-[35px] border-1 lg:rounded-lg rounded-md border-black bg-gray-800 text-white font-medium lg:text-md lg:font-bold"
+                >
+                  {t("button")}
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>{t("dialogTitle")}</DialogTitle>
+                  <DialogDescription>
+                    {t("dialogDescription")}
+                  </DialogDescription>
+                </DialogHeader>
+                <form onSubmit={order} className="flex flex-col gap-4">
+                  {data.map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between gap-4"
+                    >
+                      <Label className="text-right">{item.name}</Label>
+                      <Input
+                        id={item.name}
+                        name={item.identifier}
+                        type={item.type}
+                        className="lg:w-[220px] w-[170px]"
+                      />
+                    </div>
+                  ))}
+                  <div className="flex items-center justify-between gap-4">
+                    <Label className="text-right">{t("payment")}</Label>
+                    <Select value={payment} onValueChange={setPayment}>
+                      <SelectTrigger className="w-[220px] lg:w-[300px] border rounded-lg">
+                        <SelectValue placeholder="Способ оплаты" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="cash">Наличные</SelectItem>
+                        <SelectItem value="cart">Карта</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
-                ))}
-                <div className="flex items-center justify-between gap-4">
-                  <Label className="text-right">{t("payment")}</Label>
-                  <Select value={payment} onValueChange={setPayment}>
-                    <SelectTrigger className="w-[220px] lg:w-[300px] border rounded-lg">
-                      <SelectValue placeholder="Способ оплаты" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="cash">Наличные</SelectItem>
-                      <SelectItem value="cart">Карта</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                {/* <div className="grid grid-cols-4 items-center gap-4">
+                  {/* <div className="grid grid-cols-4 items-center gap-4">
                   <Label htmlFor="name" className="text-right">
                     Имя
                   </Label>
@@ -227,19 +239,15 @@ export default function CartPage() {
                   </Label>
                   <Input type="email" id="username" className="col-span-3" />
                 </div> */}
-                <DialogFooter>
-                  <Button type="submit">Заказать</Button>
-                </DialogFooter>
-              </form>
-            </DialogContent>
-          </Dialog>
+                  <DialogFooter>
+                    <Button type="submit">Заказать</Button>
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
-
-        <div className="flex gap-4">
-          <Link href={"/catalogueBoy"}>Посмотреть каталог (мальчики)</Link>
-          <Link href={"/catalogueGirl"}>Посмотреть каталог (девочки)</Link>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

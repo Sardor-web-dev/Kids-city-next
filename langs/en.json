@@ -67,6 +67,8 @@
     "price": "Total price: ",
     "priceValue": "so'm",
     "payment": "Payment method",
+    "link": "Go to catalogue",
+    "empty": "Your cart is empty",
     "name": "Name",
     "surname": "Surname",
     "adress": "Residential address",
