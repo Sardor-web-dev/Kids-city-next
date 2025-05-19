@@ -55,7 +55,7 @@ export default function CartPage() {
   👤 Имя: ${name}
   👤 Фамилия: ${surname}
   🏠 Адрес: ${adress}
-  📞 Телефон: +998 ${number}
+  📞 Телефон: +998${number}
   📧 Email: ${email}
   💳 Оплата: ${payment}
   🧾 Сумма: ${totalPrice.toLocaleString()} сум
