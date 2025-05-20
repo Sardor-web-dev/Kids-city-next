@@ -31,6 +31,7 @@ export default function CartPage() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [payment, setPayment] = useState("");
   const [open, setOpen] = useState(false);
+  const [ordered, setOrdered] = useState(false);
 
   const data = [
     { name: t("name"), type: "text", identifier: "name" },
@@ -105,6 +106,10 @@ export default function CartPage() {
 📧 Email: ${email}
 💳 Оплата: ${payment}
 💰 Сумма: ${totalPrice.toLocaleString()} сум
+
+Перейдите по ссылке для управления заказом: https://www.kidscity.uz/admin/orders
+
+Перейдите по ссылке для создания товаров: https://www.kidscity.uz/admin
         `;
 
         await fetch(
@@ -125,6 +130,7 @@ export default function CartPage() {
       setOpen(false);
       alert("Заказ отправлен!");
       clearCart();
+      setOrdered(false);
     } catch (error) {
       console.error("Ошибка отправки:", error);
       alert("Ошибка отправки заказа.");
@@ -253,7 +259,13 @@ export default function CartPage() {
                   <Input type="email" id="username" className="col-span-3" />
                 </div> */}
                   <DialogFooter>
-                    <Button type="submit">Заказать</Button>
+                    {!ordered ? (
+                      <Button onClick={() => setOrdered(true)} type="submit">
+                        Заказать
+                      </Button>
+                    ) : (
+                      <Button>Отправляем заказ...</Button>
+                    )}
                   </DialogFooter>
                 </form>
               </DialogContent>
