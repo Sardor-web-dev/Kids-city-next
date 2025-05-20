@@ -7,8 +7,6 @@ export async function GET() {
     "",
     "/catalogueBoy",
     "/catalogueGirl",
-    "/favorites",
-    "/profile",
     "/cart",
     "/products",
   ];

@@ -2,15 +2,12 @@
 
 import { Cloth } from "@/app/generated/prisma";
 import { useRouter } from "next/navigation";
-import { Button } from "../ui/button";
 import { useTranslations } from "next-intl";
-import { useCart } from "@/contexts/CartContext";
 import ButtonCart from "./ButtonCart";
 
 const ProductCard = ({ cloth }: { cloth: Cloth }) => {
   const router = useRouter();
   const t = useTranslations("Catalogue");
-  const { addItem } = useCart();
 
   return (
     <>
@@ -33,7 +30,7 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
             <p>{cloth.price.toLocaleString()} сум</p>
           </div>
         </div>
-        <ButtonCart cloth={cloth}/>
+        <ButtonCart cloth={cloth} />
       </div>
     </>
   );
