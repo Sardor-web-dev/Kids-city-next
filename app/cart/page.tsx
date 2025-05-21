@@ -24,6 +24,7 @@ import { useCart } from "@/contexts/CartContext";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export default function CartPage() {
   const t = useTranslations("CartPage");
@@ -49,10 +50,17 @@ export default function CartPage() {
     const adress = fm.get("adress");
     const number = fm.get("number");
     const email = fm.get("email");
+
     const TELEGRAM_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
     const CHAT_IDS =
       process.env.NEXT_PUBLIC_TELEGRAM_CHAT_IDS?.split(",") || [];
     const orderNumber = `ORDER-${Date.now()}`;
+
+    if (!name || !surname || !adress || !number || !email || !payment) {
+      toast("Пожалуйста, заполните все поля.");
+      setOrdered(false);
+      return;
+    }
 
     await fetch("/api/orders", {
       method: "POST",
@@ -64,7 +72,7 @@ export default function CartPage() {
         number,
         email,
         payment,
-        items, // массив товаров
+        items,
       }),
     });
 
@@ -128,12 +136,13 @@ export default function CartPage() {
         );
       }
       setOpen(false);
-      alert("Заказ отправлен!");
+      toast("Заказ отправлен!");
       clearCart();
       setOrdered(false);
     } catch (error) {
-      console.error("Ошибка отправки:", error);
-      alert("Ошибка отправки заказа.");
+      console.error("Ошибка отправки заказа:", error);
+      toast("Ошибка отправки заказа.");
+      setOrdered(false);
     }
   };
   useEffect(() => {

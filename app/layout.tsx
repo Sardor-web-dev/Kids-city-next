@@ -8,6 +8,8 @@ import Header from "@/components/custom/Header";
 import Footer from "@/components/custom/Footer";
 import Script from "next/script";
 import { CartProvider } from "@/contexts/CartContext";
+import { Toaster } from "@/components/ui/sonner";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -111,6 +113,7 @@ export default async function RootLayout({
               <section className="pl-2 pr-2 ">
                 <Header />
                 {children}
+                <Toaster/>
                 <Footer />
               </section>
             </CartProvider>
