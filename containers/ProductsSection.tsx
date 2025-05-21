@@ -8,12 +8,12 @@ export default async function ProductSection() {
     {
       img: "/clothes.jpg",
       text: t2("boy"),
-      location: "/catalogueBoy",
+      location: "/catalogue?gender=boy",
     },
     {
       img: "/paijamas.jpg",
       text: t2("girl"),
-      location: "/catalogueGirl",
+      location: "/catalogue?gender=girl",
     },
   ];
   return (
