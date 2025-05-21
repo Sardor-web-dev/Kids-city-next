@@ -169,13 +169,13 @@ export default function CartPage() {
           <h2 className="text-2xl font-bold">{t("empty")}</h2>
           <div className="flex items-center gap-10">
             <Link
-              href={"/catalogueBoy"}
+              href={"/catalogue?gender=boy"}
               className="text-lg text-blue-500 hover:underline"
             >
               {t("link")}
             </Link>
             <Link
-              href={"/catalogueGirl"}
+              href={"/catalogue?gender=girl"}
               className="text-lg text-pink-500 hover:underline"
             >
               {t("link")}
