@@ -1,5 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationArrow } from "react-icons/fa";
+import { BsTelegram } from "react-icons/bs";
+import { FaInstagram } from "react-icons/fa";
 
 export default async function Footer() {
   const t = await getTranslations("Footer");
@@ -12,7 +16,8 @@ export default async function Footer() {
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 text-center text-lg font-medium">
         <div className="space-y-2">
-          <p>
+          <p className="flex items-center">
+            <FaPhoneAlt size={20} className="text-2xl mr-2" />
             {t("phone")}
             <Link
               href="tel:+998973970034"
@@ -21,11 +26,15 @@ export default async function Footer() {
               +998 97 397 00 34
             </Link>
           </p>
-          <p>{t("adress")}</p>
+          <p className="flex items-center">
+            <FaLocationArrow size={20} className="text-2xl mr-2" />
+            {t("adress")}
+          </p>
         </div>
 
         <div className="space-y-2">
-          <p>
+          <p className="flex items-center">
+            <FaInstagram size={20} className="text-2xl mr-2" />
             <Link
               className="underline hover:text-gray-200"
               href="https://www.instagram.com/kids_city_sam/"
@@ -34,7 +43,8 @@ export default async function Footer() {
               Instagram: @kids_city_sam
             </Link>
           </p>
-          <p>
+          <p className="flex items-center">
+            <BsTelegram size={20} className="text-2xl mr-2" />
             <Link
               className="underline hover:text-gray-200"
               href="https://t.me/kids_city_sam"

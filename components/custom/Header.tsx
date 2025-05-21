@@ -42,6 +42,7 @@ const Header = () => {
             { href: "#about_us", label: t("about") },
             { href: "#why_best", label: t("causes") },
             { href: "#contacts", label: t("contacts") },
+            {href: "#FAQ", label: t("FAQ")},
           ].map((link, i) => (
             <Link
               key={i}
