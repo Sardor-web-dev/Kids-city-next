@@ -6,7 +6,7 @@
     "causes": "Nimaga biz",
     "products": "Xizmatlar va tovarlar",
     "contacts": "Kontaktlar",
-    "FAQ": "Tez-tez so'raladigan savollar",
+    "FAQ": "Ko'p beriladigan savollar",
     "russianbtn": "Russcha",
     "englishbtn": "Inglizcha",
     "uzbekbtn": "Uzbekcha",
@@ -79,5 +79,28 @@
     "dialogTitle": "Yetkazib berish tartibi",
     "dialogDescription": "Yetkazib berishni tashkil qilish uchun quyidagi shaklni to'ldiring.",
     "button": "Buyurtma berish"
+  },
+  "FAQ": {
+    "title": "Ko'p beriladigan savollar",
+    "item1": {
+      "title": "Mahsulotga buyurtma berganimdan keyin nima qilishim kerak?",
+      "content": "Buyurtma berganingizdan so'ng, buyurtmangizni tasdiqlash va yetkazib berish tafsilotlarini muhokama qilish uchun 24 soat ichida siz bilan bog'lanamiz."
+    },
+    "item2": {
+      "title": "Qaysi to'lov shakli mavjud?",
+      "content": "Biz naqd va naqdsiz to'lovlarni qabul qilamiz. Buyurtma berishda siz o'zingiz uchun eng qulay to'lov usulini tanlashingiz mumkin."
+    },
+    "item3": {
+      "title": "Etkazib berish muddati qancha?",
+      "content": "Etkazib berish muddati sizning joylashuvingiz va zaxirangiz mavjudligiga bog'liq. Yetkazib berish odatda 1 dan 5 ish kunigacha davom etadi."
+    },
+    "item4": {
+      "title": "Buyurtmani qanday bekor qilishim yoki o'zgartirishim mumkin?",
+      "content": "Siz bizning qo'llab-quvvatlash guruhimizga murojaat qilish orqali buyurtmangizni bekor qilishingiz yoki o'zgartirishingiz mumkin. Iltimos, so'rovingizni ko'rib chiqishimiz uchun buni imkon qadar tezroq bajaring."
+    },
+    "item5": {
+      "title": "Buyurtmani qanday kuzatish mumkin?",
+      "content": "Buyurtmangiz jo'natilgandan so'ng, biz sizga kuryerlik xizmati veb-saytida yetkazib berish holatini kuzatish uchun foydalanishingiz mumkin bo'lgan kuzatuv raqamini taqdim etamiz."
+    }
   }
 }

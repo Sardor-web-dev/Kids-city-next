@@ -79,5 +79,28 @@
     "dialogTitle": "Delivery order",
     "dialogDescription": "Please fill out the form below to arrange delivery.",
     "button": "Order"
+  },
+  "FAQ": {
+    "title": "Frequently asked questions",
+    "item1": {
+      "title": "What should I do after I've ordered an item?",
+      "content": "After you've placed an order, we'll contact you within 24 hours to confirm your order and discuss delivery details."
+    },
+    "item2": {
+      "title": "What form of payment is available?",
+      "content": "We accept cash and bank transfers. You can choose the most convenient payment method for you when placing your order."
+    },
+    "item3": {
+      "title": "What is the delivery time?",
+      "content": "Delivery time depends on your location and stock status. Delivery usually takes 1 to 5 business days."
+    },
+    "item4": {
+      "title": "How can I cancel or change my order?",
+      "content": "You can cancel or change your order by contacting our customer service. Please do this as soon as possible so that we can process your request."
+    },
+    "item5": {
+      "title": "How can I track my order?",
+      "content": "Once your order has been shipped, we will provide you with a tracking number that you can use to track the delivery status on the courier service's website."
+    }
   }
 }

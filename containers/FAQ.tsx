@@ -4,36 +4,33 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-const FAQarr = [
-  {
-    title: "Что мне делать после того как я заказал товар?",
-    content:
-      "После того как вы сделали заказ, мы свяжемся с вами в течение 24 часов, чтобы подтвердить ваш заказ и обсудить детали доставки.",
-  },
-  {
-    title: "Какая форма оплаты доступна?",
-    content:
-      "Мы принимаем наличные и безналичные платежи. Вы можете выбрать наиболее удобный для вас способ оплаты при оформлении заказа.",
-  },
-  {
-    title: "Какой срок доставки?",
-    content:
-      "Срок доставки зависит от вашего местоположения и наличия товара на складе. Обычно доставка занимает от 1 до 5 рабочих дней.",
-  },
-  {
-    title: "Как я могу отменить или изменить свой заказ?",
-    content:
-      "Вы можете отменить или изменить свой заказ, связавшись с нашей службой поддержки. Пожалуйста, сделайте это как можно скорее, чтобы мы могли обработать ваш запрос.",
-  },
-  {
-    title: "Как я могу отследить свой заказ?",
-    content:
-      "После отправки вашего заказа мы предоставим вам номер отслеживания, который вы сможете использовать для отслеживания статуса доставки на сайте курьерской службы.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 const FAQ = () => {
+  const t = useTranslations("FAQ");
+
+  const FAQarr = [
+    {
+      title: t("item1.title"),
+      content: t("item1.content"),
+    },
+    {
+      title: t("item2.title"),
+      content: t("item2.content"),
+    },
+    {
+      title: t("item3.title"),
+      content: t("item3.content"),
+    },
+    {
+      title: t("item4.title"),
+      content: t("item4.content"),
+    },
+    {
+      title: t("item5.title"),
+      content: t("item5.content"),
+    },
+  ];
   return (
     <>
       <div
@@ -41,7 +38,7 @@ const FAQ = () => {
         className="flex max-w-[350px] mx-auto lg:gap-20 lg:max-w-[1250px] flex-col lg:flex-row lg:items-start items-center justify-center lg:justify-between mt-20 mb-10"
       >
         <p className="lg:text-4xl text-2xl font-black">
-          До сих пор есть вопросы?
+          {t("title")}
         </p>
         <div>
           {FAQarr.map((item, i) => (
