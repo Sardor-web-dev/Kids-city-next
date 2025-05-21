@@ -38,7 +38,7 @@ const FAQ = () => {
     <>
       <div
         id="FAQ"
-        className="flex max-w-[350px] mx-auto lg:max-w-[1250px] flex-col lg:flex-row lg:items-start items-center justify-center lg:justify-between mt-20 mb-10"
+        className="flex max-w-[350px] mx-auto lg:gap-20 lg:max-w-[1250px] flex-col lg:flex-row lg:items-start items-center justify-center lg:justify-between mt-20 mb-10"
       >
         <p className="lg:text-4xl text-2xl font-black">
           До сих пор есть вопросы?
