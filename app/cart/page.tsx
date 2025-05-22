@@ -25,6 +25,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 export default function CartPage() {
   const t = useTranslations("CartPage");
@@ -154,8 +155,18 @@ export default function CartPage() {
   }, [items]);
 
   return (
-    <div className="mx-auto max-w-[1200px]">
-      <div className="flex items-center mb-10 justify-between">
+    <motion.div
+      className="mx-auto max-w-[1200px]"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.div
+        className="flex items-center mb-10 justify-between"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
         <h1 className="text-2xl lg:text-4xl font-bold">{t("title")}</h1>
         <p
           className="cursor-pointer hover:scale-105 transition-all"
@@ -163,7 +174,7 @@ export default function CartPage() {
         >
           {t("clear")}
         </p>
-      </div>
+      </motion.div>
       {items.length === 0 ? (
         <div className="flex flex-col items-center justify-center gap-4">
           <h2 className="text-2xl font-bold">{t("empty")}</h2>
@@ -186,7 +197,14 @@ export default function CartPage() {
         <div className="flex flex-col gap-10">
           <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
             {items.map((item) => (
-              <CartItemCard key={item.id} cloth={item} />
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * item.id, duration: 0.4 }}
+              >
+                <CartItemCard key={item.id} cloth={item} />
+              </motion.div>
             ))}
           </div>
 
@@ -282,6 +300,6 @@ export default function CartPage() {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
