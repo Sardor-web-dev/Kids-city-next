@@ -21,6 +21,7 @@ export default async function Catalogue({ searchParams }: Props) {
 
   const t = await getTranslations("Catalogue");
 
+  
   return (
     <AnimatedCatalogue
       title={t("title")}
