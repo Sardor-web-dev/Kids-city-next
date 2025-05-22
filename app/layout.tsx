@@ -10,7 +10,6 @@ import Script from "next/script";
 import { CartProvider } from "@/contexts/CartContext";
 import { Toaster } from "@/components/ui/sonner";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,8 +25,7 @@ export async function generateMetadata() {
 
   return {
     title: "Kids City",
-    description:
-      "Лучший магазин детской одежды в Самарканде",
+    description: "Лучший магазин детской одежды в Самарканде",
     ogImage: ogImage,
     keywords:
       "детская одежда Самарканд, детская мода, вещи для девочек, мальчиков, магазин детской одежды, kids city, детские платья, костюмы, одежда 0-10 лет",
@@ -68,8 +66,9 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://www.kidscity.uz/favicon.ico" />
         <link rel="canonical" href="https://www.kidscity.uz" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Yandex.Metrika */}
@@ -113,7 +112,7 @@ export default async function RootLayout({
               <section className="pl-2 pr-2 ">
                 <Header />
                 {children}
-                <Toaster/>
+                <Toaster />
                 <Footer />
               </section>
             </CartProvider>

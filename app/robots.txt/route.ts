@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export function GET() {
   const body = `User-agent: *
 Disallow: /admin
-Allow: /
+Allow: /favicon.ico
 Sitemap: https://www.kidscity.uz/sitemap.xml`;
 
   return new NextResponse(body, {
