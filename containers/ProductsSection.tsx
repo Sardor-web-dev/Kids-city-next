@@ -43,7 +43,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
+import Autoscroll from "embla-carousel-auto-scroll";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 const ProductSection = () => {
@@ -73,15 +74,15 @@ const ProductSection = () => {
 
       <div className="lg:flex mt-5 hidden lg:flex-row gap-6">
         <Carousel
+          opts={{ loop: true }}
           plugins={[
-            Autoplay({
-              delay: 2000,
+            Autoscroll({
+              speed: 2,
+              direction: "forward",
+              playOnInit: true,
+              startDelay: 1000,
             }),
           ]}
-          opts={{
-            align: "start",
-            slidesToScroll: 1,
-          }}
           className="relative flex flex-col items-center justify-center w-full"
         >
           <CarouselContent>
@@ -115,9 +116,13 @@ const ProductSection = () => {
 
       <div className="lg:hidden flex flex-col items-center">
         <Carousel
+          opts={{ loop: true }}
           plugins={[
-            Autoplay({
-              delay: 2000,
+            AutoScroll({
+              speed: 2,
+              direction: "forward",
+              playOnInit: true,
+              startDelay: 1000,
             }),
           ]}
           className="relative flex flex-col items-center justify-center w-full max-w-xs"
