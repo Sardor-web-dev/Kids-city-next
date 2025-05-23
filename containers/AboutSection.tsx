@@ -6,7 +6,7 @@ export default async function AboutSection() {
   return (
     <section
       id="about_us"
-      className="mt-20 flex flex-col lg:flex-row items-center justify-center gap-[50px] px-4"
+      className="mt-20 w-full flex flex-col lg:flex-row items-center justify-between"
     >
       <div className="text-left max-w-[500px] h-full flex flex-col gap-5">
         <h2 className="text-2xl font-bold text-center">{t("title")}</h2>
@@ -20,8 +20,8 @@ export default async function AboutSection() {
         ))}
       </div>
       <img
-        className="h-[500px] lg:hover:scale-105 transition-transform duration-300 rounded-2xl"
-        src="/shop.png"
+        className="h-[450px] lg:hover:scale-105 transition-transform duration-300 rounded-2xl"
+        src="https://avatars.mds.yandex.net/get-altay/15223195/2a00000194ab8c65ded07e225b5837097cdf/orig"
         alt="Наш магазин"
       />
     </section>
