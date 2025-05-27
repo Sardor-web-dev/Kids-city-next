@@ -1,11 +1,7 @@
 import EditForm from "@/components/custom/EditForm";
 import { prisma } from "@/lib/prisma";
 
-export default async function EditClothPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function EditClothPage({ params }: any) {
   const cloth = await prisma.cloth.findUnique({
     where: { id: parseInt(params.id) },
   });
