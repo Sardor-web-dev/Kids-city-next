@@ -1,5 +1,5 @@
 import ButtonCart from "@/components/custom/ButtonCart";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
 export default async function ProductPage({ params }: { params: any }) {

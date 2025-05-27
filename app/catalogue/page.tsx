@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import AnimatedCatalogue from "@/components/animations/AnimatedCatalogue";

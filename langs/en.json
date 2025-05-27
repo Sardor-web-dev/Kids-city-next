@@ -12,7 +12,8 @@
     "uzbekbtn": "Uzbek",
     "admin": "Go to AdminPage",
     "ourproducts": "Our Products",
-    "desc": "The best and highest quality children's clothing in Samarkand!"
+    "desc": "The best and highest quality children's clothing in Samarkand!",
+    "button": "Go to Catalogue"
   },
   "AdminPage": {
     "title": "Welcome to the admin pannel of official Kids City's website",
@@ -100,7 +101,12 @@
     },
     "item5": {
       "title": "How can I track my order?",
-      "content": "Once your order has been shipped, we will provide you with a tracking number that you can use to track the delivery status on the courier service's website."
+      "content": "After sending your order, we will put a status on your order, which you can track on your profile page and you can look at your other orders"
     }
+  },
+  "404": {
+    "title": "404 - Page Not Found",
+    "description": "The page you are looking for does not exist. Please check the URL or return to the homepage.",
+    "button": "Go back to Home"
   }
 }

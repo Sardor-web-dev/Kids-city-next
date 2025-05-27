@@ -12,7 +12,8 @@
     "uzbekbtn": "Uzbekcha",
     "admin": "Admin betga otish",
     "ourproducts": "Bizning Mahsulotlarimiz",
-    "desc": "Samarqanddagi eng yaxshi va sifatli bolalar kiyimlari!"
+    "desc": "Samarqanddagi eng yaxshi va sifatli bolalar kiyimlari!",
+    "button": "Katalogga o'tish"
   },
   "AdminPage": {
     "title": "Kids City rasmiy veb-saytining admin sahifasiga xush kelibsiz",
@@ -100,7 +101,12 @@
     },
     "item5": {
       "title": "Buyurtmani qanday kuzatish mumkin?",
-      "content": "Buyurtmangiz jo'natilgandan so'ng, biz sizga kuryerlik xizmati veb-saytida yetkazib berish holatini kuzatish uchun foydalanishingiz mumkin bo'lgan kuzatuv raqamini taqdim etamiz."
+      "content": "Buyurtmangiz jo'natilgandan so'ng, biz sizning buyurtmangiz holatini o'rnatamiz, uni profil sahifangizda kuzatishingiz va boshqa buyurtmalaringizni ko'rishingiz mumkin"
     }
+  },
+  "404": {
+    "title": "404 - Sahifa topilmadi",
+    "description": "Siz so'ragan sahifa mavjud emas.",
+    "button": "Asosiy sahifaga qaytish"
   }
 }

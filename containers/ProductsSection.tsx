@@ -111,7 +111,7 @@ const ProductSection = () => {
         variant={"outline"}
         className="cursor-pointer hidden lg:flex lg:w-[200px] lg:h-[50px] w-[130px] h-[40px] border-1 lg:rounded-lg rounded-md border-black bg-gray-800 text-white font-medium lg:text-md lg:font-bold"
       >
-        Зайти в каталог
+        {t("button")}
       </Button>
 
       <div className="lg:hidden flex flex-col items-center">
@@ -143,7 +143,7 @@ const ProductSection = () => {
             variant={"outline"}
             className="cursor-pointer mt-5 lg:hidden w-[130px] h-[40px] border-1 rounded-md border-black bg-gray-800 text-white font-medium "
           >
-            Зайти в каталог
+            {t("button")}
           </Button>
 
           <div className="flex relative justify-center mt-10">

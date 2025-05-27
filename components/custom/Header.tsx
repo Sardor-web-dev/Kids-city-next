@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { MdLanguage } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
+import { MdOutlineAccountCircle } from "react-icons/md";
 
 import {
   DropdownMenu,
@@ -25,7 +26,7 @@ const Header = () => {
   }
 
   return (
-    <header className="w-full max-w-[1250px] mx-auto py-4">
+    <header className="w-full max-w-[1250px] bg-white mx-auto py-4">
       <div className="flex md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-8 flex-wrap">
           <Link href="/">
@@ -55,6 +56,9 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-2">
+          <Link className="mr-2" href={"/profile"}>
+            <MdOutlineAccountCircle size={24} />
+          </Link>
           <DropdownMenu>
             <DropdownMenuTrigger className="cursor-pointer">
               <MdLanguage size="24" />

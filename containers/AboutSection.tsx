@@ -6,7 +6,7 @@ export default async function AboutSection() {
   return (
     <section
       id="about_us"
-      className="mt-20 w-full flex flex-col lg:flex-row items-center justify-between"
+      className="mt-20 w-full flex flex-col lg:flex-row items-center justify-center gap-10 lg:justify-between"
     >
       <div className="text-left max-w-[500px] h-full flex flex-col gap-5">
         <h2 className="text-2xl font-bold text-center">{t("title")}</h2>
