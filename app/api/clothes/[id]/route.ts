@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } } // <-- string, не number!
+  { params }: any // <-- string, не number!
 ) {
   try {
     const clothId = parseInt(params.id); // Преобразуй в число
@@ -17,10 +17,7 @@ export async function DELETE(
   }
 }
 
-export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(req: Request, { params }: any) {
   try {
     const clothId = parseInt(params.id);
     const body = await req.json();
