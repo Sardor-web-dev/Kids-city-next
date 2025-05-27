@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const baseUrl = "https://www.kidscity.uz";
 
-  const staticPages = ["", "/catalogue", "/cart", "/products"];
+  const staticPages = ["", "/catalogue", "/cart", "/products/[id]", "/profile", "/auth/signin"];
 
   const urls = staticPages
     .map((page) => {
