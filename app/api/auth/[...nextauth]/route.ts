@@ -94,6 +94,10 @@ const authOptions: NextAuthOptions = {
       return session;
     },
   },
+  pages: {
+    signIn: "/auth/signin",
+    error: "/auth/error", // Error page URL
+  },
 
   secret: process.env.NEXTAUTH_SECRET,
   debug: false,

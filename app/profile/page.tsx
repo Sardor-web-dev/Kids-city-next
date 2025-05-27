@@ -1,5 +1,6 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { Button } from "@/components/ui/button";
+import { signIn, useSession } from "next-auth/react";
 
 export default function Profile() {
   const { data: session } = useSession();
@@ -8,10 +9,18 @@ export default function Profile() {
 
   return (
     <div>
-      <h1>Profile</h1>
-      <p>Name: {session?.user?.name}</p>
-      <p>Email: {session?.user?.email}</p>
-      <p>Role: {session?.user?.role}</p>
+      {!session ? (
+        <Button onClick={() => signIn()} variant="outline">
+          Sign In
+        </Button>
+      ) : (
+        <div>
+          <h1>Profile</h1>
+          <p>Name: {session?.user?.name}</p>
+          <p>Email: {session?.user?.email}</p>
+          <p>Role: {session?.user?.role}</p>
+        </div>
+      )}
     </div>
   );
 }
