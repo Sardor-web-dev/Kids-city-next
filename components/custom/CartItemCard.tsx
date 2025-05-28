@@ -2,10 +2,11 @@
 
 import { CartItem, useCart } from "@/contexts/CartContext";
 import { useRouter } from "next/navigation";
+import { FaTrash } from "react-icons/fa";
 
 const CartItemCard = ({ cloth }: { cloth: CartItem }) => {
   const router = useRouter();
-  const { addItem, removeItem } = useCart();
+  const { addItem, removeItem, removeFromCart } = useCart();
 
   return (
     <div className="flex flex-col gap-2">
@@ -51,6 +52,7 @@ const CartItemCard = ({ cloth }: { cloth: CartItem }) => {
               >
                 +
               </button>
+              <FaTrash size={15} onClick={() => removeFromCart(cloth.id)} />
             </div>
           </div>
         </div>
