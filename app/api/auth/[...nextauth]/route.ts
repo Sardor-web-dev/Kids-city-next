@@ -54,11 +54,15 @@ const authOptions: NextAuthOptions = {
           throw new Error("Invalid email or password");
         }
 
+        if (user.isBlocked) {
+          throw new Error("Your account has been blocked.");
+        }
+
         return {
           id: user.id.toString(),
           name: user.name,
           email: user.email,
-          role: user.role, // Возвращаем роль
+          role: user.role,
         };
       },
     }),
@@ -68,19 +72,26 @@ const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, user }) {
-      // При первом входе добавляем роль из user (при login)
+      // При первом входе добавляем роль и isBlocked
       if (user) {
         token.role = user.role;
+        // Загружаем isBlocked при логине через Credentials
+        const dbUser = await prisma.user.findUnique({
+          where: { email: user.email! },
+          select: { isBlocked: true },
+        });
+        token.isBlocked = dbUser?.isBlocked ?? false;
       }
 
-      // Если роль отсутствует, подгружаем из базы
-      if (!token.role && token.email) {
+      // Если уже залогинен и нет isBlocked, подгружаем
+      if (token.email && token.isBlocked === undefined) {
         const dbUser = await prisma.user.findUnique({
           where: { email: token.email },
-          select: { role: true },
+          select: { isBlocked: true, role: true },
         });
         if (dbUser) {
           token.role = dbUser.role;
+          token.isBlocked = dbUser.isBlocked;
         }
       }
 
@@ -90,10 +101,12 @@ const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       if (session.user) {
         session.user.role = token.role as string;
+        session.user.isBlocked = token.isBlocked as boolean;
       }
       return session;
     },
   },
+
   pages: {
     signIn: "/auth/signin",
     error: "/auth/error", // Error page URL

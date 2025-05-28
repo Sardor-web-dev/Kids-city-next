@@ -1,3 +1,4 @@
+import BlockUserBtn from "@/components/custom/BlockUserBtn";
 import { prisma } from "@/lib/prisma";
 
 export default async function Clothes() {
@@ -15,9 +16,7 @@ export default async function Clothes() {
             <p className="text-gray-600">{user.email}</p>
             <p className="text-lg font-semibold mt-2">{user.role}</p>
             <div className="flex items-center gap-2 mt-5">
-              <button className="bg-red-500 text-white px-4 py-2 rounded-lg cursor-pointer">
-                Заблокировать
-              </button>
+              <BlockUserBtn userId={user.id} initialBlocked={user.isBlocked} />
             </div>
           </div>
         ))}

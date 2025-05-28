@@ -1417,6 +1417,7 @@ export namespace Prisma {
     password: string | null
     image: string | null
     role: $Enums.Role | null
+    isBlocked: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1427,6 +1428,7 @@ export namespace Prisma {
     password: string | null
     image: string | null
     role: $Enums.Role | null
+    isBlocked: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1437,6 +1439,7 @@ export namespace Prisma {
     password: number
     image: number
     role: number
+    isBlocked: number
     _all: number
   }
 
@@ -1457,6 +1460,7 @@ export namespace Prisma {
     password?: true
     image?: true
     role?: true
+    isBlocked?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1467,6 +1471,7 @@ export namespace Prisma {
     password?: true
     image?: true
     role?: true
+    isBlocked?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1477,6 +1482,7 @@ export namespace Prisma {
     password?: true
     image?: true
     role?: true
+    isBlocked?: true
     _all?: true
   }
 
@@ -1574,6 +1580,7 @@ export namespace Prisma {
     password: string | null
     image: string | null
     role: $Enums.Role
+    isBlocked: boolean
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1603,6 +1610,7 @@ export namespace Prisma {
     password?: boolean
     image?: boolean
     role?: boolean
+    isBlocked?: boolean
     clothes?: boolean | User$clothesArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
@@ -1617,6 +1625,7 @@ export namespace Prisma {
     password?: boolean
     image?: boolean
     role?: boolean
+    isBlocked?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1627,6 +1636,7 @@ export namespace Prisma {
     password?: boolean
     image?: boolean
     role?: boolean
+    isBlocked?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1637,9 +1647,10 @@ export namespace Prisma {
     password?: boolean
     image?: boolean
     role?: boolean
+    isBlocked?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "name" | "password" | "image" | "role", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "name" | "password" | "image" | "role" | "isBlocked", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clothes?: boolean | User$clothesArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
@@ -1664,6 +1675,7 @@ export namespace Prisma {
       password: string | null
       image: string | null
       role: $Enums.Role
+      isBlocked: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2097,6 +2109,7 @@ export namespace Prisma {
     readonly password: FieldRef<"User", 'String'>
     readonly image: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
+    readonly isBlocked: FieldRef<"User", 'Boolean'>
   }
     
 
@@ -8064,7 +8077,8 @@ export namespace Prisma {
     name: 'name',
     password: 'password',
     image: 'image',
-    role: 'role'
+    role: 'role',
+    isBlocked: 'isBlocked'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -8239,6 +8253,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Json'
    */
   export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
@@ -8280,6 +8301,7 @@ export namespace Prisma {
     password?: StringNullableFilter<"User"> | string | null
     image?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleFilter<"User"> | $Enums.Role
+    isBlocked?: BoolFilter<"User"> | boolean
     clothes?: ClothListRelationFilter
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
@@ -8293,6 +8315,7 @@ export namespace Prisma {
     password?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     role?: SortOrder
+    isBlocked?: SortOrder
     clothes?: ClothOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
@@ -8309,6 +8332,7 @@ export namespace Prisma {
     password?: StringNullableFilter<"User"> | string | null
     image?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleFilter<"User"> | $Enums.Role
+    isBlocked?: BoolFilter<"User"> | boolean
     clothes?: ClothListRelationFilter
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
@@ -8322,6 +8346,7 @@ export namespace Prisma {
     password?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
     role?: SortOrder
+    isBlocked?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -8340,6 +8365,7 @@ export namespace Prisma {
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
+    isBlocked?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
   export type AccountWhereInput = {
@@ -8688,6 +8714,7 @@ export namespace Prisma {
     password?: string | null
     image?: string | null
     role?: $Enums.Role
+    isBlocked?: boolean
     clothes?: ClothCreateNestedManyWithoutAuthorInput
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -8701,6 +8728,7 @@ export namespace Prisma {
     password?: string | null
     image?: string | null
     role?: $Enums.Role
+    isBlocked?: boolean
     clothes?: ClothUncheckedCreateNestedManyWithoutAuthorInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -8713,6 +8741,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
     clothes?: ClothUpdateManyWithoutAuthorNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -8726,6 +8755,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
     clothes?: ClothUncheckedUpdateManyWithoutAuthorNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -8739,6 +8769,7 @@ export namespace Prisma {
     password?: string | null
     image?: string | null
     role?: $Enums.Role
+    isBlocked?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
@@ -8748,6 +8779,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -8758,6 +8790,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type AccountCreateInput = {
@@ -9162,6 +9195,11 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type ClothListRelationFilter = {
     every?: ClothWhereInput
     some?: ClothWhereInput
@@ -9205,6 +9243,7 @@ export namespace Prisma {
     password?: SortOrder
     image?: SortOrder
     role?: SortOrder
+    isBlocked?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -9219,6 +9258,7 @@ export namespace Prisma {
     password?: SortOrder
     image?: SortOrder
     role?: SortOrder
+    isBlocked?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -9229,6 +9269,7 @@ export namespace Prisma {
     password?: SortOrder
     image?: SortOrder
     role?: SortOrder
+    isBlocked?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -9291,6 +9332,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumRoleFilter<$PrismaModel>
     _max?: NestedEnumRoleFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -9690,6 +9739,10 @@ export namespace Prisma {
     set?: $Enums.Role
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
   export type ClothUpdateManyWithoutAuthorNestedInput = {
     create?: XOR<ClothCreateWithoutAuthorInput, ClothUncheckedCreateWithoutAuthorInput> | ClothCreateWithoutAuthorInput[] | ClothUncheckedCreateWithoutAuthorInput[]
     connectOrCreate?: ClothCreateOrConnectWithoutAuthorInput | ClothCreateOrConnectWithoutAuthorInput[]
@@ -9883,6 +9936,11 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -9960,6 +10018,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumRoleFilter<$PrismaModel>
     _max?: NestedEnumRoleFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -10254,6 +10320,7 @@ export namespace Prisma {
     password?: string | null
     image?: string | null
     role?: $Enums.Role
+    isBlocked?: boolean
     clothes?: ClothCreateNestedManyWithoutAuthorInput
     sessions?: SessionCreateNestedManyWithoutUserInput
   }
@@ -10266,6 +10333,7 @@ export namespace Prisma {
     password?: string | null
     image?: string | null
     role?: $Enums.Role
+    isBlocked?: boolean
     clothes?: ClothUncheckedCreateNestedManyWithoutAuthorInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
@@ -10293,6 +10361,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
     clothes?: ClothUpdateManyWithoutAuthorNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
   }
@@ -10305,6 +10374,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
     clothes?: ClothUncheckedUpdateManyWithoutAuthorNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -10316,6 +10386,7 @@ export namespace Prisma {
     password?: string | null
     image?: string | null
     role?: $Enums.Role
+    isBlocked?: boolean
     clothes?: ClothCreateNestedManyWithoutAuthorInput
     accounts?: AccountCreateNestedManyWithoutUserInput
   }
@@ -10328,6 +10399,7 @@ export namespace Prisma {
     password?: string | null
     image?: string | null
     role?: $Enums.Role
+    isBlocked?: boolean
     clothes?: ClothUncheckedCreateNestedManyWithoutAuthorInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
   }
@@ -10355,6 +10427,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
     clothes?: ClothUpdateManyWithoutAuthorNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
   }
@@ -10367,6 +10440,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
     clothes?: ClothUncheckedUpdateManyWithoutAuthorNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -10378,6 +10452,7 @@ export namespace Prisma {
     password?: string | null
     image?: string | null
     role?: $Enums.Role
+    isBlocked?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
   }
@@ -10390,6 +10465,7 @@ export namespace Prisma {
     password?: string | null
     image?: string | null
     role?: $Enums.Role
+    isBlocked?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
@@ -10417,6 +10493,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
   }
@@ -10429,6 +10506,7 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    isBlocked?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }

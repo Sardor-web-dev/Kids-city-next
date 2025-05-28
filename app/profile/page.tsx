@@ -19,6 +19,9 @@ export default function Profile() {
           <p>Name: {session?.user?.name}</p>
           <p>Email: {session?.user?.email}</p>
           <p>Role: {session?.user?.role}</p>
+          <p>
+            Status: {session.user.isBlocked ? "🚫 Заблокирован" : "✅ Активен"}
+          </p>
         </div>
       )}
     </div>

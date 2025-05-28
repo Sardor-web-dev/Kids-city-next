@@ -19,11 +19,12 @@ model User {
   emailVerified DateTime?
   name          String?
   password      String?
-  image         String? // <-- добавь это
+  image         String? // фотка 
   clothes       Cloth[]
   role          Role      @default(USER)
   accounts      Account[]
   sessions      Session[]
+  isBlocked     Boolean   @default(false) // статус usera
 }
 
 model Account {
