@@ -3,11 +3,13 @@
 import { UploadDropzone } from "@/lib/uploadthing";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 export default function EditForm({ cloth }: { cloth: any }) {
   const [name, setName] = useState(cloth.name);
   const [description, setDescription] = useState(cloth.description);
   const [price, setPrice] = useState(cloth.price);
+  const [gender, setGender] = useState(cloth.gender);
   const [imageUrl, setImageUrl] = useState(cloth.image);
 
   const router = useRouter();
@@ -18,7 +20,7 @@ export default function EditForm({ cloth }: { cloth: any }) {
     const res = await fetch(`/api/clothes/${cloth.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, description, price, imageUrl }),
+      body: JSON.stringify({ name, description, price, imageUrl, gender }),
     });
 
     if (res.ok) {
@@ -66,6 +68,16 @@ export default function EditForm({ cloth }: { cloth: any }) {
       {imageUrl && (
         <img src={imageUrl} alt="Uploaded" className="w-32 h-32 mt-2 rounded" />
       )}
+      <label>Гендер</label>
+      <Select value={gender} onValueChange={setGender}>
+        <SelectTrigger className="w-full px-4 py-2 border rounded-lg">
+          <SelectValue placeholder="Гендер" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="boy">Boy</SelectItem>
+          <SelectItem value="girl">Girl</SelectItem>
+        </SelectContent>
+      </Select>
       <button
         type="submit"
         className="bg-blue-600 text-white py-2 px-4 rounded"

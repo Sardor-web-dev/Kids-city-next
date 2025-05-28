@@ -21,7 +21,7 @@ export async function PUT(req: Request, { params }: any) {
   try {
     const clothId = parseInt(params.id);
     const body = await req.json();
-    const { name, description, price, imageUrl } = body;
+    const { name, description, price, imageUrl, gender } = body;
 
     const updated = await prisma.cloth.update({
       where: { id: clothId },
@@ -30,6 +30,7 @@ export async function PUT(req: Request, { params }: any) {
         description,
         price,
         Image: imageUrl,
+        gender
       },
     });
 
