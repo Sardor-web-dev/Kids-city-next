@@ -55,11 +55,24 @@ export namespace $Enums {
 
 export type Role = (typeof Role)[keyof typeof Role]
 
+
+export const Status: {
+  process: 'process',
+  done: 'done',
+  canceled: 'canceled'
+};
+
+export type Status = (typeof Status)[keyof typeof Status]
+
 }
 
 export type Role = $Enums.Role
 
 export const Role: typeof $Enums.Role
+
+export type Status = $Enums.Status
+
+export const Status: typeof $Enums.Status
 
 /**
  * ##  Prisma Client ʲˢ
@@ -6996,6 +7009,7 @@ export namespace Prisma {
     payment: string | null
     total: number | null
     createdAt: Date | null
+    status: $Enums.Status | null
   }
 
   export type OrderMaxAggregateOutputType = {
@@ -7008,6 +7022,7 @@ export namespace Prisma {
     payment: string | null
     total: number | null
     createdAt: Date | null
+    status: $Enums.Status | null
   }
 
   export type OrderCountAggregateOutputType = {
@@ -7021,6 +7036,7 @@ export namespace Prisma {
     total: number
     items: number
     createdAt: number
+    status: number
     _all: number
   }
 
@@ -7043,6 +7059,7 @@ export namespace Prisma {
     payment?: true
     total?: true
     createdAt?: true
+    status?: true
   }
 
   export type OrderMaxAggregateInputType = {
@@ -7055,6 +7072,7 @@ export namespace Prisma {
     payment?: true
     total?: true
     createdAt?: true
+    status?: true
   }
 
   export type OrderCountAggregateInputType = {
@@ -7068,6 +7086,7 @@ export namespace Prisma {
     total?: true
     items?: true
     createdAt?: true
+    status?: true
     _all?: true
   }
 
@@ -7168,6 +7187,7 @@ export namespace Prisma {
     total: number
     items: JsonValue
     createdAt: Date
+    status: $Enums.Status
     _count: OrderCountAggregateOutputType | null
     _avg: OrderAvgAggregateOutputType | null
     _sum: OrderSumAggregateOutputType | null
@@ -7200,6 +7220,7 @@ export namespace Prisma {
     total?: boolean
     items?: boolean
     createdAt?: boolean
+    status?: boolean
   }, ExtArgs["result"]["order"]>
 
   export type OrderSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7213,6 +7234,7 @@ export namespace Prisma {
     total?: boolean
     items?: boolean
     createdAt?: boolean
+    status?: boolean
   }, ExtArgs["result"]["order"]>
 
   export type OrderSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7226,6 +7248,7 @@ export namespace Prisma {
     total?: boolean
     items?: boolean
     createdAt?: boolean
+    status?: boolean
   }, ExtArgs["result"]["order"]>
 
   export type OrderSelectScalar = {
@@ -7239,9 +7262,10 @@ export namespace Prisma {
     total?: boolean
     items?: boolean
     createdAt?: boolean
+    status?: boolean
   }
 
-  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "surname" | "adress" | "number" | "email" | "payment" | "total" | "items" | "createdAt", ExtArgs["result"]["order"]>
+  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "surname" | "adress" | "number" | "email" | "payment" | "total" | "items" | "createdAt" | "status", ExtArgs["result"]["order"]>
 
   export type $OrderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Order"
@@ -7257,6 +7281,7 @@ export namespace Prisma {
       total: number
       items: Prisma.JsonValue
       createdAt: Date
+      status: $Enums.Status
     }, ExtArgs["result"]["order"]>
     composites: {}
   }
@@ -7690,6 +7715,7 @@ export namespace Prisma {
     readonly total: FieldRef<"Order", 'Int'>
     readonly items: FieldRef<"Order", 'Json'>
     readonly createdAt: FieldRef<"Order", 'DateTime'>
+    readonly status: FieldRef<"Order", 'Status'>
   }
     
 
@@ -8145,7 +8171,8 @@ export namespace Prisma {
     payment: 'payment',
     total: 'total',
     items: 'items',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    status: 'status'
   };
 
   export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
@@ -8270,6 +8297,20 @@ export namespace Prisma {
    * Reference to a field of type 'QueryMode'
    */
   export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
+   * Reference to a field of type 'Status'
+   */
+  export type EnumStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Status'>
+    
+
+
+  /**
+   * Reference to a field of type 'Status[]'
+   */
+  export type ListEnumStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Status[]'>
     
 
 
@@ -8642,6 +8683,7 @@ export namespace Prisma {
     total?: IntFilter<"Order"> | number
     items?: JsonFilter<"Order">
     createdAt?: DateTimeFilter<"Order"> | Date | string
+    status?: EnumStatusFilter<"Order"> | $Enums.Status
   }
 
   export type OrderOrderByWithRelationInput = {
@@ -8655,6 +8697,7 @@ export namespace Prisma {
     total?: SortOrder
     items?: SortOrder
     createdAt?: SortOrder
+    status?: SortOrder
   }
 
   export type OrderWhereUniqueInput = Prisma.AtLeast<{
@@ -8671,6 +8714,7 @@ export namespace Prisma {
     total?: IntFilter<"Order"> | number
     items?: JsonFilter<"Order">
     createdAt?: DateTimeFilter<"Order"> | Date | string
+    status?: EnumStatusFilter<"Order"> | $Enums.Status
   }, "id">
 
   export type OrderOrderByWithAggregationInput = {
@@ -8684,6 +8728,7 @@ export namespace Prisma {
     total?: SortOrder
     items?: SortOrder
     createdAt?: SortOrder
+    status?: SortOrder
     _count?: OrderCountOrderByAggregateInput
     _avg?: OrderAvgOrderByAggregateInput
     _max?: OrderMaxOrderByAggregateInput
@@ -8705,6 +8750,7 @@ export namespace Prisma {
     total?: IntWithAggregatesFilter<"Order"> | number
     items?: JsonWithAggregatesFilter<"Order">
     createdAt?: DateTimeWithAggregatesFilter<"Order"> | Date | string
+    status?: EnumStatusWithAggregatesFilter<"Order"> | $Enums.Status
   }
 
   export type UserCreateInput = {
@@ -9071,6 +9117,7 @@ export namespace Prisma {
     total: number
     items: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
+    status?: $Enums.Status
   }
 
   export type OrderUncheckedCreateInput = {
@@ -9084,6 +9131,7 @@ export namespace Prisma {
     total: number
     items: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
+    status?: $Enums.Status
   }
 
   export type OrderUpdateInput = {
@@ -9097,6 +9145,7 @@ export namespace Prisma {
     total?: IntFieldUpdateOperationsInput | number
     items?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
   }
 
   export type OrderUncheckedUpdateInput = {
@@ -9110,6 +9159,7 @@ export namespace Prisma {
     total?: IntFieldUpdateOperationsInput | number
     items?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
   }
 
   export type OrderCreateManyInput = {
@@ -9123,6 +9173,7 @@ export namespace Prisma {
     total: number
     items: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
+    status?: $Enums.Status
   }
 
   export type OrderUpdateManyMutationInput = {
@@ -9136,6 +9187,7 @@ export namespace Prisma {
     total?: IntFieldUpdateOperationsInput | number
     items?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
   }
 
   export type OrderUncheckedUpdateManyInput = {
@@ -9149,6 +9201,7 @@ export namespace Prisma {
     total?: IntFieldUpdateOperationsInput | number
     items?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -9614,6 +9667,13 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type EnumStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusFilter<$PrismaModel> | $Enums.Status
+  }
+
   export type OrderCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -9625,6 +9685,7 @@ export namespace Prisma {
     total?: SortOrder
     items?: SortOrder
     createdAt?: SortOrder
+    status?: SortOrder
   }
 
   export type OrderAvgOrderByAggregateInput = {
@@ -9641,6 +9702,7 @@ export namespace Prisma {
     payment?: SortOrder
     total?: SortOrder
     createdAt?: SortOrder
+    status?: SortOrder
   }
 
   export type OrderMinOrderByAggregateInput = {
@@ -9653,6 +9715,7 @@ export namespace Prisma {
     payment?: SortOrder
     total?: SortOrder
     createdAt?: SortOrder
+    status?: SortOrder
   }
 
   export type OrderSumOrderByAggregateInput = {
@@ -9683,6 +9746,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedJsonFilter<$PrismaModel>
     _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type EnumStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusWithAggregatesFilter<$PrismaModel> | $Enums.Status
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStatusFilter<$PrismaModel>
+    _max?: NestedEnumStatusFilter<$PrismaModel>
   }
 
   export type ClothCreateNestedManyWithoutAuthorInput = {
@@ -9891,6 +9964,10 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutClothesInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutClothesInput, UserUpdateWithoutClothesInput>, UserUncheckedUpdateWithoutClothesInput>
+  }
+
+  export type EnumStatusFieldUpdateOperationsInput = {
+    set?: $Enums.Status
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -10110,6 +10187,13 @@ export namespace Prisma {
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
+
+  export type NestedEnumStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusFilter<$PrismaModel> | $Enums.Status
+  }
   export type NestedJsonFilter<$PrismaModel = never> =
     | PatchUndefined<
         Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
@@ -10132,6 +10216,16 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedEnumStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusWithAggregatesFilter<$PrismaModel> | $Enums.Status
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStatusFilter<$PrismaModel>
+    _max?: NestedEnumStatusFilter<$PrismaModel>
   }
 
   export type ClothCreateWithoutAuthorInput = {

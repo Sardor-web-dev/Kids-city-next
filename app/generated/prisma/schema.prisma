@@ -85,4 +85,11 @@ model Order {
   total     Int
   items     Json // Prisma поддерживает JSON
   createdAt DateTime @default(now())
+  status    Status   @default(process)
+}
+
+enum Status {
+  process
+  done
+  canceled
 }

@@ -180,7 +180,8 @@ exports.Prisma.OrderScalarFieldEnum = {
   payment: 'payment',
   total: 'total',
   items: 'items',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  status: 'status'
 };
 
 exports.Prisma.SortOrder = {
@@ -210,6 +211,12 @@ exports.Prisma.JsonNullValueFilter = {
 exports.Role = exports.$Enums.Role = {
   USER: 'USER',
   ADMIN: 'ADMIN'
+};
+
+exports.Status = exports.$Enums.Status = {
+  process: 'process',
+  done: 'done',
+  canceled: 'canceled'
 };
 
 exports.Prisma.ModelName = {

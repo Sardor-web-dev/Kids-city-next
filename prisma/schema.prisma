@@ -24,7 +24,7 @@ model User {
     role          Role      @default(USER)
     accounts      Account[]
     sessions      Session[]
-    isBlocked     Boolean @default(false) // статус usera
+    isBlocked     Boolean   @default(false) // статус usera
 }
 
 model Account {
@@ -85,4 +85,11 @@ model Order {
     total     Int
     items     Json // Prisma поддерживает JSON
     createdAt DateTime @default(now())
+    status    Status   @default(process)
+}
+
+enum Status {
+    process
+    done
+    canceled
 }

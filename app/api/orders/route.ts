@@ -4,7 +4,8 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const data = await req.json();
-    const { name, surname, adress, number, email, payment, items } = data;
+    const { name, surname, adress, number, email, payment, items, status } =
+      data;
 
     const total = items.reduce(
       (acc: number, item: any) => acc + item.price * item.quantity,
@@ -15,6 +16,7 @@ export async function POST(req: Request) {
       data: {
         name,
         surname,
+        status,
         adress,
         number,
         email,
