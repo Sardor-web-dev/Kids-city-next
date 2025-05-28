@@ -26,6 +26,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import { useSession } from "next-auth/react";
 
 export default function CartPage() {
   const t = useTranslations("CartPage");
@@ -34,6 +35,8 @@ export default function CartPage() {
   const [payment, setPayment] = useState("");
   const [open, setOpen] = useState(false);
   const [ordered, setOrdered] = useState(false);
+  const { data: session } = useSession();
+  const userId = session?.user?.email; // или email, если id нет
 
   const data = [
     { name: t("name"), type: "text", identifier: "name" },
@@ -74,6 +77,7 @@ export default function CartPage() {
         email,
         payment,
         items,
+        userId,
       }),
     });
 

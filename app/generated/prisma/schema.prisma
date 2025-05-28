@@ -25,6 +25,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   isBlocked     Boolean   @default(false) // статус usera
+  Order         Order[]
 }
 
 model Account {
@@ -86,6 +87,8 @@ model Order {
   items     Json // Prisma поддерживает JSON
   createdAt DateTime @default(now())
   status    Status   @default(process)
+  userId    Int?
+  user      User?    @relation(fields: [userId], references: [id])
 }
 
 enum Status {

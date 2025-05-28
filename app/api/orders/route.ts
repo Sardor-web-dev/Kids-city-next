@@ -4,9 +4,12 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const data = await req.json();
-    const { name, surname, adress, number, email, payment, items, status } =
+    const { name, surname, adress, number, email, payment, items, status, userId } =
       data;
 
+      const user = await prisma.user.findUnique({
+        where: { email: userId || email },
+      });
     const total = items.reduce(
       (acc: number, item: any) => acc + item.price * item.quantity,
       0
@@ -23,6 +26,7 @@ export async function POST(req: Request) {
         payment,
         total,
         items,
+        userId: user?.id,
       },
     });
 
