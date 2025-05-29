@@ -6,6 +6,9 @@ import { motion } from "framer-motion";
 import { Cloth } from "@/app/generated/prisma";
 import ProductCard from "@/components/custom/ProductCard";
 import { Button } from "../ui/button";
+import { FaSearch } from "react-icons/fa";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 
 type Props = {
   title: string;
@@ -44,14 +47,28 @@ export default function AnimatedCatalogue({
       transition={{ duration: 0.6 }}
     >
       <motion.div
-        className="text-center max-w-2xl"
+        className="text-center flex flex-col items-center justify-center max-w-2xl"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{title}</h1>
         <p className="text-lg md:text-2xl text-gray-600">{description}</p>
-
+        <Label className="flex mt-5 items-center gap-2">
+          <Input
+            type="text"
+            placeholder="Поиск по названию одежды"
+            value={search}
+            onChange={(e) => handleSearch(e.target.value)}
+            className="w-[400px] border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
+          />
+          <Button
+            variant={"outline"}
+            className="text-center border-black bg-gray-800 text-white font-bold cursor-pointer"
+          >
+            <FaSearch size={24} />
+          </Button>
+        </Label>
         <div className="flex flex-col lg:flex-row items-center mt-5 lg:gap-7 gap-3 justify-center">
           <Button
             onClick={() => handleChangeGender("boy")}
@@ -68,14 +85,6 @@ export default function AnimatedCatalogue({
             Показать одежду только для девочек
           </Button>
         </div>
-
-        <input
-          type="text"
-          placeholder="Поиск по названию одежды..."
-          value={search}
-          onChange={(e) => handleSearch(e.target.value)}
-          className="mt-6 w-full max-w-xl p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
-        />
       </motion.div>
 
       <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
