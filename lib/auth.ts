@@ -15,7 +15,7 @@ export const authOptions: NextAuthOptions = {
         return {
           id: profile.id.toString(),
           name: profile.name || profile.login,
-          email: profile.email,
+          email: profile.email || profile.emails?.[0]?.email || null,
           role: "USER", // GitHub юзерам по умолчанию — USER
         };
       },
