@@ -53,7 +53,11 @@ export default function SignInPage() {
             required
           />
           {error && <p className="text-red-600">{error}</p>}
-          <Button type="submit" className="w-full">
+          <Button
+            variant="outline"
+            type="submit"
+            className="w-full bg-gray-800 text-white hover:bg-white border-1 border-black hover:text-black cursor-pointer rounded-md font-bold "
+          >
             Войти по email
           </Button>
         </form>
@@ -61,7 +65,7 @@ export default function SignInPage() {
         <div className="space-y-4">
           <Button
             onClick={() => signIn("google", { callbackUrl: "/" })}
-            className="w-full flex items-center gap-2"
+            className="w-full flex items-center cursor-pointer gap-2"
             variant="outline"
           >
             <FcGoogle className="text-xl" />
@@ -70,7 +74,7 @@ export default function SignInPage() {
 
           <Button
             onClick={() => signIn("github", { callbackUrl: "/" })}
-            className="w-full flex items-center gap-2"
+            className="w-full flex items-center cursor-pointer gap-2"
             variant="outline"
           >
             <FaGithub className="text-xl" />

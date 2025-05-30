@@ -291,11 +291,11 @@ export default function CartPage() {
                 </div> */}
                   <DialogFooter>
                     {!ordered ? (
-                      <Button onClick={() => setOrdered(true)} type="submit">
+                      <Button className="cursor-pointer" onClick={() => setOrdered(true)} type="submit">
                         Заказать
                       </Button>
                     ) : (
-                      <Button>Отправляем заказ...</Button>
+                      <Button className="cursor-no-drop">Отправляем заказ...</Button>
                     )}
                   </DialogFooter>
                 </form>
