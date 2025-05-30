@@ -37,14 +37,12 @@ const FAQ = () => {
         id="FAQ"
         className="flex max-w-[350px] mx-auto lg:gap-20 lg:max-w-[1250px] flex-col lg:flex-row lg:items-start items-center justify-center lg:justify-between mt-20 mb-10"
       >
-        <p className="lg:text-4xl text-2xl font-black">
-          {t("title")}
-        </p>
+        <p className="lg:text-4xl text-2xl font-black">{t("title")}</p>
         <div>
           {FAQarr.map((item, i) => (
             <Accordion type="single" collapsible key={i}>
               <AccordionItem value={`item-${i}`}>
-                <AccordionTrigger>
+                <AccordionTrigger className=" cursor-pointer">
                   <p className="lg:text-2xl text-lg font-bold">{item.title}</p>
                 </AccordionTrigger>
                 <AccordionContent className="lg:max-w-[400px] max-w-[200px">
