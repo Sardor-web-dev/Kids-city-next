@@ -20,12 +20,12 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  // Пример: блокировка доступа, если пользователь заблокирован
-  if (pathname.startsWith("/")) {
-    if (token?.isBlocked) {
-      return NextResponse.redirect(new URL("/blocked", req.url));
-    }
-  }
+  // // Пример: блокировка доступа, если пользователь заблокирован
+  // if (pathname.startsWith("/")) {
+  //   if (token?.isBlocked) {
+  //     return NextResponse.redirect(new URL("/blocked", req.url));
+  //   }
+  // }
 
   return NextResponse.next();
 }
