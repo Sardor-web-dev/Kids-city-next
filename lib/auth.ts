@@ -62,7 +62,7 @@ export const authOptions: NextAuthOptions = {
           id: user.id.toString(),
           name: user.name,
           email: user.email,
-          role: user.role,
+          role: user.role || "ADMIN",// достаем роль из бд или админ по дкфолту
         };
       },
     }),
