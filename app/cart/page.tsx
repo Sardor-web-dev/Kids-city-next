@@ -26,7 +26,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+
 
 export default function CartPage() {
   const t = useTranslations("CartPage");
@@ -157,6 +158,24 @@ export default function CartPage() {
     );
     setTotalPrice(total);
   }, [items]);
+    if (!session) {
+      return (
+        <div className="min-h-screen flex items-center justify-center px-4">
+          <div className="max-w-md w-full space-y-6 text-center">
+            <h2 className="text-3xl font-bold">Вы не авторизованы</h2>
+            <p className="text-lg text-gray-600">
+              Войдите, чтобы просматривать свою корзину заказы.
+            </p>
+            <Button
+              className="bg-gray-800 w-50 text-white hover:bg-white hover:text-black border border-black rounded-xl font-semibold cursor-pointer "
+              onClick={() => signIn()} 
+            >
+              Войти
+            </Button>
+          </div>
+        </div>
+      );
+    }
 
   return (
     <motion.div
