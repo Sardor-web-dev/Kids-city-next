@@ -13,7 +13,8 @@
     "admin": "Go to AdminPage",
     "ourproducts": "Our Products",
     "desc": "The best and highest quality children's clothing in Samarkand!",
-    "button": "Go to Catalogue"
+    "button": "Go to Catalogue",
+    "catalogue": "Catalogue"
   },
   "AdminPage": {
     "title": "Welcome to the admin pannel of official Kids City's website",

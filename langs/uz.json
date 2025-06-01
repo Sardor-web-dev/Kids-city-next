@@ -13,7 +13,8 @@
     "admin": "Admin betga otish",
     "ourproducts": "Bizning Mahsulotlarimiz",
     "desc": "Samarqanddagi eng yaxshi va sifatli bolalar kiyimlari!",
-    "button": "Katalogga o'tish"
+    "button": "Katalogga o'tish",
+    "catalogue": "Katalog"
   },
   "AdminPage": {
     "title": "Kids City rasmiy veb-saytining admin sahifasiga xush kelibsiz",
