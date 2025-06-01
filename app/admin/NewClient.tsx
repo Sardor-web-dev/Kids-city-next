@@ -17,9 +17,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Sizes } from "@/utils/sizes";
 
 const Form = () => {
-  const [imageUrl, setImageUrl] = useState("");
-  const [gender, setGender] = useState("");
+  const [imageUrl, setImageUrl] = useState<string>("");
+  const [gender, setGender] = useState<string>("");
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+  const [creating, SetCreating] = useState<boolean>(false);
   const handleSizeChange = (size: string) => {
     setSelectedSizes((prev) =>
       prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size]
@@ -65,10 +66,11 @@ const Form = () => {
       e.target.reset();
       setSelectedSizes([]);
       setImageUrl("");
-      
+      SetCreating(false);
     } else {
       const error = await response.json();
       console.error("Error creating post:", error);
+      SetCreating(false);
     }
   };
 
@@ -154,11 +156,12 @@ const Form = () => {
         </div>
 
         <Button
+          onClick={() => SetCreating(true)}
           variant="outline"
           type="submit"
           className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600"
         >
-          Создать товар
+          {!creating ? "Создать товар" : "Товар создается..."}
         </Button>
       </form>
     </div>
