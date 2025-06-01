@@ -28,7 +28,6 @@ import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { signIn, useSession } from "next-auth/react";
 
-
 export default function CartPage() {
   const t = useTranslations("CartPage");
   const { items, clearCart } = useCart();
@@ -159,24 +158,29 @@ export default function CartPage() {
     );
     setTotalPrice(total);
   }, [items]);
-    if (!session) {
-      return (
-        <div className="min-h-screen flex items-center justify-center px-4">
-          <div className="max-w-md w-full space-y-6 text-center">
-            <h2 className="text-3xl font-bold">Вы не авторизованы</h2>
-            <p className="text-lg text-gray-600">
-              Войдите, чтобы просматривать свою корзину заказы.
-            </p>
-            <Button
-              className="bg-gray-800 w-50 text-white hover:bg-white hover:text-black border border-black rounded-xl font-semibold cursor-pointer "
-              onClick={() => signIn()} 
-            >
-              Войти
-            </Button>
-          </div>
+  if (!session) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="min-h-screen flex items-center justify-center px-4"
+      >
+        <div className="max-w-md w-full space-y-6 text-center">
+          <h2 className="text-3xl font-bold">Вы не авторизованы</h2>
+          <p className="text-lg text-gray-600">
+            Войдите, чтобы просматривать свою корзину заказы.
+          </p>
+          <Button
+            className="bg-gray-800 w-50 text-white hover:bg-white hover:text-black border border-black rounded-xl font-semibold cursor-pointer "
+            onClick={() => signIn()}
+          >
+            Войти
+          </Button>
         </div>
-      );
-    }
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -311,11 +315,17 @@ export default function CartPage() {
                 </div> */}
                   <DialogFooter>
                     {!ordered ? (
-                      <Button className="cursor-pointer" onClick={() => setOrdered(true)} type="submit">
+                      <Button
+                        className="cursor-pointer"
+                        onClick={() => setOrdered(true)}
+                        type="submit"
+                      >
                         Заказать
                       </Button>
                     ) : (
-                      <Button className="cursor-no-drop">Отправляем заказ...</Button>
+                      <Button className="cursor-no-drop">
+                        Отправляем заказ...
+                      </Button>
                     )}
                   </DialogFooter>
                 </form>
