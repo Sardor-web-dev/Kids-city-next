@@ -18,7 +18,12 @@ export default function Profile() {
 
   if (!session) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="min-h-screen flex items-center justify-center px-4"
+      >
         <div className="max-w-md w-full space-y-6 text-center">
           <h2 className="text-3xl font-bold">Вы не авторизованы</h2>
           <p className="text-lg text-gray-600">
@@ -26,12 +31,12 @@ export default function Profile() {
           </p>
           <Button
             className="bg-gray-800 w-50 text-white hover:bg-white hover:text-black border border-black rounded-xl font-semibold cursor-pointer "
-            onClick={() => signIn()} 
+            onClick={() => signIn()}
           >
             Войти
           </Button>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
