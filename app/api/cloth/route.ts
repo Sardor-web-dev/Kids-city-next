@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(request: Request) {
-  const { name, description, Image, gender, price } = await request.json();
+  const { name, description, Image, gender, price, size } = await request.json();
 
   const session = await getServerSession();
 
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
-  if (!name || !description || !Image || !gender || !price) {
+  if (!name || !description || !Image || !gender || !price || !size) {
     return NextResponse.json(
       {
         error: "Все поля обязательны: name, description, Image, gender, price",
@@ -38,6 +38,7 @@ export async function POST(request: Request) {
         Image,
         gender,
         price,
+        size,
         author: {
           connect: {
             id: admin.id,
