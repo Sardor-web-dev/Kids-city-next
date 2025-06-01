@@ -44,7 +44,7 @@ const Header = () => {
             { href: "#why_best", label: t("causes") },
             { href: "#contacts", label: t("contacts") },
             { href: "#FAQ", label: t("FAQ") },
-            {href: "/catalogue", label: t("catalogue")}
+            { href: "/catalogue", label: t("catalogue") },
           ].map((link, i) => (
             <Link
               key={i}
@@ -100,6 +100,7 @@ const Header = () => {
                 { href: "#why_best", label: t("causes") },
                 { href: "#contacts", label: t("contacts") },
                 { href: "#FAQ", label: t("FAQ") },
+                { href: "/catalogue", label: t("catalogue") },
               ].map((link, i) => (
                 <DropdownMenuItem>
                   <Link
