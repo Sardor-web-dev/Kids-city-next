@@ -4,11 +4,20 @@ import { Cloth } from "@/app/generated/prisma";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import ButtonCart from "./ButtonCart";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { useState } from "react";
 
 const ProductCard = ({ cloth }: { cloth: Cloth }) => {
   const router = useRouter();
   const t = useTranslations("Catalogue");
-
+  const [selectedSize, setSelectedSize] = useState<string>("");
+  console.log(cloth.size)
   return (
     <>
       <div className="flex flex-col gap-2">
@@ -28,9 +37,21 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
             </h2>
             <p className="text-gray-600">{cloth.description}</p>
             <p>{cloth.price.toLocaleString()} сум</p>
+            <Select value={selectedSize} onValueChange={setSelectedSize}>
+              <SelectTrigger className="w-full px-4 py-2 border rounded-lg">
+                <SelectValue placeholder="Размеры" />
+              </SelectTrigger>
+              <SelectContent>
+                {cloth.size.map((size, i) => (
+                  <SelectItem key={i} value={size}>
+                    {size}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
-        <ButtonCart cloth={cloth} />
+        <ButtonCart cloth={cloth} selectedSize={selectedSize} />
       </div>
     </>
   );

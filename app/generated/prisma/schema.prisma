@@ -24,7 +24,7 @@ model User {
   role          Role      @default(USER)
   accounts      Account[]
   sessions      Session[]
-  isBlocked     Boolean   @default(false) // статус usera
+  isBlocked     Boolean   @default(false) // статус user'a
   Order         Order[]
 }
 
@@ -65,14 +65,15 @@ model VerificationToken {
 }
 
 model Cloth {
-  id          Int    @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
   description String
   authorId    Int
-  author      User   @relation(fields: [authorId], references: [id])
+  author      User     @relation(fields: [authorId], references: [id])
   Image       String
   gender      String
   price       Int
+  size        String[]
 }
 
 model Order {

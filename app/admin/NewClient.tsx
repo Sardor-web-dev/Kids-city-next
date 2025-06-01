@@ -9,10 +9,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Sizes } from "@/utils/sizes";
 
 const Form = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [gender, setGender] = useState("");
+  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+  const handleSizeChange = (size: string) => {
+    setSelectedSizes((prev) =>
+      prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size]
+    );
+  };
 
   const postData = async (e: any) => {
     e.preventDefault();
@@ -22,6 +34,17 @@ const Form = () => {
     const description = fm.get("description");
     const priceStr = fm.get("price");
     const price = parseInt(priceStr as string);
+    if (
+      !name ||
+      !description ||
+      !gender ||
+      !imageUrl ||
+      selectedSizes.length === 0
+    ) {
+      toast("Пожалуйста, заполните все поля");
+      return;
+    }
+
     const response = await fetch("/api/cloth", {
       method: "POST",
       headers: {
@@ -33,18 +56,16 @@ const Form = () => {
         description,
         Image: imageUrl,
         gender,
+        size: selectedSizes,
       }),
     });
-    if (!name || !description || !gender || !imageUrl) {
-      alert("Пожалуйста, заполните все поля");
-      return;
-    }
 
     if (response.ok) {
       console.log("Post created successfully");
       e.target.reset();
-      setGender("");
+      setSelectedSizes([]);
       setImageUrl("");
+      
     } else {
       const error = await response.json();
       console.error("Error creating post:", error);
@@ -56,8 +77,8 @@ const Form = () => {
       <h1 className="text-2xl font-bold mb-6">Создать товар</h1>
       <form onSubmit={postData} className="space-y-6">
         <div>
-          <label className="block text-lg mb-2">Название товара</label>
-          <input
+          <Label className="block text-lg mb-2">Название товара</Label>
+          <Input
             type="text"
             name="name"
             className="w-full px-4 py-2 border rounded-lg"
@@ -65,17 +86,16 @@ const Form = () => {
         </div>
 
         <div>
-          <label className="block text-lg mb-2">Описание товара</label>
-          <textarea
+          <Label className="block text-lg mb-2">Описание товара</Label>
+          <Input
             name="description"
-            rows={4}
             className="w-full px-4 py-2 border rounded-lg"
           />
         </div>
 
         <div>
-          <label className="block text-lg mb-2">Цена товара</label>
-          <input
+          <Label className="block text-lg mb-2">Цена товара</Label>
+          <Input
             name="price"
             type="number"
             className="w-full px-4 py-2 border rounded-lg"
@@ -83,7 +103,7 @@ const Form = () => {
         </div>
 
         <div>
-          <label className="block text-lg mb-2">Картинка</label>
+          <Label className="block text-lg mb-2">Картинка</Label>
           <UploadDropzone
             endpoint="imageUploader"
             onClientUploadComplete={(res) => {
@@ -92,7 +112,7 @@ const Form = () => {
               }
             }}
             onUploadError={(error: Error) => {
-              alert(`Ошибка загрузки: ${error.message}`);
+              toast(`Ошибка загрузки: ${error.message}`);
             }}
           />
           {imageUrl && (
@@ -117,12 +137,29 @@ const Form = () => {
           </Select>
         </div>
 
-        <button
+        <div className="flex flex-col gap-2">
+          <p className="text-lg">Выберите Размеры</p>
+          <div className="flex flex-col gap-2">
+            {Sizes.map((item, i) => (
+              <Label key={i} className="flex items-center gap-2">
+                <Checkbox
+                  checked={selectedSizes.includes(item.size)}
+                  onCheckedChange={() => handleSizeChange(item.size)}
+                  className="cursor-pointer"
+                />
+                <span>{item.size}</span>
+              </Label>
+            ))}
+          </div>
+        </div>
+
+        <Button
+          variant="outline"
           type="submit"
           className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600"
         >
           Создать товар
-        </button>
+        </Button>
       </form>
     </div>
   );

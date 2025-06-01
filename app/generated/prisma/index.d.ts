@@ -5942,6 +5942,7 @@ export namespace Prisma {
     Image: number
     gender: number
     price: number
+    size: number
     _all: number
   }
 
@@ -5986,6 +5987,7 @@ export namespace Prisma {
     Image?: true
     gender?: true
     price?: true
+    size?: true
     _all?: true
   }
 
@@ -6083,6 +6085,7 @@ export namespace Prisma {
     Image: string
     gender: string
     price: number
+    size: string[]
     _count: ClothCountAggregateOutputType | null
     _avg: ClothAvgAggregateOutputType | null
     _sum: ClothSumAggregateOutputType | null
@@ -6112,6 +6115,7 @@ export namespace Prisma {
     Image?: boolean
     gender?: boolean
     price?: boolean
+    size?: boolean
     author?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cloth"]>
 
@@ -6123,6 +6127,7 @@ export namespace Prisma {
     Image?: boolean
     gender?: boolean
     price?: boolean
+    size?: boolean
     author?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cloth"]>
 
@@ -6134,6 +6139,7 @@ export namespace Prisma {
     Image?: boolean
     gender?: boolean
     price?: boolean
+    size?: boolean
     author?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cloth"]>
 
@@ -6145,9 +6151,10 @@ export namespace Prisma {
     Image?: boolean
     gender?: boolean
     price?: boolean
+    size?: boolean
   }
 
-  export type ClothOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "authorId" | "Image" | "gender" | "price", ExtArgs["result"]["cloth"]>
+  export type ClothOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "authorId" | "Image" | "gender" | "price" | "size", ExtArgs["result"]["cloth"]>
   export type ClothInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -6171,6 +6178,7 @@ export namespace Prisma {
       Image: string
       gender: string
       price: number
+      size: string[]
     }, ExtArgs["result"]["cloth"]>
     composites: {}
   }
@@ -6602,6 +6610,7 @@ export namespace Prisma {
     readonly Image: FieldRef<"Cloth", 'String'>
     readonly gender: FieldRef<"Cloth", 'String'>
     readonly price: FieldRef<"Cloth", 'Int'>
+    readonly size: FieldRef<"Cloth", 'String[]'>
   }
     
 
@@ -8291,7 +8300,8 @@ export namespace Prisma {
     authorId: 'authorId',
     Image: 'Image',
     gender: 'gender',
-    price: 'price'
+    price: 'price',
+    size: 'size'
   };
 
   export type ClothScalarFieldEnum = (typeof ClothScalarFieldEnum)[keyof typeof ClothScalarFieldEnum]
@@ -8753,6 +8763,7 @@ export namespace Prisma {
     Image?: StringFilter<"Cloth"> | string
     gender?: StringFilter<"Cloth"> | string
     price?: IntFilter<"Cloth"> | number
+    size?: StringNullableListFilter<"Cloth">
     author?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -8764,6 +8775,7 @@ export namespace Prisma {
     Image?: SortOrder
     gender?: SortOrder
     price?: SortOrder
+    size?: SortOrder
     author?: UserOrderByWithRelationInput
   }
 
@@ -8778,6 +8790,7 @@ export namespace Prisma {
     Image?: StringFilter<"Cloth"> | string
     gender?: StringFilter<"Cloth"> | string
     price?: IntFilter<"Cloth"> | number
+    size?: StringNullableListFilter<"Cloth">
     author?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
@@ -8789,6 +8802,7 @@ export namespace Prisma {
     Image?: SortOrder
     gender?: SortOrder
     price?: SortOrder
+    size?: SortOrder
     _count?: ClothCountOrderByAggregateInput
     _avg?: ClothAvgOrderByAggregateInput
     _max?: ClothMaxOrderByAggregateInput
@@ -8807,6 +8821,7 @@ export namespace Prisma {
     Image?: StringWithAggregatesFilter<"Cloth"> | string
     gender?: StringWithAggregatesFilter<"Cloth"> | string
     price?: IntWithAggregatesFilter<"Cloth"> | number
+    size?: StringNullableListFilter<"Cloth">
   }
 
   export type OrderWhereInput = {
@@ -9198,6 +9213,7 @@ export namespace Prisma {
     Image: string
     gender: string
     price: number
+    size?: ClothCreatesizeInput | string[]
     author: UserCreateNestedOneWithoutClothesInput
   }
 
@@ -9209,6 +9225,7 @@ export namespace Prisma {
     Image: string
     gender: string
     price: number
+    size?: ClothCreatesizeInput | string[]
   }
 
   export type ClothUpdateInput = {
@@ -9217,6 +9234,7 @@ export namespace Prisma {
     Image?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    size?: ClothUpdatesizeInput | string[]
     author?: UserUpdateOneRequiredWithoutClothesNestedInput
   }
 
@@ -9228,6 +9246,7 @@ export namespace Prisma {
     Image?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    size?: ClothUpdatesizeInput | string[]
   }
 
   export type ClothCreateManyInput = {
@@ -9238,6 +9257,7 @@ export namespace Prisma {
     Image: string
     gender: string
     price: number
+    size?: ClothCreatesizeInput | string[]
   }
 
   export type ClothUpdateManyMutationInput = {
@@ -9246,6 +9266,7 @@ export namespace Prisma {
     Image?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    size?: ClothUpdatesizeInput | string[]
   }
 
   export type ClothUncheckedUpdateManyInput = {
@@ -9256,6 +9277,7 @@ export namespace Prisma {
     Image?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    size?: ClothUpdatesizeInput | string[]
   }
 
   export type OrderCreateInput = {
@@ -9770,6 +9792,14 @@ export namespace Prisma {
     expires?: SortOrder
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type ClothCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -9778,6 +9808,7 @@ export namespace Prisma {
     Image?: SortOrder
     gender?: SortOrder
     price?: SortOrder
+    size?: SortOrder
   }
 
   export type ClothAvgOrderByAggregateInput = {
@@ -10172,10 +10203,19 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
   }
 
+  export type ClothCreatesizeInput = {
+    set: string[]
+  }
+
   export type UserCreateNestedOneWithoutClothesInput = {
     create?: XOR<UserCreateWithoutClothesInput, UserUncheckedCreateWithoutClothesInput>
     connectOrCreate?: UserCreateOrConnectWithoutClothesInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type ClothUpdatesizeInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type UserUpdateOneRequiredWithoutClothesNestedInput = {
@@ -10470,6 +10510,7 @@ export namespace Prisma {
     Image: string
     gender: string
     price: number
+    size?: ClothCreatesizeInput | string[]
   }
 
   export type ClothUncheckedCreateWithoutAuthorInput = {
@@ -10479,6 +10520,7 @@ export namespace Prisma {
     Image: string
     gender: string
     price: number
+    size?: ClothCreatesizeInput | string[]
   }
 
   export type ClothCreateOrConnectWithoutAuthorInput = {
@@ -10618,6 +10660,7 @@ export namespace Prisma {
     Image?: StringFilter<"Cloth"> | string
     gender?: StringFilter<"Cloth"> | string
     price?: IntFilter<"Cloth"> | number
+    size?: StringNullableListFilter<"Cloth">
   }
 
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
@@ -11002,6 +11045,7 @@ export namespace Prisma {
     Image: string
     gender: string
     price: number
+    size?: ClothCreatesizeInput | string[]
   }
 
   export type AccountCreateManyUserInput = {
@@ -11045,6 +11089,7 @@ export namespace Prisma {
     Image?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    size?: ClothUpdatesizeInput | string[]
   }
 
   export type ClothUncheckedUpdateWithoutAuthorInput = {
@@ -11054,6 +11099,7 @@ export namespace Prisma {
     Image?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    size?: ClothUpdatesizeInput | string[]
   }
 
   export type ClothUncheckedUpdateManyWithoutAuthorInput = {
@@ -11063,6 +11109,7 @@ export namespace Prisma {
     Image?: StringFieldUpdateOperationsInput | string
     gender?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    size?: ClothUpdatesizeInput | string[]
   }
 
   export type AccountUpdateWithoutUserInput = {

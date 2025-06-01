@@ -7,6 +7,7 @@ import { FaTrash } from "react-icons/fa";
 const CartItemCard = ({ cloth }: { cloth: CartItem }) => {
   const router = useRouter();
   const { addItem, removeItem, removeFromCart } = useCart();
+  console.log(cloth.selectedSize);
 
   return (
     <div className="flex flex-col gap-2">
@@ -21,6 +22,9 @@ const CartItemCard = ({ cloth }: { cloth: CartItem }) => {
         <div className="p-5 flex flex-col gap-2">
           <h2 className="text-xl font-semibold text-gray-800">{cloth.name}</h2>
           <p className="text-gray-600 text-sm">{cloth.description}</p>
+          <p className="text-base font-medium mb-2">
+            Размер: {cloth.selectedSize} см
+          </p>
           <div className="flex justify-between items-center">
             <p className="text-lg font-medium">
               {cloth.price.toLocaleString()} сум
@@ -47,13 +51,17 @@ const CartItemCard = ({ cloth }: { cloth: CartItem }) => {
                     description: cloth.description,
                     gender: cloth.gender,
                     authorId: cloth.authorId,
+                    selectedSize: cloth.selectedSize,
                   });
                 }}
               >
                 +
               </button>
-              <FaTrash size={15} onClick={() => removeFromCart(cloth.id)} />
             </div>
+          </div>
+          <div className="flex items-center justify-center gap-4 mt-4">
+            Удалить из корзины
+            <FaTrash size={15} onClick={() => removeFromCart(cloth.id)} />
           </div>
         </div>
       </div>

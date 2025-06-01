@@ -90,6 +90,7 @@ export default function CartPage() {
 👕 Товар: ${item.name}
 🔢 Кол-во: ${item.quantity}
 💵 Цена: ${(item.price * item.quantity).toLocaleString()} сум
+📏 Размер: ${item.selectedSize} см
 👤 Владелец: ${name}  ${surname}
           `;
 
