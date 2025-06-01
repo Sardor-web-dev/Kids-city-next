@@ -42,6 +42,7 @@ const Form = () => {
       !imageUrl ||
       selectedSizes.length === 0
     ) {
+      SetCreating(false)
       toast("Пожалуйста, заполните все поля");
       return;
     }
