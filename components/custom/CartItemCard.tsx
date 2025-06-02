@@ -59,9 +59,12 @@ const CartItemCard = ({ cloth }: { cloth: CartItem }) => {
               </button>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-4 mt-4">
+          <div
+            onClick={() => removeFromCart(cloth.id)}
+            className="flex items-center justify-center gap-4 mt-4"
+          >
             Удалить из корзины
-            <FaTrash size={15} onClick={() => removeFromCart(cloth.id)} />
+            <FaTrash size={15} />
           </div>
         </div>
       </div>

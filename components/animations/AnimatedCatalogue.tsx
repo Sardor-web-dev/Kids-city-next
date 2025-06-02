@@ -60,11 +60,11 @@ export default function AnimatedCatalogue({
             placeholder="Поиск по названию одежды"
             value={search}
             onChange={(e) => handleSearch(e.target.value)}
-            className="w-[400px] border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
+            className="lg:w-[400px] w-[300px] border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
           />
           <Button
             variant={"outline"}
-            className="text-center border-black bg-gray-800 text-white font-bold cursor-pointer"
+            className="text-center  border-black bg-gray-800 text-white font-bold cursor-pointer"
           >
             <FaSearch size={24} />
           </Button>

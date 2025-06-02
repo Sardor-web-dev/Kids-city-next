@@ -17,16 +17,16 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
   const router = useRouter();
   const t = useTranslations("Catalogue");
   const [selectedSize, setSelectedSize] = useState<string>("");
-  console.log(cloth.size)
+  console.log(cloth.size);
   return (
     <>
       <div className="flex flex-col gap-2">
         <div
-          onClick={() => router.push(`products/${cloth.id}`)}
           key={cloth.id}
           className="bg-white cursor-pointer shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
         >
           <img
+            onClick={() => router.push(`products/${cloth.id}`)}
             className="w-full h-60 rounded-lg object-cover hover:scale-105 transition-transform duration-300"
             src={cloth.Image}
             alt={cloth.name}
@@ -51,6 +51,7 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
             </Select>
           </div>
         </div>
+
         <ButtonCart cloth={cloth} selectedSize={selectedSize} />
       </div>
     </>
