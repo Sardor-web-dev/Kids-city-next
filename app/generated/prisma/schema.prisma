@@ -14,18 +14,19 @@ enum Role {
 }
 
 model User {
-  id            Int       @id @default(autoincrement())
-  email         String?   @unique
+  id            Int         @id @default(autoincrement())
+  email         String?     @unique
   emailVerified DateTime?
   name          String?
   password      String?
   image         String? // фотка 
   clothes       Cloth[]
-  role          Role      @default(USER)
+  role          Role        @default(USER)
   accounts      Account[]
   sessions      Session[]
-  isBlocked     Boolean   @default(false) // статус user'a
+  isBlocked     Boolean     @default(false) // статус user'a
   Order         Order[]
+  Favorites     Favorites[]
 }
 
 model Account {
@@ -65,15 +66,16 @@ model VerificationToken {
 }
 
 model Cloth {
-  id          Int      @id @default(autoincrement())
+  id          Int         @id @default(autoincrement())
   name        String
   description String
   authorId    Int
-  author      User     @relation(fields: [authorId], references: [id])
+  author      User        @relation(fields: [authorId], references: [id])
   Image       String
   gender      String
   price       Int
   size        String[]
+  Favorites   Favorites[]
 }
 
 model Order {
@@ -90,6 +92,16 @@ model Order {
   status    Status   @default(process)
   userId    Int?
   user      User?    @relation(fields: [userId], references: [id])
+}
+
+model Favorites {
+  id      Int   @id @default(autoincrement())
+  clothId Int
+  cloth   Cloth @relation(fields: [clothId], references: [id])
+  userId  Int
+  user    User  @relation(fields: [userId], references: [id])
+
+  @@unique([clothId, userId])
 }
 
 enum Status {

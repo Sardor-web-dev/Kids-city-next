@@ -186,6 +186,12 @@ exports.Prisma.OrderScalarFieldEnum = {
   userId: 'userId'
 };
 
+exports.Prisma.FavoritesScalarFieldEnum = {
+  id: 'id',
+  clothId: 'clothId',
+  userId: 'userId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -227,7 +233,8 @@ exports.Prisma.ModelName = {
   Session: 'Session',
   VerificationToken: 'VerificationToken',
   Cloth: 'Cloth',
-  Order: 'Order'
+  Order: 'Order',
+  Favorites: 'Favorites'
 };
 
 /**

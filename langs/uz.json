@@ -7,6 +7,7 @@
     "products": "Xizmatlar va tovarlar",
     "contacts": "Kontaktlar",
     "FAQ": "Ko'p beriladigan savollar",
+    "favorites": "Saralangan",
     "russianbtn": "Russcha",
     "englishbtn": "Inglizcha",
     "uzbekbtn": "Uzbekcha",
@@ -109,5 +110,9 @@
     "title": "404 - Sahifa topilmadi",
     "description": "Siz so'ragan sahifa mavjud emas.",
     "button": "Asosiy sahifaga qaytish"
+  },
+  "FavoritesPage": {
+    "title": "Saralangan",
+    "empty": "Siz yoqtirgan mahsulotlaringiz yoq"
   }
 }

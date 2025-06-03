@@ -45,6 +45,7 @@ const Header = () => {
             { href: "#contacts", label: t("contacts") },
             { href: "#FAQ", label: t("FAQ") },
             { href: "/catalogue", label: t("catalogue") },
+            { href: "/favorites", label: t("favorites") },
           ].map((link, i) => (
             <Link
               key={i}
@@ -101,8 +102,9 @@ const Header = () => {
                 { href: "#contacts", label: t("contacts") },
                 { href: "#FAQ", label: t("FAQ") },
                 { href: "/catalogue", label: t("catalogue") },
+                { href: "/favorites", label: t("favorites") },
               ].map((link, i) => (
-                <DropdownMenuItem>
+                <DropdownMenuItem key={i}>
                   <Link
                     key={i}
                     className="text-lg text-gray-500 opacity-70 hover:text-black hover:opacity-100 transition-all"

@@ -7,6 +7,7 @@
     "products": "Services and clothes",
     "contacts": "Contacts",
     "FAQ": "Frequently asked questions",
+    "favorites": "Favorites",
     "russianbtn": "Russian",
     "englishbtn": "English",
     "uzbekbtn": "Uzbek",
@@ -109,5 +110,9 @@
     "title": "404 - Page Not Found",
     "description": "The page you are looking for does not exist. Please check the URL or return to the homepage.",
     "button": "Go back to Home"
+  },
+  "FavoritesPage": {
+    "title": "Favorites",
+    "empty": "You have no favorite items yet."
   }
 }
