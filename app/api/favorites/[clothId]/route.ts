@@ -1,13 +1,15 @@
-// app/api/favorites/[clothId]/route.ts
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function DELETE(
-  req: Request,
-  { params }: { params: { clothId: string } }
-) {
+type Params = {
+  params: {
+    clothId: string;
+  };
+};
+
+export async function DELETE(req: NextRequest, { params }: Params) {
   const session = await getServerSession(authOptions);
   if (!session?.user?.email)
     return new NextResponse("Unauthorized", { status: 401 });
@@ -16,9 +18,11 @@ export async function DELETE(
     where: { email: session.user.email },
   });
 
+  if (!user) return new NextResponse("User not found", { status: 404 });
+
   await prisma.favorites.deleteMany({
     where: {
-      userId: user!.id,
+      userId: user.id,
       clothId: Number(params.clothId),
     },
   });
