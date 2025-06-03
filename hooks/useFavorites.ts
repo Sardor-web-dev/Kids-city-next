@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Cloth } from "@/app/generated/prisma";
+import { toast } from "sonner";
 
 export default function useFavorites() {
   // useFavorites
@@ -17,26 +18,26 @@ export default function useFavorites() {
       setLoading(false);
     });
   }, []);
-  
 
   const toggleFavorite = async (clothId: number) => {
     try {
-        const exists = favorites.some((fav) => fav?.id === clothId);
+      const exists = favorites.some((fav) => fav?.id === clothId);
 
       if (exists) {
         await axios.delete(`/api/favorites/${clothId}`);
         setFavorites((prev) => prev.filter((fav) => fav.id !== clothId));
+        toast("Товар был удален из избранных");
       } else {
         const { data: newFavorite } = await axios.post("/api/favorites/add", {
           clothId,
         });
         setFavorites((prev) => [...prev, newFavorite.cloth]);
+        toast("Товар добавлен в избранные");
       }
     } catch (error) {
       console.error("Ошибка при обновлении избранного:", error);
     }
   };
-  
 
   return { favorites, toggleFavorite, loading };
 }

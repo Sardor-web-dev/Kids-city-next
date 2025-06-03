@@ -13,7 +13,7 @@ import {
 } from "../ui/select";
 import { useState } from "react";
 import useFavorites from "@/hooks/useFavorites";
-import { CiHeart } from "react-icons/ci";
+import { Heart } from "lucide-react";
 
 const ProductCard = ({ cloth }: { cloth: Cloth }) => {
   const router = useRouter();
@@ -42,7 +42,7 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
             }}
             className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow hover:scale-110 transition-transform"
           >
-            <CiHeart
+            <Heart
               className={`w-5 h-5 cursor-pointer ${
                 favorites.some((fav) => fav?.id === cloth.id)
                   ? "text-red-500 fill-red-500"
