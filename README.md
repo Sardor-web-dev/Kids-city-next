@@ -89,7 +89,7 @@ GITHUB_SECRET=your_github_secret
 5. **Сгенерируй схему Prisma:**
 
 ```bash
-npx prisma db push
+npx prisma generate
 ```
 
 6. **(Опционально) Засейдь базу данных:**
