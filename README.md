@@ -66,17 +66,20 @@ This project requires the following dependencies:
 
 2. **Navigate to the project directory**:
 
-    ```bash cd kids-city-next``` 
+   ```bash
+    cd kids-city-next
+   ```
 
 3. **Install dependencies**:
 
-
-     ```bash npm install```
-
+   ```bash
+    npm install
+   ```
 
 4. **Set up environment variables**:
 
 **Create a .env file and add your database and authentication credentials**:
+
 ```
 DATABASE_URL=your_postgres_url
 NEXTAUTH_SECRET=your_secret
@@ -85,18 +88,17 @@ GITHUB_ID=your_github_id
 GITHUB_SECRET=your_github_secret
 ```
 
-4. ***Push the Prisma schema to your database**:
+4. **Push the Prisma schema to your database**:
 
-   ```npx prisma db push```
+   `npx prisma db push`
+
 5. **(Optional): Seed the database**:
 
-
-```bash npx prisma db seed```
-
+`bash npx prisma db seed`
 
 6. **▶️ Usage**
-To run the development server:
+   To run the development server:
 
-```bash npm run dev ```
+`bash npm run dev `
 
 Open http://localhost:3000 with your browser to see the result.
