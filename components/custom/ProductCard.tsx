@@ -36,10 +36,7 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
             alt={cloth.name}
           />
           <button
-            onClick={() => {
-              toggleFavorite(cloth.id);
-              router.refresh();
-            }}
+            onClick={() => toggleFavorite(cloth.id)}
             className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow hover:scale-110 transition-transform"
           >
             <Heart

@@ -33,6 +33,7 @@ export default function useFavorites() {
         });
         setFavorites((prev) => [...prev, newFavorite.cloth]);
         toast("Товар добавлен в избранные");
+        window.location.reload();
       }
     } catch (error) {
       console.error("Ошибка при обновлении избранного:", error);
