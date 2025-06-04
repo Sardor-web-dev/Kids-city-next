@@ -23,7 +23,6 @@ _Empowering Kids’ Fashion, One Click at a Time_
   - [Prerequisites](#-prerequisites)
   - [Installation](#-installation)
   - [Usage](#️-usage)
-  - [Testing](#-testing)
 
 ---
 
