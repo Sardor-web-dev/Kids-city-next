@@ -283,6 +283,7 @@ export default function CartPage() {
                       </SelectContent>
                     </Select>
                   </div>
+                  {/* Улучшенный код сверху */}
                   {/* <div className="grid grid-cols-4 items-center gap-4">
                   <Label htmlFor="name" className="text-right">
                     Имя
