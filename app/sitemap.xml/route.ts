@@ -13,6 +13,7 @@ export async function GET() {
     "/auth/signOut",
     "/blocked",
     "/unauthorized",
+    "/favorites"
   ];
 
   const urls = staticPages
