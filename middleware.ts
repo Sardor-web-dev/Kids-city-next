@@ -26,7 +26,7 @@ export async function middleware(req: NextRequest) {
   }
 
   // Пример: блокировка доступа, если пользователь заблокирован
-  if (pathname.startsWith("/")) {
+  if (pathname.startsWith("/cart")) {
     if (token?.isBlocked) {
       return NextResponse.redirect(new URL("/blocked", req.url));
     }
