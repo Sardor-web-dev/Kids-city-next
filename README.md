@@ -94,11 +94,15 @@ GITHUB_SECRET=your_github_secret
 
 5. **(Optional): Seed the database**:
 
-`bash npx prisma db seed`
+```bash
+npx prisma db seed
+```
 
 6. **▶️ Usage**
    To run the development server:
 
-`bash npm run dev `
+```bash
+ npm run dev
+```
 
 Open http://localhost:3000 with your browser to see the result.
