@@ -78,11 +78,17 @@ npm install
 4. **Создай файл `.env` и заполни его данными:**
 
 ```env
-DATABASE_URL=your_postgres_url
-NEXTAUTH_SECRET=your_secret
 NEXTAUTH_URL=http://localhost:3000
-GITHUB_ID=your_github_id
-GITHUB_SECRET=your_github_secret
+NEXTAUTH_SECRET=your_secret
+GITHUB_ID= id
+GITHUB_SECRET= secret
+GOOGLE_ID= id
+GOOGLE_SECRET=secret
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+DATABASE_URL=your_url of db
+UPLOADTHING_TOKEN=your tokeen
+NEXT_PUBLIC_TELEGRAM_TOKEN=token tg
+NEXT_PUBLIC_TELEGRAM_CHAT_IDS= ids
 ```
 
 5. **Сгенерируй схему Prisma:**
