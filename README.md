@@ -66,12 +66,12 @@ This project requires the following dependencies:
 
 2. **Navigate to the project directory**:
 
-    ```cd kids-city-next``` 
+    ```bash cd kids-city-next``` 
 
 3. **Install dependencies**:
 
 
-     ```npm install```
+     ```bash npm install```
 
 
 4. **Set up environment variables**:
@@ -91,12 +91,12 @@ GITHUB_SECRET=your_github_secret
 5. **(Optional): Seed the database**:
 
 
-```npx prisma db seed```
+```bash npx prisma db seed```
 
 
 6. **▶️ Usage**
 To run the development server:
 
-```npm run dev ```
+```bash npm run dev ```
 
 Open http://localhost:3000 with your browser to see the result.
