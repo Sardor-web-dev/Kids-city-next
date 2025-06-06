@@ -283,37 +283,6 @@ export default function CartPage() {
                       </SelectContent>
                     </Select>
                   </div>
-                  {/* Улучшенный код сверху */}
-                  {/* <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name" className="text-right">
-                    Имя
-                  </Label>
-                  <Input id="name" className="col-span-3" />
-                </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username" className="text-right">
-                    Фамилия
-                  </Label>
-                  <Input id="username" className="col-span-3" />
-                </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username" className="text-right">
-                    Адрес проживания
-                  </Label>
-                  <Input type="adress" id="username" className="col-span-3" />
-                </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username" className="text-right">
-                    Номер телефона
-                  </Label>
-                  <Input type="number" id="username" className="col-span-3" />
-                </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="username" className="text-right">
-                    Электроная почта
-                  </Label>
-                  <Input type="email" id="username" className="col-span-3" />
-                </div> */}
                   <DialogFooter>
                     {!ordered ? (
                       <Button
