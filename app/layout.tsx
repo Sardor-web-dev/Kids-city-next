@@ -70,6 +70,11 @@ export default async function RootLayout({
         <link rel="canonical" href="https://www.kidscity.uz" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Google Search console */}
+        <meta
+          name="google-site-verification"
+          content="0p3dzVZBftt1SfcmFS_eusWN86qGivUV6xhcrVR_x6s"
+        />
 
         {/* Yandex.Metrika */}
         <Script id="yandex-metrika" strategy="afterInteractive">
