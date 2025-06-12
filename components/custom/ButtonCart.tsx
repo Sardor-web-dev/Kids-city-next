@@ -1,7 +1,6 @@
 "use client";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "../ui/button";
-import { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { toast } from "sonner";
@@ -12,7 +11,7 @@ const ButtonCart = ({ cloth, selectedSize }: any) => {
 
   const handleAdd = () => {
     if (!selectedSize) {
-      toast("Выберите размер перед добавлением в корзину");
+      toast.error("Выберите размер перед добавлением в корзину");
       return;
     }
     addItem({
