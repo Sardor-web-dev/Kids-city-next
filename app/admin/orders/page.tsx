@@ -1,4 +1,4 @@
-import OrderCard from "@/components/custom/StatusBtn";
+import OrderCard from "@/components/custom/OrderCard";
 import { prisma } from "@/lib/prisma";
 
 export default async function OrdersPage() {
