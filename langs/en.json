@@ -20,7 +20,14 @@
   "AdminPage": {
     "title": "Welcome to the admin pannel of official Kids City's website",
     "description": "Here you can manage your products.",
-    "addProduct": "Add Product"
+    "addProduct": "Add Product",
+    "users": "Users",
+    "orders": "Orders",
+    "clothes": "Clothes",
+    "russianbtn": "Russian",
+    "englishbtn": "English",
+    "uzbekbtn": "Uzbek",
+    "dashboard": "Create Cloth"
   },
   "Catalogue": {
     "title": "Our Clothes",

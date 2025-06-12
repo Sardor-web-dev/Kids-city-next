@@ -20,7 +20,14 @@
   "AdminPage": {
     "title": "Kids City rasmiy veb-saytining admin sahifasiga xush kelibsiz",
     "description": "Bu erda siz mahsulotlaringizni boshqarishingiz mumkin.",
-    "addProduct": "Mahsulot qo'shish"
+    "addProduct": "Mahsulot qo'shish",
+    "users": "Foydalanuvchilar",
+    "orders": "Buyurtmalar",
+    "clothes": "Kiyimlar",
+    "russianbtn": "Russcha",
+    "englishbtn": "Inglizcha",
+    "uzbekbtn": "Uzbekcha",
+    "dashboard": "Mahsulot qoshish"
   },
   "Catalogue": {
     "title": "Bizning kiyimlarimiz",

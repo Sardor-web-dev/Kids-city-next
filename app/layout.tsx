@@ -9,6 +9,7 @@ import Footer from "@/components/custom/Footer";
 import Script from "next/script";
 import { CartProvider } from "@/contexts/CartContext";
 import { Toaster } from "@/components/ui/sonner";
+import LayoutWrapper from "@/components/custom/LayoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -114,12 +115,10 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           <NextIntlClientProvider locale={locale}>
             <CartProvider>
-              <section className="pl-2 pr-2 ">
-                <Header />
+              <LayoutWrapper>
                 {children}
                 <Toaster />
-                <Footer />
-              </section>
+              </LayoutWrapper>
             </CartProvider>
           </NextIntlClientProvider>
         </SessionProvider>

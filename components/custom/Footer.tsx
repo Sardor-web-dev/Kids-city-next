@@ -1,12 +1,14 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
 import Link from "next/link";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationArrow } from "react-icons/fa";
 import { BsTelegram } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
-export default async function Footer() {
-  const t = await getTranslations("Footer");
+export default function Footer() {
+  const t = useTranslations("Footer");
   return (
     <footer
       id="contacts"
