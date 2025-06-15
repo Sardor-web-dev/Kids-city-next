@@ -220,7 +220,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Dispatcher\\OneDrive\\Рабочий стол\\Frontent Sardor\\store\\kids-city-next\\my-app\\app\\generated\\prisma",
+      "value": "C:\\Users\\Dispatcher\\OneDrive\\Рабочий стол\\Frontent Sardor\\store\\kidscity-next\\Kids-city-next\\app\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -234,7 +234,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Dispatcher\\OneDrive\\Рабочий стол\\Frontent Sardor\\store\\kids-city-next\\my-app\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\Dispatcher\\OneDrive\\Рабочий стол\\Frontent Sardor\\store\\kidscity-next\\Kids-city-next\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
