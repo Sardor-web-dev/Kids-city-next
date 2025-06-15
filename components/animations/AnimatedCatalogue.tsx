@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Cloth } from "@/app/generated/prisma";
@@ -31,13 +31,21 @@ export default function AnimatedCatalogue({
     router.push(`/catalogue?gender=${newGender}`);
   };
 
-  const handleSearch = (value: string) => {
-    setSearch(value);
-    const filtered = clothes.filter((cloth) =>
-      cloth.name.toLowerCase().includes(value.toLowerCase())
-    );
-    setFilteredClothes(filtered);
-  };
+  // Debounce logic
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      const searchLower = search.toLowerCase();
+      const filtered = clothes.filter(
+        (cloth) =>
+          cloth.name.toLowerCase().includes(searchLower) ||
+          cloth.description.toLowerCase().includes(searchLower)
+      );
+      setFilteredClothes(filtered);
+    }, 400); // 400ms задержка
+
+    return () => clearTimeout(delayDebounce);
+  }, [search, clothes]);
+  
 
   return (
     <motion.div
@@ -59,7 +67,7 @@ export default function AnimatedCatalogue({
             type="text"
             placeholder="Поиск по названию одежды"
             value={search}
-            onChange={(e) => handleSearch(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)} // просто сетим search
             className="lg:w-[400px] w-[300px] border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
           />
           <Button
