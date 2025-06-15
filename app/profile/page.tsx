@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Profile() {
   const { data: session } = useSession();
   const [orders, setOrders] = useState<any[]>([]);
+  const t = useTranslations("ProfilePage");
 
   useEffect(() => {
     if (session?.user) {
@@ -49,24 +51,24 @@ export default function Profile() {
       )}
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4">Профиль</h1>
+        <h1 className="text-3xl font-bold mb-4">{t("title")}</h1>
         <div className="grid sm:grid-cols-2 gap-4">
           <p>
-            <strong>Имя:</strong> {session.user.name}
+            <strong>{t("name")}</strong> {session.user.name}
           </p>
           <p>
-            <strong>Email:</strong> {session.user.email}
+            <strong>{t("email")}</strong> {session.user.email}
           </p>
           <p>
-            <strong>Роль:</strong> {session.user.role}
+            <strong>{t("role")}</strong> {session.user.role}
           </p>
         </div>
       </div>
 
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">История заказов</h2>
+        <h2 className="text-2xl font-semibold mb-4">{t("orders")}</h2>
         {orders.length === 0 ? (
-          <p className="text-gray-600">Нет заказов.</p>
+          <p className="text-gray-600">{t("error")}</p>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {orders.map((order) => (
@@ -78,14 +80,14 @@ export default function Profile() {
                 className="bg-white rounded-xl p-4 shadow-md border"
               >
                 <p className="text-sm text-gray-500 mb-2">
-                  🧾 Заказ от: {new Date(order.createdAt).toLocaleString()}
+                  {t("orderTime")} {new Date(order.createdAt).toLocaleString()}
                 </p>
                 <p className="font-medium mb-2">
-                  📦 Статус:{" "}
+                  {t("status")}
                   <span className="font-semibold">
-                    {(order.status === "canceled" && "Заказ отменен") ||
-                      (order.status === "process" && "В обработке") ||
-                      (order.status === "done" && "Доставлен")}
+                    {(order.status === "canceled" && t("canceled")) ||
+                      (order.status === "process" && t("process")) ||
+                      (order.status === "done" && t("done"))}
                   </span>
                 </p>
                 <div className="space-y-2">
@@ -112,7 +114,7 @@ export default function Profile() {
         onClick={() => signOut()}
         className="bg-black w-50 cursor-pointer text-white hover:bg-white hover:text-black border border-black font-semibold rounded-xl"
       >
-        Выйти из аккаунта
+        {t("leave")}
       </Button>
     </div>
   );

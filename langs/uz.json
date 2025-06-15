@@ -4,7 +4,7 @@
     "description": "👕 Kichkintoydan tortib to o'smirlargacha bo'lgan barcha yoshdagi bolalar uchun zamonaviy va qulay kiyimlarning keng assortimentini taklif etamiz. Farzandingiz o'zini qulay his qilishi va eng zo'r ko'rinishi uchun har bir element mehr bilan tanlangan!",
     "about": "Biz haqimizda",
     "causes": "Nimaga biz",
-    "products": "Xizmatlar va tovarlar",
+    "products": "Kiyimlar",
     "contacts": "Kontaktlar",
     "FAQ": "Ko'p beriladigan savollar",
     "favorites": "Saralangan",
@@ -121,5 +121,19 @@
   "FavoritesPage": {
     "title": "Saralangan",
     "empty": "Siz yoqtirgan mahsulotlaringiz yoq"
+  },
+  "ProfilePage": {
+    "title": "Profil",
+    "name": "Ism: ",
+    "email": "El.pochta: ",
+    "role": "Rol: ",
+    "orders": "Buyurtmalar tarixi",
+    "error": "Buyurtmalar holi yo'q.",
+    "leave": "Akkauntdan chiqish",
+    "canceled": "Buyurtma bekor qilindi",
+    "process": "Qayta ishlashda",
+    "done": "Yetkazib berildi",
+    "status": "Status: ",
+    "orderTime": "🧾Buyurtma qilingan vaqti: "
   }
 }

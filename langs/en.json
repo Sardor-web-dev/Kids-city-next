@@ -121,5 +121,19 @@
   "FavoritesPage": {
     "title": "Favorites",
     "empty": "You have no favorite items yet."
+  },
+  "ProfilePage": {
+    "title": "Profile",
+    "name": "Name: ",
+    "email": "Email: ",
+    "role": "Role: ",
+    "orders": "History of orders",
+    "error": "No orders.",
+    "leave": "Logout",
+    "canceled": "Order canceled",
+    "process": "In process",
+    "done": "Delievered",
+    "status": "📦Status: ",
+    "orderTime": "🧾Order made in: "
   }
 }
