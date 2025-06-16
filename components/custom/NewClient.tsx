@@ -42,7 +42,7 @@ const Form = () => {
       !imageUrl ||
       selectedSizes.length === 0
     ) {
-      SetCreating(false)
+      SetCreating(false);
       toast("Пожалуйста, заполните все поля");
       return;
     }
@@ -114,8 +114,9 @@ const Form = () => {
                 setImageUrl(res[0].url);
               }
             }}
-            onUploadError={(error: Error) => {
-              toast(`Ошибка загрузки: ${error.message}`);
+            onUploadError={(error) => {
+              const message = (error as any)?.message ?? JSON.stringify(error);
+              toast.error(`Ошибка загрузки: ${message}`);
             }}
           />
           {imageUrl && (

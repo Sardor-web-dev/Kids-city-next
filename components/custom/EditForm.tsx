@@ -3,7 +3,14 @@
 import { UploadDropzone } from "@/lib/uploadthing";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { toast } from "sonner";
 
 export default function EditForm({ cloth }: { cloth: any }) {
   const [name, setName] = useState(cloth.name);
@@ -61,8 +68,9 @@ export default function EditForm({ cloth }: { cloth: any }) {
             setImageUrl(res[0].url);
           }
         }}
-        onUploadError={(error: Error) => {
-          alert(`Ошибка загрузки: ${error.message}`);
+        onUploadError={(error) => {
+          const message = (error as any)?.message ?? JSON.stringify(error);
+          toast.error(`Ошибка загрузки: ${message}`);
         }}
       />
       {imageUrl && (
