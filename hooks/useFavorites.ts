@@ -23,11 +23,9 @@ export default function useFavorites() {
   const toggleFavorite = async (clothId: number) => {
     const exists = favorites.some((fav) => fav?.id === clothId);
 
-    // Оптимистичное обновление UI
     if (exists) {
       setFavorites((prev) => prev.filter((fav) => fav.id !== clothId));
     } else {
-      // ⚠️ Добавим хоть какой-то объект, иначе сердечко не сработает
       setFavorites((prev) => [
         ...prev,
         {
@@ -54,9 +52,7 @@ export default function useFavorites() {
 
         if (!newFavorite?.cloth) return;
 
-        // 🛡 Защита от дублирования
         setFavorites((prev) => {
-          // Если уже есть — не добавляем второй раз
           const alreadyExists = prev.some((fav) => fav.id === clothId);
           if (alreadyExists) return prev;
 
