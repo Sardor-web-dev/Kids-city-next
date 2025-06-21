@@ -40,3 +40,26 @@ export async function PUT(req: Request, { params }: any) {
     return NextResponse.json({ error: "Ошибка обновления" }, { status: 500 });
   }
 }
+
+
+export async function GET(
+  req: Request,
+  { params }: any // <-- string, не number!
+) {
+  try {
+    const clothId = parseInt(params.id); // Преобразуй в число
+
+    const cloth = await prisma.cloth.findUnique({
+      where: { id: clothId },
+    });
+
+    if (!cloth) {
+      return NextResponse.json({ error: "Товар не найден" }, { status: 404 });
+    }
+
+    return NextResponse.json(cloth);
+  } catch (error) {
+    console.error("Ошибка получения товара:", error);
+    return NextResponse.json({ error: "Ошибка получения товара" }, { status: 500 });
+  }
+}
