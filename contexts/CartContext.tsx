@@ -39,7 +39,7 @@ export const useCart = () => {
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([]);
 
-  // 🟡 Загружаем корзину из localStorage при старте
+  // Загружаем корзину из localStorage при старте
   useEffect(() => {
     const stored = localStorage.getItem("cartItems");
     if (stored) {
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  // 🔵 Сохраняем корзину в localStorage при изменении
+  // Сохраняем корзину в localStorage при изменении
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(items));
   }, [items]);
