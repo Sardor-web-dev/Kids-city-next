@@ -1,49 +1,49 @@
-import GitHubProvider from "next-auth/providers/github";
-import GoogleProvider from "next-auth/providers/google";
-import CredentialsProvider from "next-auth/providers/credentials";
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import { prisma } from "@/lib/prisma";
-import { NextAuthOptions } from "next-auth";
+import GitHubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { PrismaAdapter } from '@auth/prisma-adapter';
+import { prisma } from '@/lib/prisma';
+import { NextAuthOptions } from 'next-auth';
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GitHubProvider({
-      clientId: process.env.GITHUB_ID || "",
-      clientSecret: process.env.GITHUB_SECRET || "",
+      clientId: process.env.GITHUB_ID || '',
+      clientSecret: process.env.GITHUB_SECRET || '',
       profile(profile) {
         return {
           id: profile.id.toString(),
           name: profile.name || profile.login,
           email: profile.email || profile.emails?.[0]?.email || null,
-          role: "USER", // GitHub юзерам по умолчанию — USER
+          role: 'USER', // GitHub юзерам по умолчанию — USER
         };
       },
     }),
 
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID || "",
-      clientSecret: process.env.GOOGLE_SECRET || "",
+      clientId: process.env.GOOGLE_ID || '',
+      clientSecret: process.env.GOOGLE_SECRET || '',
       profile(profile) {
         return {
           id: profile.sub,
           name: profile.name,
           email: profile.email,
           image: profile.picture,
-          role: "USER", // по умолчанию, можно менять
+          role: 'USER', // по умолчанию, можно менять
         };
       },
     }),
 
     CredentialsProvider({
-      name: "Credentials",
+      name: 'Credentials',
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+        email: { label: 'Email', type: 'email' },
+        password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error("Missing email or password");
+          throw new Error('Missing email or password');
         }
 
         const user = await prisma.user.findUnique({
@@ -51,24 +51,24 @@ export const authOptions: NextAuthOptions = {
         });
 
         if (!user || user.password !== credentials.password) {
-          throw new Error("Invalid email or password");
+          throw new Error('Invalid email or password');
         }
 
         if (user.isBlocked) {
-          throw new Error("Your account has been blocked.");
+          throw new Error('Your account has been blocked.');
         }
 
         return {
           id: user.id.toString(),
           name: user.name,
           email: user.email,
-          role: user.role || "ADMIN",// достаем роль из бд или админ по дкфолту
+          role: user.role || 'ADMIN', // достаем роль из бд или админ по дкфолту
         };
       },
     }),
   ],
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -108,9 +108,9 @@ export const authOptions: NextAuthOptions = {
   },
 
   pages: {
-    signIn: "/auth/signin",
-    signOut: "/auth/signOut",
-    error: "/auth/error", // Error page URL
+    signIn: '/auth/signin',
+    signOut: '/auth/signOut',
+    error: '/auth/error', // Error page URL
   },
 
   secret: process.env.NEXTAUTH_SECRET,

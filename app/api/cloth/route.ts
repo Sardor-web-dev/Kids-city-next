@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { prisma } from "@/lib/prisma";
+import { NextResponse } from 'next/server';
+import { getServerSession } from 'next-auth';
+import { prisma } from '@/lib/prisma';
 
 export async function POST(request: Request) {
   const { name, description, Image, gender, price, size } = await request.json();
@@ -8,25 +8,25 @@ export async function POST(request: Request) {
   const session = await getServerSession();
 
   if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const admin = await prisma.user.findUnique({
     where: {
-      email: session.user?.email || "",
+      email: session.user?.email || '',
     },
   });
 
   if (!admin) {
-    return NextResponse.json({ error: "User not found" }, { status: 404 });
+    return NextResponse.json({ error: 'User not found' }, { status: 404 });
   }
 
   if (!name || !description || !Image || !gender || !price || !size) {
     return NextResponse.json(
       {
-        error: "Все поля обязательны: name, description, Image, gender, price",
+        error: 'Все поля обязательны: name, description, Image, gender, price',
       },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -49,10 +49,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(cloth, { status: 201 });
   } catch (error) {
-    console.error("Server error:", error);
-    return NextResponse.json(
-      { error: "Failed to create cloth item" },
-      { status: 500 }
-    );
+    console.error('Server error:', error);
+    return NextResponse.json({ error: 'Failed to create cloth item' }, { status: 500 });
   }
 }

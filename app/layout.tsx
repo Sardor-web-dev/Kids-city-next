@@ -1,57 +1,56 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { getLocale } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
-import { getServerSession } from "next-auth";
-import SessionProvider from "@/components/custom/SessionProvider";
-import Header from "@/components/custom/Header";
-import Footer from "@/components/custom/Footer";
-import Script from "next/script";
-import { CartProvider } from "@/contexts/CartContext";
-import { Toaster } from "@/components/ui/sonner";
-import LayoutWrapper from "@/components/custom/LayoutWrapper";
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
+import { getLocale } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
+import { getServerSession } from 'next-auth';
+import SessionProvider from '@/components/custom/SessionProvider';
+import Header from '@/components/custom/Header';
+import Footer from '@/components/custom/Footer';
+import Script from 'next/script';
+import { CartProvider } from '@/contexts/CartContext';
+import { Toaster } from '@/components/ui/sonner';
+import LayoutWrapper from '@/components/custom/LayoutWrapper';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export async function generateMetadata() {
   const ogImage = `https://kidscity.uz/logo.png`;
 
   return {
-    title: "Kids City",
-    description: "Лучший магазин детской одежды в Самарканде",
+    title: 'Kids City',
+    description: 'Лучший магазин детской одежды в Самарканде',
     ogImage: ogImage,
     keywords:
-      "детская одежда Самарканд, детская мода, вещи для девочек, мальчиков, магазин детской одежды, kids city, детские платья, костюмы, одежда 0-10 лет",
+      'детская одежда Самарканд, детская мода, вещи для девочек, мальчиков, магазин детской одежды, kids city, детские платья, костюмы, одежда 0-10 лет',
     openGraph: {
-      title: "Детская одежда в Самарканде — Kids City",
+      title: 'Детская одежда в Самарканде — Kids City',
       description:
-        "Качественная детская одежда для девочек и мальчиков. Быстрая доставка по Самарканду.",
-      type: "website",
-      siteName: "Kids City",
-      url: "https://www.kidscity.uz",
+        'Качественная детская одежда для девочек и мальчиков. Быстрая доставка по Самарканду.',
+      type: 'website',
+      siteName: 'Kids City',
+      url: 'https://www.kidscity.uz',
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: "Kids City logo",
+          alt: 'Kids City logo',
         },
       ],
     },
     twitter: {
-      card: "summary_large_image",
-      title: "Лучшая детская одежда в Самарканде - Kids City",
-      description:
-        "Магазин детской одежды в Самарканде. Модные вещи для мальчиков и девочек.",
-      site: "@kidscity",
+      card: 'summary_large_image',
+      title: 'Лучшая детская одежда в Самарканде - Kids City',
+      description: 'Магазин детской одежды в Самарканде. Модные вещи для мальчиков и девочек.',
+      site: '@kidscity',
       images: [ogImage],
     },
   };
@@ -98,15 +97,13 @@ export default async function RootLayout({
           `}
         </Script>
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* Yandex.Metrika noscript fallback */}
         <noscript>
           <div>
             <img
               src="https://mc.yandex.ru/watch/101778849"
-              style={{ position: "absolute", left: "-9999px" }}
+              style={{ position: 'absolute', left: '-9999px' }}
               alt=""
             />
           </div>

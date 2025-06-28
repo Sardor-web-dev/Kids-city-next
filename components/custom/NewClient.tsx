@@ -1,29 +1,29 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { UploadDropzone } from "@/lib/uploadthing";
+import { useState } from 'react';
+import { UploadDropzone } from '@/lib/uploadthing';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Sizes } from "@/utils/sizes";
+} from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
+import { toast } from 'sonner';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Sizes } from '@/utils/sizes';
 
 const Form = () => {
-  const [imageUrl, setImageUrl] = useState<string>("");
-  const [gender, setGender] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState<string>('');
+  const [gender, setGender] = useState<string>('');
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [creating, SetCreating] = useState<boolean>(false);
   const handleSizeChange = (size: string) => {
-    setSelectedSizes((prev) =>
-      prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size]
+    setSelectedSizes(prev =>
+      prev.includes(size) ? prev.filter(s => s !== size) : [...prev, size],
     );
   };
 
@@ -31,26 +31,20 @@ const Form = () => {
     e.preventDefault();
 
     const fm = new FormData(e.currentTarget);
-    const name = fm.get("name");
-    const description = fm.get("description");
-    const priceStr = fm.get("price");
+    const name = fm.get('name');
+    const description = fm.get('description');
+    const priceStr = fm.get('price');
     const price = parseInt(priceStr as string);
-    if (
-      !name ||
-      !description ||
-      !gender ||
-      !imageUrl ||
-      selectedSizes.length === 0
-    ) {
+    if (!name || !description || !gender || !imageUrl || selectedSizes.length === 0) {
       SetCreating(false);
-      toast("Пожалуйста, заполните все поля");
+      toast('Пожалуйста, заполните все поля');
       return;
     }
 
-    const response = await fetch("/api/cloth", {
-      method: "POST",
+    const response = await fetch('/api/cloth', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name,
@@ -63,75 +57,58 @@ const Form = () => {
     });
 
     if (response.ok) {
-      console.log("Post created successfully");
+      console.log('Post created successfully');
       e.target.reset();
       setSelectedSizes([]);
-      setImageUrl("");
+      setImageUrl('');
       SetCreating(false);
     } else {
       const error = await response.json();
-      console.error("Error creating post:", error);
+      console.error('Error creating post:', error);
       SetCreating(false);
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Создать товар</h1>
+    <div className="mx-auto max-w-2xl p-4">
+      <h1 className="mb-6 text-2xl font-bold">Создать товар</h1>
       <form onSubmit={postData} className="space-y-6">
         <div>
-          <Label className="block text-lg mb-2">Название товара</Label>
-          <Input
-            type="text"
-            name="name"
-            className="w-full px-4 py-2 border rounded-lg"
-          />
+          <Label className="mb-2 block text-lg">Название товара</Label>
+          <Input type="text" name="name" className="w-full rounded-lg border px-4 py-2" />
         </div>
 
         <div>
-          <Label className="block text-lg mb-2">Описание товара</Label>
-          <Input
-            name="description"
-            className="w-full px-4 py-2 border rounded-lg"
-          />
+          <Label className="mb-2 block text-lg">Описание товара</Label>
+          <Input name="description" className="w-full rounded-lg border px-4 py-2" />
         </div>
 
         <div>
-          <Label className="block text-lg mb-2">Цена товара</Label>
-          <Input
-            name="price"
-            type="number"
-            className="w-full px-4 py-2 border rounded-lg"
-          />
+          <Label className="mb-2 block text-lg">Цена товара</Label>
+          <Input name="price" type="number" className="w-full rounded-lg border px-4 py-2" />
         </div>
 
         <div>
-          <Label className="block text-lg mb-2">Картинка</Label>
+          <Label className="mb-2 block text-lg">Картинка</Label>
           <UploadDropzone
             endpoint="imageUploader"
-            onClientUploadComplete={(res) => {
+            onClientUploadComplete={res => {
               if (res && res[0]) {
                 setImageUrl(res[0].url);
               }
             }}
-            onUploadError={(error) => {
+            onUploadError={error => {
               const message = (error as any)?.message ?? JSON.stringify(error);
               toast.error(`Ошибка загрузки: ${message}`);
             }}
           />
-          {imageUrl && (
-            <img
-              src={imageUrl}
-              alt="Uploaded"
-              className="w-32 h-32 mt-2 rounded"
-            />
-          )}
+          {imageUrl && <img src={imageUrl} alt="Uploaded" className="mt-2 h-32 w-32 rounded" />}
         </div>
 
         <div className="flex flex-col gap-2">
           <p className="text-lg">Выберите Гендер</p>
           <Select value={gender} onValueChange={setGender}>
-            <SelectTrigger className="w-full px-4 py-2 border rounded-lg">
+            <SelectTrigger className="w-full rounded-lg border px-4 py-2">
               <SelectValue placeholder="Гендер" />
             </SelectTrigger>
             <SelectContent>
@@ -161,9 +138,9 @@ const Form = () => {
           onClick={() => SetCreating(true)}
           variant="outline"
           type="submit"
-          className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600"
+          className="w-full rounded-lg bg-blue-500 py-3 text-white hover:bg-blue-600"
         >
-          {!creating ? "Создать товар" : "Товар создается..."}
+          {!creating ? 'Создать товар' : 'Товар создается...'}
         </Button>
       </form>
     </div>

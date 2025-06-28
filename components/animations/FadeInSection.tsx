@@ -1,18 +1,18 @@
 // components/animations/FadeInSection.tsx
-"use client";
+'use client';
 
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 interface FadeInSectionProps {
   children: React.ReactNode;
-  direction?: "up" | "down" | "left" | "right";
+  direction?: 'up' | 'down' | 'left' | 'right';
   delay?: number;
 }
 
 export default function FadeInSection({
   children,
-  direction = "up",
+  direction = 'up',
   delay = 0.2,
 }: FadeInSectionProps) {
   const controls = useAnimation();
@@ -21,19 +21,19 @@ export default function FadeInSection({
 
   useEffect(() => {
     if (inView) {
-      controls.start("visible");
+      controls.start('visible');
     }
   }, [controls, inView]);
 
   const getInitial = () => {
     switch (direction) {
-      case "up":
+      case 'up':
         return { opacity: 0, y: 50 };
-      case "down":
+      case 'down':
         return { opacity: 0, y: -50 };
-      case "left":
+      case 'left':
         return { opacity: 0, x: 50 };
-      case "right":
+      case 'right':
         return { opacity: 0, x: -50 };
       default:
         return { opacity: 0 };

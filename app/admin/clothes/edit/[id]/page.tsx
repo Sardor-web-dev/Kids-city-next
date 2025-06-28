@@ -1,5 +1,5 @@
-import EditForm from "@/components/custom/EditForm";
-import { prisma } from "@/lib/prisma";
+import EditForm from '@/components/custom/EditForm';
+import { prisma } from '@/lib/prisma';
 
 export default async function EditClothPage({ params }: any) {
   const cloth = await prisma.cloth.findUnique({
@@ -9,8 +9,8 @@ export default async function EditClothPage({ params }: any) {
   if (!cloth) return <div>Товар не найден</div>;
 
   return (
-    <div className="max-w-xl mx-auto mt-10">
-      <h1 className="text-2xl font-bold mb-4">Редактировать товар</h1>
+    <div className="mx-auto mt-10 max-w-xl">
+      <h1 className="mb-4 text-2xl font-bold">Редактировать товар</h1>
       <EditForm cloth={cloth} />
     </div>
   );

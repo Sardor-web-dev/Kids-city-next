@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { Cloth } from "@/app/generated/prisma";
-import ProductCard from "@/components/custom/ProductCard";
-import { Button } from "../ui/button";
-import { FaSearch } from "react-icons/fa";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { Cloth } from '@/app/generated/prisma';
+import ProductCard from '@/components/custom/ProductCard';
+import { Button } from '../ui/button';
+import { FaSearch } from 'react-icons/fa';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
 
 type Props = {
   title: string;
@@ -17,15 +17,10 @@ type Props = {
   gender: string | undefined;
 };
 
-export default function AnimatedCatalogue({
-  title,
-  description,
-  clothes,
-  gender,
-}: Props) {
+export default function AnimatedCatalogue({ title, description, clothes, gender }: Props) {
   const router = useRouter();
-  const [search, setSearch] = useState<string>("");
-  const [debouncedSearch, setDebouncedSearch] = useState<string>("");
+  const [search, setSearch] = useState<string>('');
+  const [debouncedSearch, setDebouncedSearch] = useState<string>('');
   const [minPrice, setMinPrice] = useState<number | null>(null);
   const [maxPrice, setMaxPrice] = useState<number | null>(null);
   const [filteredClothes, setFilteredClothes] = useState<Cloth[]>(clothes);
@@ -41,7 +36,7 @@ export default function AnimatedCatalogue({
 
   // Filtering
   useEffect(() => {
-    const filtered = clothes.filter((cloth) => {
+    const filtered = clothes.filter(cloth => {
       const matchesSearch =
         cloth.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
         cloth.description.toLowerCase().includes(debouncedSearch.toLowerCase());
@@ -62,50 +57,50 @@ export default function AnimatedCatalogue({
 
   return (
     <motion.div
-      className="flex flex-col items-center justify-center gap-12 py-16 px-4 md:px-12"
+      className="flex flex-col items-center justify-center gap-12 px-4 py-16 md:px-12"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <motion.div
-        className="text-center flex flex-col items-center justify-center max-w-2xl"
+        className="flex max-w-2xl flex-col items-center justify-center text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{title}</h1>
-        <p className="text-lg md:text-2xl text-gray-600">{description}</p>
+        <h1 className="mb-4 text-4xl font-extrabold md:text-5xl">{title}</h1>
+        <p className="text-lg text-gray-600 md:text-2xl">{description}</p>
 
         {/* Поиск */}
-        <Label className="flex mt-5 items-center gap-2">
+        <Label className="mt-5 flex items-center gap-2">
           <Input
             type="text"
             placeholder="Поиск по названию или описанию"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="lg:w-[400px] w-[300px] border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
+            onChange={e => setSearch(e.target.value)}
+            className="w-[300px] rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-black focus:outline-none lg:w-[400px]"
           />
           <Button
-            variant={"outline"}
-            className="text-center border-black bg-gray-800 text-white font-bold cursor-pointer"
+            variant={'outline'}
+            className="cursor-pointer border-black bg-gray-800 text-center font-bold text-white"
           >
             <FaSearch size={24} />
           </Button>
         </Label>
 
         {/* Переключатели пола */}
-        <div className="flex flex-col lg:flex-row items-center mt-5 lg:gap-7 gap-3 justify-center">
+        <div className="mt-5 flex flex-col items-center justify-center gap-3 lg:flex-row lg:gap-7">
           <Button
-            onClick={() => handleChangeGender("boy")}
-            variant={gender === "boy" ? "default" : "outline"}
-            className="cursor-pointer w-[300px] h-[50px] border-black bg-gray-800 text-white font-bold"
+            onClick={() => handleChangeGender('boy')}
+            variant={gender === 'boy' ? 'default' : 'outline'}
+            className="h-[50px] w-[300px] cursor-pointer border-black bg-gray-800 font-bold text-white"
           >
             Показать одежду только для мальчиков
           </Button>
           <Button
-            onClick={() => handleChangeGender("girl")}
-            variant={gender === "girl" ? "default" : "outline"}
-            className="cursor-pointer w-[300px] h-[50px] border-black bg-gray-800 text-white font-bold"
+            onClick={() => handleChangeGender('girl')}
+            variant={gender === 'girl' ? 'default' : 'outline'}
+            className="h-[50px] w-[300px] cursor-pointer border-black bg-gray-800 font-bold text-white"
           >
             Показать одежду только для девочек
           </Button>
@@ -119,10 +114,8 @@ export default function AnimatedCatalogue({
           <Input
             type="number"
             placeholder="0"
-            value={minPrice ?? ""}
-            onChange={(e) =>
-              setMinPrice(e.target.value ? parseInt(e.target.value) : null)
-            }
+            value={minPrice ?? ''}
+            onChange={e => setMinPrice(e.target.value ? parseInt(e.target.value) : null)}
             className="w-[120px]"
           />
         </div>
@@ -131,10 +124,8 @@ export default function AnimatedCatalogue({
           <Input
             type="number"
             placeholder="1000000"
-            value={maxPrice ?? ""}
-            onChange={(e) =>
-              setMaxPrice(e.target.value ? parseInt(e.target.value) : null)
-            }
+            value={maxPrice ?? ''}
+            onChange={e => setMaxPrice(e.target.value ? parseInt(e.target.value) : null)}
             className="w-[150px]"
           />
         </div>
@@ -142,11 +133,9 @@ export default function AnimatedCatalogue({
 
       {/* Вывод результатов */}
       {filteredClothes.length === 0 ? (
-        <p className="text-gray-500 text-xl text-center">
-          Ничего не найдено по вашему запросу
-        </p>
+        <p className="text-center text-xl text-gray-500">Ничего не найдено по вашему запросу</p>
       ) : (
-        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-w-7xl">
+        <div className="grid w-full max-w-7xl gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filteredClothes.map((cloth, index) => (
             <motion.div
               key={cloth.id}

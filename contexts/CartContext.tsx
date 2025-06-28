@@ -1,12 +1,6 @@
-"use client";
+'use client';
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 export type CartItem = {
   id: number;
@@ -32,7 +26,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const useCart = () => {
   const context = useContext(CartContext);
-  if (!context) throw new Error("CartProvider is missing");
+  if (!context) throw new Error('CartProvider is missing');
   return context;
 };
 
@@ -41,7 +35,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   // Загружаем корзину из localStorage при старте
   useEffect(() => {
-    const stored = localStorage.getItem("cartItems");
+    const stored = localStorage.getItem('cartItems');
     if (stored) {
       setItems(JSON.parse(stored));
     }
@@ -49,15 +43,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   // Сохраняем корзину в localStorage при изменении
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(items));
+    localStorage.setItem('cartItems', JSON.stringify(items));
   }, [items]);
 
   const addItem = (item: CartItem) => {
-    setItems((prev) => {
-      const existing = prev.find((i) => i.id === item.id);
+    setItems(prev => {
+      const existing = prev.find(i => i.id === item.id);
       if (existing) {
-        return prev.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
+        return prev.map(i =>
+          i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i,
         );
       }
       return [...prev, item];
@@ -65,30 +59,26 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const removeItem = (id: number) => {
-    setItems((prev) => {
-      const target = prev.find((i) => i.id === id);
+    setItems(prev => {
+      const target = prev.find(i => i.id === id);
       if (target && target.quantity > 1) {
-        return prev.map((i) =>
-          i.id === id ? { ...i, quantity: i.quantity - 1 } : i
-        );
+        return prev.map(i => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i));
       }
-      return prev.filter((item) => item.id !== id);
+      return prev.filter(item => item.id !== id);
     });
   };
 
   const removeFromCart = (id: number) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    setItems(prevItems => prevItems.filter(item => item.id !== id));
   };
 
   const clearCart = () => {
     setItems([]);
-    localStorage.removeItem("cartItems");
+    localStorage.removeItem('cartItems');
   };
 
   return (
-    <CartContext.Provider
-      value={{ items, addItem, removeItem, clearCart, removeFromCart }}
-    >
+    <CartContext.Provider value={{ items, addItem, removeItem, clearCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

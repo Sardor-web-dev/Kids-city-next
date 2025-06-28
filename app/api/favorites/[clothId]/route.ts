@@ -1,17 +1,14 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
-import { NextRequest, NextResponse } from "next/server";
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
+import { prisma } from '@/lib/prisma';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function DELETE(
-  req: NextRequest,
-  context: { params: Promise<{ clothId: string }> }
-) {
+export async function DELETE(req: NextRequest, context: { params: Promise<{ clothId: string }> }) {
   const { clothId } = await context.params;
 
   const session = await getServerSession(authOptions);
   if (!session?.user?.email) {
-    return new NextResponse("Unauthorized", { status: 401 });
+    return new NextResponse('Unauthorized', { status: 401 });
   }
 
   const user = await prisma.user.findUnique({
@@ -19,7 +16,7 @@ export async function DELETE(
   });
 
   if (!user) {
-    return new NextResponse("User not found", { status: 404 });
+    return new NextResponse('User not found', { status: 404 });
   }
 
   await prisma.favorites.deleteMany({

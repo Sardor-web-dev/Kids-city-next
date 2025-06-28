@@ -1,13 +1,12 @@
 // app/api/favorites/add/route.ts
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
-import { NextResponse } from "next/server";
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
+import { prisma } from '@/lib/prisma';
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
-  if (!session?.user?.email)
-    return new NextResponse("Unauthorized", { status: 401 });
+  if (!session?.user?.email) return new NextResponse('Unauthorized', { status: 401 });
 
   const { clothId } = await req.json();
 
@@ -20,7 +19,7 @@ export async function POST(req: Request) {
   });
 
   if (exists) {
-    return new NextResponse("Already exists", { status: 400 });
+    return new NextResponse('Already exists', { status: 400 });
   }
 
   const favorite = await prisma.favorites.create({

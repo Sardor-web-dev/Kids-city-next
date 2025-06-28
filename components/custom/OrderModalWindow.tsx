@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
   Dialog,
   DialogContent,
@@ -7,63 +7,62 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Button } from "../ui/button";
-import { useState } from "react";
-import { useTranslations } from "next-intl";
-import { toast } from "sonner";
-import { useCart } from "@/contexts/CartContext";
-import { useSession } from "next-auth/react";
+} from '@/components/ui/select';
+import { Button } from '../ui/button';
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
+import { toast } from 'sonner';
+import { useCart } from '@/contexts/CartContext';
+import { useSession } from 'next-auth/react';
 
 const OrderModal = ({ totalPrice }: { totalPrice: number }) => {
-  const t = useTranslations("CartPage");
+  const t = useTranslations('CartPage');
   const [open, setOpen] = useState(false);
   const [ordered, setOrdered] = useState(false);
-  const [payment, setPayment] = useState("");
+  const [payment, setPayment] = useState('');
   const { data: session } = useSession();
   const userId = session?.user?.email; // или email, если id нет
   const { items, clearCart } = useCart();
 
   const data = [
-    { name: t("name"), type: "text", identifier: "name" },
-    { name: t("surname"), type: "text", identifier: "surname" },
-    { name: t("adress"), type: "text", identifier: "adress" },
-    { name: t("number"), type: "number", identifier: "number" },
-    { name: t("email"), type: "email", identifier: "email" },
+    { name: t('name'), type: 'text', identifier: 'name' },
+    { name: t('surname'), type: 'text', identifier: 'surname' },
+    { name: t('adress'), type: 'text', identifier: 'adress' },
+    { name: t('number'), type: 'number', identifier: 'number' },
+    { name: t('email'), type: 'email', identifier: 'email' },
   ];
   const order = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const fm = new FormData(e.currentTarget);
-    const name = fm.get("name");
-    const surname = fm.get("surname");
-    const adress = fm.get("adress");
-    const number = fm.get("number");
-    const email = fm.get("email");
+    const name = fm.get('name');
+    const surname = fm.get('surname');
+    const adress = fm.get('adress');
+    const number = fm.get('number');
+    const email = fm.get('email');
 
     const TELEGRAM_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
-    const CHAT_IDS =
-      process.env.NEXT_PUBLIC_TELEGRAM_CHAT_IDS?.split(",") || [];
+    const CHAT_IDS = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_IDS?.split(',') || [];
     const orderNumber = `ORDER-${Date.now()}`;
 
     if (!name || !surname || !adress || !number || !email || !payment) {
-      toast("Пожалуйста, заполните все поля.");
+      toast('Пожалуйста, заполните все поля.');
       setOrdered(false);
       return;
     }
 
-    await fetch("/api/orders", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    await fetch('/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name,
         surname,
@@ -88,21 +87,18 @@ const OrderModal = ({ totalPrice }: { totalPrice: number }) => {
 👤 Владелец: ${name}  ${surname}
           `;
 
-          await fetch(
-            `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendPhoto`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                chat_id: chatId,
-                photo: item.Image,
-                caption: caption,
-                parse_mode: "Markdown",
-              }),
-            }
-          );
+          await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendPhoto`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              chat_id: chatId,
+              photo: item.Image,
+              caption: caption,
+              parse_mode: 'Markdown',
+            }),
+          });
         }
 
         // Отправка общего сообщения о заказе после фоток
@@ -121,28 +117,25 @@ const OrderModal = ({ totalPrice }: { totalPrice: number }) => {
 Перейдите по ссылке для создания товаров: https://www.kidscity.uz/admin
         `;
 
-        await fetch(
-          `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              chat_id: chatId,
-              text: message,
-              parse_mode: "Markdown",
-            }),
-          }
-        );
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'Markdown',
+          }),
+        });
       }
       setOpen(false);
-      toast("Заказ отправлен!");
+      toast('Заказ отправлен!');
       clearCart();
       setOrdered(false);
     } catch (error) {
-      console.error("Ошибка отправки заказа:", error);
-      toast("Ошибка отправки заказа.");
+      console.error('Ошибка отправки заказа:', error);
+      toast('Ошибка отправки заказа.');
       setOrdered(false);
     }
   };
@@ -153,15 +146,15 @@ const OrderModal = ({ totalPrice }: { totalPrice: number }) => {
         <DialogTrigger asChild>
           <Button
             variant="outline"
-            className="cursor-pointer lg:w-[200px] lg:h-[50px] w-[130px] h-[40px] border-1 lg:rounded-lg rounded-md border-black bg-gray-800 text-white font-medium lg:text-md lg:font-bold"
+            className="lg:text-md h-[40px] w-[130px] cursor-pointer rounded-md border-1 border-black bg-gray-800 font-medium text-white lg:h-[50px] lg:w-[200px] lg:rounded-lg lg:font-bold"
           >
-            {t("button")}
+            {t('button')}
           </Button>
         </DialogTrigger>
         <DialogContent className="max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>{t("dialogTitle")}</DialogTitle>
-            <DialogDescription>{t("dialogDescription")}</DialogDescription>
+            <DialogTitle>{t('dialogTitle')}</DialogTitle>
+            <DialogDescription>{t('dialogDescription')}</DialogDescription>
           </DialogHeader>
           <form onSubmit={order} className="flex flex-col gap-4">
             {data.map((item, i) => (
@@ -171,14 +164,14 @@ const OrderModal = ({ totalPrice }: { totalPrice: number }) => {
                   id={item.name}
                   name={item.identifier}
                   type={item.type}
-                  className="lg:w-[220px] w-[170px]"
+                  className="w-[170px] lg:w-[220px]"
                 />
               </div>
             ))}
             <div className="flex items-center justify-between gap-4">
-              <Label className="text-right">{t("payment")}</Label>
+              <Label className="text-right">{t('payment')}</Label>
               <Select value={payment} onValueChange={setPayment}>
-                <SelectTrigger className="w-[220px] lg:w-[300px] border rounded-lg">
+                <SelectTrigger className="w-[220px] rounded-lg border lg:w-[300px]">
                   <SelectValue placeholder="Способ оплаты" />
                 </SelectTrigger>
                 <SelectContent>
@@ -189,11 +182,7 @@ const OrderModal = ({ totalPrice }: { totalPrice: number }) => {
             </div>
             <DialogFooter>
               {!ordered ? (
-                <Button
-                  className="cursor-pointer"
-                  onClick={() => setOrdered(true)}
-                  type="submit"
-                >
+                <Button className="cursor-pointer" onClick={() => setOrdered(true)} type="submit">
                   Заказать
                 </Button>
               ) : (

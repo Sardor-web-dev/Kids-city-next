@@ -114,8 +114,3 @@ npm run dev
 ```
 
 Затем открой в браузере: [http://localhost:3000](http://localhost:3000)
-
-
-
-
-

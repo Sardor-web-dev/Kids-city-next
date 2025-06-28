@@ -1,17 +1,17 @@
-"use client";
-import { useCart } from "@/contexts/CartContext";
-import { Button } from "../ui/button";
-import { FaCartPlus } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
-import { toast } from "sonner";
+'use client';
+import { useCart } from '@/contexts/CartContext';
+import { Button } from '../ui/button';
+import { FaCartPlus } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
+import { toast } from 'sonner';
 
 const ButtonCart = ({ cloth, selectedSize }: any) => {
   const { items, removeItem, addItem } = useCart();
-  const isInCart = items.some((item) => item.id === cloth.id);
+  const isInCart = items.some(item => item.id === cloth.id);
 
   const handleAdd = () => {
     if (!selectedSize) {
-      toast.error("Выберите размер перед добавлением в корзину");
+      toast.error('Выберите размер перед добавлением в корзину');
       return;
     }
     addItem({
@@ -35,14 +35,14 @@ const ButtonCart = ({ cloth, selectedSize }: any) => {
     <>
       {!isInCart ? (
         <Button
-          className="bg-black text-white hover:bg-gray-500 transition-all border-1 border-white cursor-pointer"
+          className="cursor-pointer border-1 border-white bg-black text-white transition-all hover:bg-gray-500"
           onClick={handleAdd}
         >
           Добавить в корзину <FaCartPlus />
         </Button>
       ) : (
         <Button
-          className="bg-white text-black hover:bg-gray-500 transition-all border-1 border-black cursor-pointer"
+          className="cursor-pointer border-1 border-black bg-white text-black transition-all hover:bg-gray-500"
           onClick={handleRemove}
         >
           Удалить из корзины <MdDelete />

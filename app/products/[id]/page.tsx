@@ -1,6 +1,6 @@
-import AnimatedProductPage from "@/components/animations/AnimatedProductPage";
-import { prisma } from "@/lib/prisma";
-import { notFound } from "next/navigation";
+import AnimatedProductPage from '@/components/animations/AnimatedProductPage';
+import { prisma } from '@/lib/prisma';
+import { notFound } from 'next/navigation';
 
 export default async function ProductPage({ params }: { params: any }) {
   const id = Number(params.id);
@@ -13,7 +13,5 @@ export default async function ProductPage({ params }: { params: any }) {
 
   if (!cloth) return notFound();
 
-  return (
-    <AnimatedProductPage cloth={cloth}/>
-  );
+  return <AnimatedProductPage cloth={cloth} />;
 }
