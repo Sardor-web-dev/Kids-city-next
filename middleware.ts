@@ -9,7 +9,7 @@ export async function middleware(req: NextRequest) {
 
   const { pathname } = req.nextUrl;
 
-  // Пример: блокируем доступ к админке, если не админ
+  // блокируем доступ к админке, если не админ
   if (protectedAdminRoutes.some(route => pathname.startsWith(route))) {
     if (!token) {
       return NextResponse.redirect(new URL('/auth/signin', req.url));
