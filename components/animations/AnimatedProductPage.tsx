@@ -48,7 +48,6 @@ export default function AnimatedProductPage({ cloth }: { cloth: any }) {
               ))}
             </ul>
           </div>
-
           <p className="text-2xl font-semibold text-green-600">
             {cloth.price.toLocaleString()} сум
           </p>
