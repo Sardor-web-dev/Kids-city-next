@@ -8,25 +8,27 @@ import FadeInSection from '@/components/animations/FadeInSection'; // новый
 
 export default function Home() {
   return (
-    <div className="mx-auto flex max-w-[1250px] flex-col pr-2 pl-2">
-      <FadeInSection delay={0.1}>
-        <FirstSection />
-      </FadeInSection>
-      <FadeInSection delay={0.2}>
-        <ProductSection />
-      </FadeInSection>
-      <FadeInSection delay={0.3}>
-        <AboutSection />
-      </FadeInSection>
-      <FadeInSection delay={0.4}>
-        <WhyWeBestSection />
-      </FadeInSection>
-      <FadeInSection delay={0.5}>
-        <FAQ />
-      </FadeInSection>
-      <FadeInSection delay={0.6}>
-        <PhotosSection />
-      </FadeInSection>
+    <div className="w-full">
+      <div className="mx-auto flex max-w-[1250px] flex-col gap-20 px-4 py-12 md:py-16 md:gap-24">
+        <FadeInSection delay={0.1}>
+          <FirstSection />
+        </FadeInSection>
+        <FadeInSection delay={0.2}>
+          <ProductSection />
+        </FadeInSection>
+        <FadeInSection delay={0.3}>
+          <AboutSection />
+        </FadeInSection>
+        <FadeInSection delay={0.4}>
+          <WhyWeBestSection />
+        </FadeInSection>
+        <FadeInSection delay={0.5}>
+          <FAQ />
+        </FadeInSection>
+        <FadeInSection delay={0.6}>
+          <PhotosSection />
+        </FadeInSection>
+      </div>
     </div>
   );
 }

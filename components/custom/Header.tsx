@@ -26,16 +26,16 @@ const Header = () => {
   }
 
   return (
-    <header className="mx-auto w-full max-w-[1250px] bg-white py-4">
-      <div className="flex items-center justify-between gap-4 md:flex-row">
-        <div className="flex flex-wrap items-center gap-8">
+    <header className="mx-auto w-full border-b border-border bg-background py-4">
+      <div className="mx-auto flex max-w-[1250px] items-center justify-between gap-4 px-2">
+        <div className="flex flex-wrap items-center gap-6 md:gap-8">
           <Link href="/">
             <Image
-              width={150}
-              height={150}
-              className="cursor-pointer transition-transform hover:scale-105 hover:opacity-100 lg:opacity-80"
+              width={140}
+              height={140}
+              className="cursor-pointer transition-all duration-300 hover:scale-110 lg:scale-95 lg:hover:scale-105"
               src="/logo.png"
-              alt="Logo"
+              alt="Kids City Logo"
             />
           </Link>
           {[
@@ -49,7 +49,7 @@ const Header = () => {
           ].map((link, i) => (
             <Link
               key={i}
-              className="hidden text-lg text-gray-500 opacity-70 transition-all hover:text-black hover:underline hover:opacity-100 lg:flex"
+              className="hidden font-medium text-foreground/70 transition-all duration-200 hover:text-primary lg:flex"
               href={link.href}
             >
               {link.label}
@@ -57,13 +57,13 @@ const Header = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
-          <Link className="mr-2" href={'/profile'}>
-            <MdOutlineAccountCircle size={24} />
+        <div className="flex items-center gap-3 lg:gap-4">
+          <Link className="transition-all duration-200 hover:text-primary" href={'/profile'}>
+            <MdOutlineAccountCircle size={24} className="text-foreground" />
           </Link>
           <DropdownMenu>
-            <DropdownMenuTrigger className="cursor-pointer">
-              <MdLanguage size="24" />
+            <DropdownMenuTrigger className="cursor-pointer transition-all duration-200 hover:text-primary">
+              <MdLanguage size="24" className="text-foreground" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="pt-2">
               <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange('ru')}>
@@ -82,8 +82,8 @@ const Header = () => {
           </DropdownMenu>
 
           <DropdownMenu>
-            <DropdownMenuTrigger className="cursor-pointer">
-              <IoMenuSharp size="24" className="flex lg:hidden" />
+            <DropdownMenuTrigger className="cursor-pointer transition-all duration-200 hover:text-primary lg:hidden">
+              <IoMenuSharp size="24" className="text-foreground" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="pt-2">
               {[
@@ -98,7 +98,7 @@ const Header = () => {
                 <DropdownMenuItem key={i}>
                   <Link
                     key={i}
-                    className="text-lg text-gray-500 opacity-70 transition-all hover:text-black hover:opacity-100"
+                    className="font-medium text-foreground/80 transition-all duration-200 hover:text-primary"
                     href={link.href}
                   >
                     {link.label}
@@ -107,8 +107,8 @@ const Header = () => {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link href={'/cart'}>
-            <FiShoppingCart size={23} />
+          <Link className="transition-all duration-200 hover:text-primary" href={'/cart'}>
+            <FiShoppingCart size={24} className="text-foreground" />
           </Link>
         </div>
       </div>

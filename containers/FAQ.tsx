@@ -35,18 +35,20 @@ const FAQ = () => {
     <>
       <div
         id="FAQ"
-        className="mx-auto mt-20 mb-10 flex max-w-[350px] flex-col items-center justify-center lg:max-w-[1250px] lg:flex-row lg:items-start lg:justify-between lg:gap-20"
+        className="mx-auto mt-20 mb-10 flex w-full max-w-[1250px] flex-col items-start justify-start gap-12 px-4"
       >
-        <p className="text-2xl font-black lg:text-4xl">{t('title')}</p>
-        <div>
+        <div className="w-full">
+          <h2 className="text-pretty text-3xl font-bold md:text-4xl">{t('title')}</h2>
+        </div>
+        <div className="w-full space-y-3">
           {FAQarr.map((item, i) => (
             <Accordion type="single" collapsible key={i}>
-              <AccordionItem value={`item-${i}`}>
-                <AccordionTrigger className="cursor-pointer">
-                  <p className="text-lg font-bold lg:text-2xl">{item.title}</p>
+              <AccordionItem value={`item-${i}`} className="border-b border-border px-4 py-2">
+                <AccordionTrigger className="cursor-pointer py-4 text-left hover:no-underline">
+                  <p className="text-lg font-semibold text-foreground md:text-xl">{item.title}</p>
                 </AccordionTrigger>
-                <AccordionContent className="max-w-[200px lg:max-w-[400px]">
-                  <p className="text-md lg:text-xl">{item.content}</p>
+                <AccordionContent className="px-0 pb-4 pt-2 text-base leading-relaxed text-foreground/80 md:text-lg">
+                  {item.content}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

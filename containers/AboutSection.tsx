@@ -6,21 +6,25 @@ export default async function AboutSection() {
   return (
     <section
       id="about_us"
-      className="mt-20 flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:justify-between"
+      className="mt-20 flex w-full flex-col items-center justify-between gap-12 lg:flex-row lg:gap-16"
     >
-      <div className="flex h-full max-w-[500px] flex-col gap-5 text-left">
-        <h2 className="text-center text-2xl font-bold">{t('title')}</h2>
-        {aboutText.map((paragraph: string, index: any) => (
-          <p key={index} className="text-start text-base leading-relaxed font-medium">
-            {paragraph}
-          </p>
-        ))}
+      <div className="flex h-full w-full max-w-xl flex-col gap-6 text-left lg:w-auto">
+        <h2 className="text-center text-3xl font-bold md:text-4xl lg:text-left">{t('title')}</h2>
+        <div className="space-y-4">
+          {aboutText.map((paragraph: string, index: any) => (
+            <p key={index} className="text-base leading-relaxed text-foreground/80">
+              {paragraph}
+            </p>
+          ))}
+        </div>
       </div>
-      <img
-        className="h-[450px] rounded-2xl transition-transform duration-300 lg:hover:scale-105"
-        src="https://avatars.mds.yandex.net/get-altay/15223195/2a00000194ab8c65ded07e225b5837097cdf/orig"
-        alt="Наш магазин"
-      />
+      <div className="w-full max-w-md lg:max-w-lg">
+        <img
+          className="h-auto w-full rounded-3xl object-cover shadow-xl transition-transform duration-300 lg:hover:scale-105"
+          src="https://avatars.mds.yandex.net/get-altay/15223195/2a00000194ab8c65ded07e225b5837097cdf/orig"
+          alt="Kids City магазин"
+        />
+      </div>
     </section>
   );
 }

@@ -31,73 +31,78 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#f5f5f5] px-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
-        <h1 className="mb-6 text-center text-2xl font-bold text-[#333]">
-          Вход в <span className="text-[#f97316]">Kids City</span>
-        </h1>
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background via-background to-muted px-4 py-8">
+      <div className="w-full max-w-md rounded-3xl border border-border bg-card p-8 shadow-2xl">
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl font-bold text-foreground">
+            Добро пожаловать в <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Kids City</span>
+          </h1>
+          <p className="mt-2 text-sm text-foreground/60">Войдите, чтобы продолжить</p>
+        </div>
 
-        <form onSubmit={handleCredentialsSignIn} className="mb-6 flex flex-col gap-4">
-          <div className="flex flex-col gap-2 text-center font-bold">
-            <p>Для администраторов</p>
-            <hr className="mb-4 border-1 border-black" />
-          </div>
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full rounded border p-2"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-          />
-          <div className="relative">
+        <form onSubmit={handleCredentialsSignIn} className="mb-8 flex flex-col gap-4">
+          <div className="flex flex-col gap-3 rounded-lg bg-muted p-4">
+            <p className="text-sm font-semibold text-foreground/80">Для администраторов</p>
             <input
-              type={showPassword ? 'text' : 'password'}
-              placeholder="Пароль"
-              className="w-full rounded border p-2 pr-10"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
+              type="email"
+              placeholder="Email"
+              className="rounded-lg border border-border bg-background px-4 py-2 text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
               required
             />
-            <button
-              type="button"
-              onClick={() => setShowPassword(prev => !prev)}
-              className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-gray-500"
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-          </div>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Пароль"
+                className="w-full rounded-lg border border-border bg-background px-4 py-2 text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(prev => !prev)}
+                className="absolute top-1/2 right-3 -translate-y-1/2 transform cursor-pointer text-foreground/50 transition-colors hover:text-foreground"
+              >
+                {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
+              </button>
+            </div>
 
-          {error && <p className="text-red-600">{error}</p>}
-          <Button
-            variant="outline"
-            type="submit"
-            className="w-full cursor-pointer rounded-md border-1 border-black bg-gray-800 font-bold text-white hover:bg-white hover:text-black"
-          >
-            Войти по email
-          </Button>
+            {error && <p className="text-sm font-medium text-destructive">{error}</p>}
+            <Button
+              type="submit"
+              className="w-full cursor-pointer rounded-lg bg-primary font-semibold text-primary-foreground transition-all duration-200 hover:shadow-lg"
+            >
+              Войти по email
+            </Button>
+          </div>
         </form>
-        <div className="flex flex-col gap-2 text-center font-bold">
-          <p>Для пользователей</p>
-          <hr className="mb-4 border-1 border-black" />
+
+        <div className="mb-6 flex items-center gap-3">
+          <div className="flex-1 border-t border-border" />
+          <p className="text-xs font-medium text-foreground/60 uppercase">Или</p>
+          <div className="flex-1 border-t border-border" />
         </div>
-        <div className="space-y-4">
+
+        <div className="space-y-3">
+          <p className="text-center text-sm font-medium text-foreground/70">Вход для пользователей</p>
           <Button
             onClick={() => signIn('google', { callbackUrl: '/' })}
-            className="flex w-full cursor-pointer items-center gap-2 border-1 border-black bg-gray-800 font-bold text-white hover:bg-white hover:text-black"
-            variant="outline"
+            className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-lg border border-border bg-background font-semibold text-foreground transition-all duration-200 hover:bg-muted hover:border-primary py-2"
+            type="button"
           >
-            <FcGoogle className="text-xl" />
-            Войти через Google
+            <FcGoogle className="text-2xl" />
+            <span>Google</span>
           </Button>
 
           <Button
             onClick={() => signIn('github', { callbackUrl: '/' })}
-            className="flex w-full cursor-pointer items-center gap-2 border-1 border-black bg-gray-800 font-bold text-white hover:bg-white hover:text-black"
-            variant="outline"
+            className="flex w-full cursor-pointer items-center justify-center gap-3 rounded-lg border border-border bg-background font-semibold text-foreground transition-all duration-200 hover:bg-muted hover:border-primary py-2"
+            type="button"
           >
-            <FaGithub className="text-xl" />
-            Войти через GitHub
+            <FaGithub className="text-xl text-foreground" />
+            <span>GitHub</span>
           </Button>
         </div>
       </div>

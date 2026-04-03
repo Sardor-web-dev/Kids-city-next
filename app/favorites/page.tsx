@@ -21,13 +21,15 @@ const FavoritesPage = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex min-h-screen items-center justify-center px-4"
+        className="flex min-h-screen items-center justify-center px-4 py-16"
       >
-        <div className="w-full max-w-md space-y-6 text-center">
-          <h2 className="text-3xl font-bold">Вы не авторизованы</h2>
-          <p className="text-lg text-gray-600">Войдите, чтобы просматривать профиль и заказы.</p>
+        <div className="w-full max-w-md space-y-8 rounded-3xl border border-border bg-card p-8 text-center">
+          <div>
+            <h2 className="text-3xl font-bold text-foreground">Вы не авторизованы</h2>
+            <p className="mt-3 text-lg text-foreground/70">Войдите, чтобы просматривать избранные товары и заказы.</p>
+          </div>
           <Button
-            className="w-50 cursor-pointer rounded-xl border border-black bg-gray-800 font-semibold text-white hover:bg-white hover:text-black"
+            className="w-full cursor-pointer rounded-xl bg-primary px-8 py-3 font-semibold text-primary-foreground transition-all duration-200 hover:shadow-lg"
             onClick={() => signIn()}
           >
             Войти
@@ -42,18 +44,23 @@ const FavoritesPage = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="mx-auto max-w-[1250px] p-4"
+      className="mx-auto w-full max-w-[1250px] px-4 py-12 md:py-16"
     >
-      <h1 className="mb-4 text-3xl font-bold">{t('title')}</h1>
+      <h1 className="mb-12 text-pretty text-3xl font-bold md:text-4xl">{t('title')}</h1>
 
       {favorites.length === 0 ? (
-        <p className="text-gray-600">{t('empty')}</p>
+        <div className="flex flex-col items-center justify-center gap-6 py-16">
+          <p className="text-lg text-foreground/70">{t('empty')}</p>
+          <a href="/catalogue" className="rounded-lg bg-primary px-6 py-2 font-semibold text-primary-foreground transition-all duration-200 hover:shadow-lg">
+            Перейти к товарам
+          </a>
+        </div>
       ) : (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
           {favorites.map((cloth: any, i: any) => (
             <ProductCard key={i} cloth={cloth} />

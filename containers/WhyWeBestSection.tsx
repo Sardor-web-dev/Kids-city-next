@@ -28,22 +28,24 @@ export default async function WhyWeBestSection() {
 
   return (
     <div id="why_best" className="mt-20 flex w-full flex-col items-center justify-center px-4">
-      <div className="mb-10 flex flex-col gap-2 text-center">
-        <p className="text-4xl font-bold">{t('title')}</p>
-        <span className="text-2xl font-medium">{t('description')}</span>
+      <div className="mb-12 flex flex-col gap-3 text-center">
+        <h2 className="text-pretty text-3xl font-bold md:text-4xl">{t('title')}</h2>
+        <p className="text-lg font-medium text-foreground/70 md:text-xl">{t('description')}</p>
       </div>
 
-      <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-10 lg:flex-row">
+      <div className="grid w-full max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
         {advantages.map((adv, idx) => {
           const Icon = adv.icon;
           return (
             <div
               key={idx}
-              className="flex max-w-sm cursor-pointer flex-col items-center justify-center gap-4 text-center transition-all hover:scale-105"
+              className="group flex flex-col items-center justify-center gap-6 rounded-2xl border border-border bg-card p-8 text-center transition-all duration-300 hover:border-primary hover:shadow-lg hover:scale-105"
             >
-              <Icon size={120} />
-              <h3 className="text-xl font-semibold">{adv.title}</h3>
-              <span className="text-muted-foreground text-lg">{adv.description}</span>
+              <div className="rounded-2xl bg-primary/10 p-6 transition-all duration-300 group-hover:bg-primary/20">
+                <Icon size={56} className="text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground">{adv.title}</h3>
+              <p className="text-base leading-relaxed text-foreground/70">{adv.description}</p>
             </div>
           );
         })}

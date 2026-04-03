@@ -24,13 +24,15 @@ export default function Profile() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex min-h-screen items-center justify-center px-4"
+        className="flex min-h-screen items-center justify-center px-4 py-16"
       >
-        <div className="w-full max-w-md space-y-6 text-center">
-          <h2 className="text-3xl font-bold">Вы не авторизованы</h2>
-          <p className="text-lg text-gray-600">Войдите, чтобы просматривать профиль и заказы.</p>
+        <div className="w-full max-w-md space-y-8 rounded-3xl border border-border bg-card p-8 text-center">
+          <div>
+            <h2 className="text-3xl font-bold text-foreground">Вы не авторизованы</h2>
+            <p className="mt-3 text-lg text-foreground/70">Войдите, чтобы просматривать профиль и ваши заказы.</p>
+          </div>
           <Button
-            className="w-50 cursor-pointer rounded-xl border border-black bg-gray-800 font-semibold text-white hover:bg-white hover:text-black"
+            className="w-full cursor-pointer rounded-xl bg-primary px-8 py-3 font-semibold text-primary-foreground transition-all duration-200 hover:shadow-lg"
             onClick={() => signIn()}
           >
             Войти
@@ -41,32 +43,41 @@ export default function Profile() {
   }
 
   return (
-    <div className="mx-auto max-w-[1250px] p-6">
+    <div className="mx-auto w-full max-w-[1250px] px-4 py-12 md:py-16">
       {session.user?.isBlocked && (
-        <div className="mb-6 rounded-lg border border-red-300 bg-red-100 p-4 text-red-700">
-          🚫 Ваш аккаунт заблокирован.
+        <div className="mb-8 flex items-center gap-3 rounded-2xl border border-destructive/20 bg-destructive/10 p-4 text-destructive">
+          <span className="text-2xl">🚫</span>
+          <p className="font-medium">Ваш аккаунт заблокирован</p>
         </div>
       )}
 
-      <div className="mb-8">
-        <h1 className="mb-4 text-3xl font-bold">{t('title')}</h1>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <p>
-            <strong>{t('name')}</strong> {session.user.name}
-          </p>
-          <p>
-            <strong>{t('email')}</strong> {session.user.email}
-          </p>
-          <p>
-            <strong>{t('role')}</strong> {session.user.role}
-          </p>
+      <div className="mb-12 rounded-2xl border border-border bg-card p-8">
+        <h1 className="mb-8 text-3xl font-bold text-foreground md:text-4xl">{t('title')}</h1>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className="rounded-lg bg-muted p-4">
+            <p className="text-sm font-medium text-foreground/60">{t('name')}</p>
+            <p className="mt-1 text-lg font-semibold text-foreground">{session.user.name}</p>
+          </div>
+          <div className="rounded-lg bg-muted p-4">
+            <p className="text-sm font-medium text-foreground/60">{t('email')}</p>
+            <p className="mt-1 text-lg font-semibold text-foreground">{session.user.email}</p>
+          </div>
+          <div className="rounded-lg bg-muted p-4">
+            <p className="text-sm font-medium text-foreground/60">{t('role')}</p>
+            <p className="mt-1 text-lg font-semibold text-primary capitalize">{session.user.role}</p>
+          </div>
         </div>
       </div>
 
-      <div className="mb-8">
-        <h2 className="mb-4 text-2xl font-semibold">{t('orders')}</h2>
+      <div className="mb-12">
+        <h2 className="mb-8 text-2xl font-bold text-foreground md:text-3xl">{t('orders')}</h2>
         {orders.length === 0 ? (
-          <p className="text-gray-600">{t('error')}</p>
+          <div className="flex flex-col items-center justify-center gap-6 rounded-2xl border border-border bg-card p-12">
+            <p className="text-lg text-foreground/70">{t('error')}</p>
+            <a href="/catalogue" className="rounded-lg bg-primary px-6 py-2 font-semibold text-primary-foreground transition-all duration-200 hover:shadow-lg">
+              Посмотреть товары
+            </a>
+          </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {orders.map(order => (
@@ -75,30 +86,30 @@ export default function Profile() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="rounded-xl border bg-white p-4 shadow-md"
+                className="rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-lg hover:border-primary"
               >
-                <p className="mb-2 text-sm text-gray-500">
-                  {t('orderTime')} {new Date(order.createdAt).toLocaleString()}
+                <p className="mb-3 text-xs font-medium text-foreground/60 uppercase">
+                  {new Date(order.createdAt).toLocaleDateString()}
                 </p>
-                <p className="mb-2 font-medium">
-                  {t('status')}
-                  <span className="font-semibold">
-                    {(order.status === 'canceled' && t('canceled')) ||
-                      (order.status === 'process' && t('process')) ||
-                      (order.status === 'done' && t('done'))}
-                  </span>
+                <p className="mb-4 inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
+                  {(order.status === 'canceled' && t('canceled')) ||
+                    (order.status === 'process' && t('process')) ||
+                    (order.status === 'done' && t('done'))}
                 </p>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   {order.items.map((item: any) => (
-                    <div key={item.id} className="flex items-center gap-2">
+                    <div key={item.id} className="flex items-center gap-3 rounded-lg bg-muted p-2">
                       <img
                         src={item.Image}
                         alt={item.name}
-                        className="h-16 w-16 rounded-md border object-cover"
+                        className="h-12 w-12 rounded-md object-cover"
                       />
-                      <p className="text-sm">
-                        {item.name} × {item.quantity}
-                      </p>
+                      <div className="flex-1">
+                        <p className="text-sm font-medium text-foreground line-clamp-1">
+                          {item.name}
+                        </p>
+                        <p className="text-xs text-foreground/60">×{item.quantity}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -110,7 +121,7 @@ export default function Profile() {
 
       <Button
         onClick={() => signOut()}
-        className="w-50 cursor-pointer rounded-xl border border-black bg-black font-semibold text-white hover:bg-white hover:text-black"
+        className="cursor-pointer rounded-lg bg-destructive px-6 py-2 font-semibold text-destructive-foreground transition-all duration-200 hover:shadow-lg"
       >
         {t('leave')}
       </Button>

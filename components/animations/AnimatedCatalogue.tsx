@@ -57,85 +57,100 @@ export default function AnimatedCatalogue({ title, description, clothes, gender 
 
   return (
     <motion.div
-      className="flex flex-col items-center justify-center gap-12 px-4 py-16 md:px-12"
+      className="mx-auto flex w-full max-w-[1250px] flex-col items-center justify-center gap-12 px-4 py-16 md:px-6"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <motion.div
-        className="flex max-w-2xl flex-col items-center justify-center text-center"
+        className="flex w-full flex-col items-center justify-center text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        <h1 className="mb-4 text-4xl font-extrabold md:text-5xl">{title}</h1>
-        <p className="text-lg text-gray-600 md:text-2xl">{description}</p>
+        <h1 className="mb-4 text-pretty text-4xl font-bold md:text-5xl">{title}</h1>
+        <p className="text-lg font-medium text-foreground/70 md:text-xl">{description}</p>
 
         {/* Поиск */}
-        <Label className="mt-5 flex items-center gap-2">
+        <div className="mt-8 flex w-full max-w-2xl items-center gap-2 rounded-full border border-border bg-card p-2 shadow-sm">
           <Input
             type="text"
             placeholder="Поиск по названию или описанию"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-[300px] rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-black focus:outline-none lg:w-[400px]"
+            className="flex-1 border-0 bg-transparent px-4 outline-none"
           />
           <Button
-            variant={'outline'}
-            className="cursor-pointer border-black bg-gray-800 text-center font-bold text-white"
+            className="cursor-pointer rounded-full bg-primary px-4 text-primary-foreground hover:shadow-lg"
           >
-            <FaSearch size={24} />
+            <FaSearch size={18} />
           </Button>
-        </Label>
+        </div>
 
         {/* Переключатели пола */}
-        <div className="mt-5 flex flex-col items-center justify-center gap-3 lg:flex-row lg:gap-7">
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 lg:flex-row lg:gap-4">
           <Button
             onClick={() => handleChangeGender('boy')}
-            variant={gender === 'boy' ? 'default' : 'outline'}
-            className="h-[50px] w-[300px] cursor-pointer border-black bg-gray-800 font-bold text-white"
+            className={`cursor-pointer rounded-lg px-6 py-3 font-semibold transition-all duration-200 ${
+              gender === 'boy'
+                ? 'bg-primary text-primary-foreground shadow-lg'
+                : 'border border-border bg-card text-foreground hover:border-primary'
+            }`}
           >
-            Показать одежду только для мальчиков
+            Для мальчиков
           </Button>
           <Button
             onClick={() => handleChangeGender('girl')}
-            variant={gender === 'girl' ? 'default' : 'outline'}
-            className="h-[50px] w-[300px] cursor-pointer border-black bg-gray-800 font-bold text-white"
+            className={`cursor-pointer rounded-lg px-6 py-3 font-semibold transition-all duration-200 ${
+              gender === 'girl'
+                ? 'bg-primary text-primary-foreground shadow-lg'
+                : 'border border-border bg-card text-foreground hover:border-primary'
+            }`}
           >
-            Показать одежду только для девочек
+            Для девочек
+          </Button>
+          <Button
+            onClick={() => router.push('/catalogue')}
+            className={`cursor-pointer rounded-lg px-6 py-3 font-semibold transition-all duration-200 ${
+              !gender
+                ? 'bg-primary text-primary-foreground shadow-lg'
+                : 'border border-border bg-card text-foreground hover:border-primary'
+            }`}
+          >
+            Все товары
           </Button>
         </div>
       </motion.div>
 
       {/* Фильтры: Цена от - до */}
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <div className="flex items-center gap-2">
-          <Label>Цена от:</Label>
+      <div className="flex w-full max-w-2xl flex-col items-center justify-center gap-4 rounded-2xl border border-border bg-card p-6 md:flex-row">
+        <div className="flex w-full items-center gap-3 md:w-auto">
+          <Label className="font-semibold">Цена от:</Label>
           <Input
             type="number"
             placeholder="0"
             value={minPrice ?? ''}
             onChange={e => setMinPrice(e.target.value ? parseInt(e.target.value) : null)}
-            className="w-[120px]"
+            className="w-full md:w-32"
           />
         </div>
-        <div className="flex items-center gap-2">
-          <Label>до:</Label>
+        <div className="flex w-full items-center gap-3 md:w-auto">
+          <Label className="font-semibold">до:</Label>
           <Input
             type="number"
             placeholder="1000000"
             value={maxPrice ?? ''}
             onChange={e => setMaxPrice(e.target.value ? parseInt(e.target.value) : null)}
-            className="w-[150px]"
+            className="w-full md:w-32"
           />
         </div>
       </div>
 
       {/* Вывод результатов */}
       {filteredClothes.length === 0 ? (
-        <p className="text-center text-xl text-gray-500">Ничего не найдено по вашему запросу</p>
+        <p className="text-center text-xl text-foreground/60">Ничего не найдено по вашему запросу</p>
       ) : (
-        <div className="grid w-full max-w-7xl gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid w-full gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {filteredClothes.map((cloth, index) => (
             <motion.div
               key={cloth.id}

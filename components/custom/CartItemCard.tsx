@@ -10,33 +10,35 @@ const CartItemCard = ({ cloth }: { cloth: CartItem }) => {
   console.log(cloth.selectedSize);
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="box-border flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border bg-white p-1 shadow-md transition-shadow duration-300 hover:border-2 hover:shadow-xl">
+    <div className="flex flex-col gap-3">
+      <div className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary">
         <img
           onClick={() => router.push(`/products/${cloth.id}`)}
-          className="h-60 w-full rounded-lg object-cover transition-transform duration-300 hover:scale-105"
+          className="aspect-square h-auto w-full rounded-t-2xl object-cover transition-transform duration-500 group-hover:scale-110"
           src={cloth.Image}
           alt={cloth.name}
         />
 
-        <div className="flex flex-col gap-2 p-5">
-          <h2 className="text-xl font-semibold text-gray-800">{cloth.name}</h2>
-          <p className="text-sm text-gray-600">{cloth.description}</p>
-          <p className="mb-2 text-base font-medium">Размер: {cloth.selectedSize} см</p>
+        <div className="flex flex-col gap-3 p-5">
+          <div>
+            <h2 className="text-lg font-semibold text-foreground line-clamp-2">{cloth.name}</h2>
+            <p className="mt-1 text-xs text-foreground/60 line-clamp-2">{cloth.description}</p>
+          </div>
+          <p className="text-sm font-medium text-foreground/70">Размер: <span className="text-primary">{cloth.selectedSize} см</span></p>
           <div className="flex items-center justify-between">
-            <p className="text-lg font-medium">{cloth.price.toLocaleString()} сум</p>
-            <div className="flex items-center gap-3">
+            <p className="font-bold text-primary">{cloth.price.toLocaleString()} сум</p>
+            <div className="flex items-center gap-2 rounded-full border border-border bg-muted p-1">
               <button
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-lg text-white"
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-destructive/10 text-lg text-destructive transition-all hover:bg-destructive hover:text-white"
                 onClick={() => {
                   removeItem(cloth.id);
                 }}
               >
-                -
+                −
               </button>
-              <p className="text-base font-medium">{cloth.quantity}</p>
+              <p className="w-6 text-center text-sm font-semibold">{cloth.quantity}</p>
               <button
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-lg text-white"
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-lg text-primary transition-all hover:bg-primary hover:text-white"
                 onClick={() => {
                   addItem({
                     id: cloth.id,
@@ -55,13 +57,13 @@ const CartItemCard = ({ cloth }: { cloth: CartItem }) => {
               </button>
             </div>
           </div>
-          <div
+          <button
             onClick={() => removeFromCart(cloth.id)}
-            className="mt-4 flex items-center justify-center gap-4"
+            className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-destructive/10 py-2 font-medium text-destructive transition-all duration-200 hover:bg-destructive hover:text-white"
           >
-            Удалить из корзины
-            <FaTrash size={15} />
-          </div>
+            Удалить
+            <FaTrash size={14} />
+          </button>
         </div>
       </div>
     </div>
