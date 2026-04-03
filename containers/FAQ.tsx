@@ -35,19 +35,19 @@ const FAQ = () => {
     <>
       <div
         id="FAQ"
-        className="mx-auto mt-20 mb-10 flex w-full max-w-[1250px] flex-col items-start justify-start gap-12 px-4"
+        className="flex w-full flex-col items-start justify-start gap-14"
       >
         <div className="w-full">
-          <h2 className="text-pretty text-3xl font-bold md:text-4xl">{t('title')}</h2>
+          <h2 className="text-5xl font-bold tracking-tight text-foreground md:text-6xl">{t('title')}</h2>
         </div>
-        <div className="w-full space-y-3">
+        <div className="w-full space-y-2">
           {FAQarr.map((item, i) => (
             <Accordion type="single" collapsible key={i}>
-              <AccordionItem value={`item-${i}`} className="border-b border-border px-4 py-2">
-                <AccordionTrigger className="cursor-pointer py-4 text-left hover:no-underline">
+              <AccordionItem value={`item-${i}`} className="border-b border-border/40 px-6 py-1">
+                <AccordionTrigger className="cursor-pointer py-5 text-left hover:no-underline transition-colors hover:text-primary">
                   <p className="text-lg font-semibold text-foreground md:text-xl">{item.title}</p>
                 </AccordionTrigger>
-                <AccordionContent className="px-0 pb-4 pt-2 text-base leading-relaxed text-foreground/80 md:text-lg">
+                <AccordionContent className="px-0 pb-5 pt-3 text-base leading-relaxed text-foreground/60 md:text-lg font-light">
                   {item.content}
                 </AccordionContent>
               </AccordionItem>

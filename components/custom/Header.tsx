@@ -26,18 +26,20 @@ const Header = () => {
   }
 
   return (
-    <header className="mx-auto w-full border-b border-border bg-background py-4">
-      <div className="mx-auto flex max-w-[1250px] items-center justify-between gap-4 px-2">
-        <div className="flex flex-wrap items-center gap-6 md:gap-8">
-          <Link href="/">
-            <Image
-              width={140}
-              height={140}
-              className="cursor-pointer transition-all duration-300 hover:scale-110 lg:scale-95 lg:hover:scale-105"
-              src="/logo.png"
-              alt="Kids City Logo"
-            />
-          </Link>
+    <header className="mx-auto w-full bg-background py-5">
+      <div className="mx-auto flex max-w-[1250px] items-center justify-between gap-6 px-4">
+        <Link href="/" className="flex-shrink-0">
+          <Image
+            width={110}
+            height={110}
+            className="cursor-pointer transition-all duration-300 hover:opacity-80"
+            src="/logo.png"
+            alt="Kids City Logo"
+          />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden flex-1 lg:flex lg:items-center lg:gap-12 lg:px-8">
           {[
             { href: '#clothes', label: t('products') },
             { href: '#about_us', label: t('about') },
@@ -45,25 +47,30 @@ const Header = () => {
             { href: '#contacts', label: t('contacts') },
             { href: '#FAQ', label: t('FAQ') },
             { href: '/catalogue', label: t('catalogue') },
-            { href: '/favorites', label: t('favorites') },
           ].map((link, i) => (
             <Link
               key={i}
-              className="hidden font-medium text-foreground/70 transition-all duration-200 hover:text-primary lg:flex"
+              className="text-sm font-medium text-foreground/65 transition-all duration-300 hover:text-primary"
               href={link.href}
             >
               {link.label}
             </Link>
           ))}
-        </div>
+        </nav>
 
-        <div className="flex items-center gap-3 lg:gap-4">
-          <Link className="transition-all duration-200 hover:text-primary" href={'/profile'}>
-            <MdOutlineAccountCircle size={24} className="text-foreground" />
+        {/* Right Actions */}
+        <div className="flex items-center gap-4 lg:gap-6">
+          <Link className="p-2 transition-all duration-200 hover:text-primary" href={'/favorites'}>
+            <span className="text-sm font-medium text-foreground/65 hidden lg:inline hover:text-primary transition-colors">
+              {t('favorites')}
+            </span>
+          </Link>
+          <Link className="p-2 transition-all duration-200 hover:text-primary" href={'/profile'}>
+            <MdOutlineAccountCircle size={22} className="text-foreground/70" />
           </Link>
           <DropdownMenu>
-            <DropdownMenuTrigger className="cursor-pointer transition-all duration-200 hover:text-primary">
-              <MdLanguage size="24" className="text-foreground" />
+            <DropdownMenuTrigger className="p-2 cursor-pointer transition-all duration-200 hover:text-primary">
+              <MdLanguage size="22" className="text-foreground/70" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="pt-2">
               <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange('ru')}>
@@ -77,15 +84,14 @@ const Header = () => {
               <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange('uz')}>
                 {t('uzbekbtn')}
               </DropdownMenuItem>
-              <DropdownMenuSeparator />
             </DropdownMenuContent>
           </DropdownMenu>
 
           <DropdownMenu>
-            <DropdownMenuTrigger className="cursor-pointer transition-all duration-200 hover:text-primary lg:hidden">
-              <IoMenuSharp size="24" className="text-foreground" />
+            <DropdownMenuTrigger className="p-2 cursor-pointer transition-all duration-200 hover:text-primary lg:hidden">
+              <IoMenuSharp size="22" className="text-foreground/70" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="pt-2">
+            <DropdownMenuContent align="end" className="pt-2">
               {[
                 { href: '#clothes', label: t('products') },
                 { href: '#about_us', label: t('about') },
@@ -95,20 +101,17 @@ const Header = () => {
                 { href: '/catalogue', label: t('catalogue') },
                 { href: '/favorites', label: t('favorites') },
               ].map((link, i) => (
-                <DropdownMenuItem key={i}>
-                  <Link
-                    key={i}
-                    className="font-medium text-foreground/80 transition-all duration-200 hover:text-primary"
-                    href={link.href}
-                  >
+                <DropdownMenuItem key={i} asChild>
+                  <Link className="text-sm font-medium" href={link.href}>
                     {link.label}
                   </Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <Link className="transition-all duration-200 hover:text-primary" href={'/cart'}>
-            <FiShoppingCart size={24} className="text-foreground" />
+
+          <Link className="p-2 transition-all duration-200 hover:text-primary" href={'/cart'}>
+            <FiShoppingCart size={22} className="text-foreground/70" />
           </Link>
         </div>
       </div>
