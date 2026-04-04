@@ -35,19 +35,19 @@ const ButtonCart = ({ cloth, selectedSize }: any) => {
     <>
       {!isInCart ? (
         <Button
-          className="w-full cursor-pointer rounded-[1.25rem] bg-primary py-3.5 font-semibold text-primary-foreground shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-primary/95 active:scale-95"
+          className="w-full cursor-pointer rounded-[1rem] sm:rounded-[1.25rem] bg-primary py-2.5 sm:py-3 md:py-3.5 font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-primary/95 active:scale-95 text-sm sm:text-base"
           onClick={handleAdd}
         >
-          <FaCartPlus className="mr-2.5" size={16} />
-          Добавить в корзину
+          <FaCartPlus className="mr-1.5 sm:mr-2" size={14} className="sm:w-4 sm:h-4" />
+          <span className="hidden sm:inline">Добавить в</span> корзину
         </Button>
       ) : (
         <Button
-          className="w-full cursor-pointer rounded-[1.25rem] border border-destructive/40 bg-destructive/12 py-3.5 font-semibold text-destructive transition-all duration-300 hover:bg-destructive/20 hover:border-destructive/60 active:scale-95"
+          className="w-full cursor-pointer rounded-[1rem] sm:rounded-[1.25rem] border border-destructive/40 bg-destructive/12 py-2.5 sm:py-3 md:py-3.5 font-semibold text-destructive transition-all duration-300 hover:bg-destructive/20 hover:border-destructive/60 active:scale-95 text-sm sm:text-base"
           onClick={handleRemove}
         >
-          <MdDelete className="mr-2.5" size={16} />
-          Убрать из корзины
+          <MdDelete className="mr-1.5 sm:mr-2" size={14} className="sm:w-4 sm:h-4" />
+          Убрать
         </Button>
       )}
     </>

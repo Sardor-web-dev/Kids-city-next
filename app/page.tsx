@@ -9,7 +9,7 @@ import FadeInSection from '@/components/animations/FadeInSection'; // новый
 export default function Home() {
   return (
     <div className="w-full bg-background">
-      <div className="mx-auto flex max-w-[1250px] flex-col gap-40 px-4 py-16 md:py-28 lg:py-32">
+      <div className="mx-auto flex max-w-[1250px] flex-col gap-20 px-3 py-6 sm:gap-28 sm:px-4 sm:py-8 md:gap-32 md:py-10 lg:gap-40 lg:py-12">
         <FadeInSection delay={0.1}>
           <FirstSection />
         </FadeInSection>

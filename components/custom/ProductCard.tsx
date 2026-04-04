@@ -44,25 +44,25 @@ const ProductCard = ({ cloth }: { cloth: Cloth }) => {
         </div>
 
         {/* Контент карточки */}
-        <div className="flex flex-col gap-5 p-6 flex-1">
+        <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-5 md:p-6 flex-1">
           <div className="flex-1">
-            <h2 className="text-xl font-semibold text-foreground line-clamp-2 leading-snug group-hover:text-primary transition-colors duration-300">{cloth.name}</h2>
-            <p className="mt-2.5 text-sm text-foreground/50 line-clamp-2 leading-relaxed">{cloth.description}</p>
+            <h2 className="text-base sm:text-lg md:text-xl font-semibold text-foreground line-clamp-2 leading-snug group-hover:text-primary transition-colors duration-300">{cloth.name}</h2>
+            <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-foreground/50 line-clamp-2 leading-relaxed">{cloth.description}</p>
           </div>
           
-          <div className="flex items-baseline gap-2 pt-1">
-            <p className="text-2xl font-bold text-primary">{cloth.price.toLocaleString()}</p>
+          <div className="flex items-baseline gap-1.5 sm:gap-2 pt-1">
+            <p className="text-xl sm:text-2xl font-bold text-primary">{cloth.price.toLocaleString()}</p>
             <span className="text-xs text-foreground/40 font-medium uppercase tracking-wide">сум</span>
           </div>
 
           <Select value={selectedSize} onValueChange={setSelectedSize}>
-            <SelectTrigger className="w-full rounded-[1.25rem] border border-border/40 bg-muted/60 text-sm font-medium hover:border-primary/60 transition-all duration-300">
-              <SelectValue placeholder="Выбрать размер" />
+            <SelectTrigger className="w-full rounded-[1rem] sm:rounded-[1.25rem] border border-border/40 bg-muted/60 text-xs sm:text-sm font-medium hover:border-primary/60 transition-all duration-300">
+              <SelectValue placeholder="Размер" />
             </SelectTrigger>
             <SelectContent>
               {cloth.size.map((size, i) => (
                 <SelectItem key={i} value={size}>
-                  {size} см
+                  {size}
                 </SelectItem>
               ))}
             </SelectContent>

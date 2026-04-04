@@ -22,9 +22,9 @@ const PhotosSection = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="mb-16 flex flex-col gap-4 text-center">
-        <h2 className="text-5xl font-bold tracking-tight text-foreground md:text-7xl leading-tight">{t('title')}</h2>
-        <p className="text-lg text-foreground/50 md:text-xl font-light">{t('description')}</p>
+      <div className="mb-10 sm:mb-12 md:mb-14 lg:mb-16 flex flex-col gap-3 sm:gap-4 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">{t('title')}</h2>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/50 font-light">{t('description')}</p>
       </div>
 
       <div className="hidden w-full gap-8 lg:flex lg:flex-row">

@@ -26,15 +26,15 @@ const Header = () => {
   }
 
   return (
-    <header className="mx-auto w-full bg-background py-4">
-      <div className="mx-auto px-4">
-        <div className="rounded-[1.75rem] border border-white/20 bg-white/40 backdrop-blur-lg shadow-lg">
-          <div className="flex max-w-[1250px] mx-auto items-center justify-between gap-6 px-6 py-4 lg:px-8">
+    <header className="mx-auto w-full bg-background py-3 sm:py-4">
+      <div className="mx-auto px-3 sm:px-4">
+        <div className="rounded-[1.5rem] sm:rounded-[1.75rem] border border-white/20 bg-white/40 backdrop-blur-lg shadow-lg">
+          <div className="flex max-w-[1250px] mx-auto items-center justify-between gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 lg:px-8">
             <Link href="/" className="flex-shrink-0 group">
               <Image
-                width={95}
-                height={95}
-                className="cursor-pointer transition-all duration-500 group-hover:opacity-70"
+                width={75}
+                height={75}
+                className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 cursor-pointer transition-all duration-500 group-hover:opacity-70"
                 src="/logo.png"
                 alt="Kids City Logo"
               />
