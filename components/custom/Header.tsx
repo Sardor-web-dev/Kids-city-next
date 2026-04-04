@@ -2,9 +2,8 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { MdLanguage } from 'react-icons/md';
+import { MdLanguage, MdOutlineAccountCircle } from 'react-icons/md';
 import { FiShoppingCart } from 'react-icons/fi';
-import { MdOutlineAccountCircle } from 'react-icons/md';
 
 import {
   DropdownMenu,
@@ -13,7 +12,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { IoMenuSharp } from 'react-icons/io5';
 import Image from 'next/image';
 
 const Header = () => {
@@ -41,14 +39,13 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden flex-1 lg:flex lg:items-center lg:gap-10 lg:px-6">
+            <nav className="hidden flex-1 lg:flex lg:items-center lg:gap-12 lg:px-8">
               {[
                 { href: '#clothes', label: t('products') },
                 { href: '#about_us', label: t('about') },
                 { href: '#why_best', label: t('causes') },
                 { href: '#contacts', label: t('contacts') },
                 { href: '#FAQ', label: t('FAQ') },
-                { href: '/catalogue', label: t('catalogue') },
               ].map((link, i) => (
                 <Link
                   key={i}
@@ -62,18 +59,26 @@ const Header = () => {
             </nav>
 
             {/* Right Actions */}
-            <div className="flex items-center gap-0.5 sm:gap-2 lg:gap-4">
-              <Link className="p-1 sm:p-2 lg:p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full hidden sm:flex" href={'/favorites'}>
-                <span className="text-xs lg:text-sm font-medium text-foreground/60 lg:inline hover:text-primary transition-colors">
-                  {t('favorites')}
-                </span>
-              </Link>
-              <Link className="p-1 sm:p-2 lg:p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/profile'}>
-                <MdOutlineAccountCircle size={16} className="text-foreground/70 sm:w-5 sm:h-5" />
-              </Link>
+            <div className="flex items-center gap-2 lg:gap-4">
+              {/* Desktop Links and Icons */}
+              <div className="hidden lg:flex items-center gap-4">
+                <Link className="p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/favorites'}>
+                  <span className="text-sm font-medium text-foreground/60 hover:text-primary transition-colors">
+                    {t('favorites')}
+                  </span>
+                </Link>
+                <Link className="p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/profile'}>
+                  <MdOutlineAccountCircle size={20} className="text-foreground/70" />
+                </Link>
+                <Link className="p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/cart'}>
+                  <FiShoppingCart size={20} className="text-foreground/70" />
+                </Link>
+              </div>
+
+              {/* Mobile: Language Selector Only */}
               <DropdownMenu>
-                <DropdownMenuTrigger className="p-1 sm:p-2 lg:p-2.5 cursor-pointer transition-all duration-300 hover:bg-primary/10 rounded-full">
-                  <MdLanguage size="16" className="text-foreground/70 sm:w-5 sm:h-5" />
+                <DropdownMenuTrigger className="p-1.5 sm:p-2 lg:p-2.5 cursor-pointer transition-all duration-300 hover:bg-primary/10 rounded-full">
+                  <MdLanguage size="16" className="text-foreground/70 sm:w-5 sm:h-5 lg:w-5 lg:h-5" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="pt-2">
                   <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange('ru')}>
@@ -89,33 +94,6 @@ const Header = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-
-              <DropdownMenu>
-                <DropdownMenuTrigger className="p-1.5 sm:p-2 cursor-pointer transition-all duration-300 hover:bg-primary/10 rounded-full lg:hidden">
-                  <IoMenuSharp size="18" className="text-foreground/70 sm:w-5 sm:h-5" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="pt-2">
-                  {[
-                    { href: '#clothes', label: t('products') },
-                    { href: '#about_us', label: t('about') },
-                    { href: '#why_best', label: t('causes') },
-                    { href: '#contacts', label: t('contacts') },
-                    { href: '#FAQ', label: t('FAQ') },
-                    { href: '/catalogue', label: t('catalogue') },
-                    { href: '/favorites', label: t('favorites') },
-                  ].map((link, i) => (
-                    <DropdownMenuItem key={i} asChild>
-                      <Link className="text-sm font-medium" href={link.href}>
-                        {link.label}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-
-              <Link className="p-1 sm:p-2 lg:p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/cart'}>
-                <FiShoppingCart size={16} className="text-foreground/70 sm:w-5 sm:h-5" />
-              </Link>
             </div>
           </div>
         </div>

@@ -2,26 +2,20 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { IoMenuSharp } from 'react-icons/io5';
-import { FiShoppingCart, FiHome } from 'react-icons/fi';
-import { MdOutlineAccountCircle } from 'react-icons/md';
-import { IoClose } from 'react-icons/io5';
+import { FiShoppingCart } from 'react-icons/fi';
+import { MdOutlineAccountCircle, MdShoppingBag } from 'react-icons/md';
+import { BiSolidHeart } from 'react-icons/bi';
 
 export default function MobileNav() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
 
   const isActive = (href: string) => {
-    if (href === '/') {
-      return pathname === '/';
-    }
     return pathname.startsWith(href);
   };
 
   const navItems = [
-    { href: '/', label: 'Главная', icon: FiHome, id: 'home' },
-    { href: '/catalogue', label: 'Каталог', icon: IoMenuSharp, id: 'catalogue' },
+    { href: '/catalogue', label: 'Каталог', icon: MdShoppingBag, id: 'catalogue' },
+    { href: '/favorites', label: 'Избранное', icon: BiSolidHeart, id: 'favorites' },
     { href: '/cart', label: 'Корзина', icon: FiShoppingCart, id: 'cart' },
     { href: '/profile', label: 'Профиль', icon: MdOutlineAccountCircle, id: 'profile' },
   ];
