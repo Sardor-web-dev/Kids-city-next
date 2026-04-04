@@ -23,8 +23,8 @@ export default function MobileNav() {
   return (
     <>
       {/* Bottom Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white/98 backdrop-blur-xl border-t border-border/30 lg:hidden z-40 shadow-2xl">
-        <div className="flex items-center justify-around safe-area-inset-bottom">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white/99 backdrop-blur-xl border-t border-border/40 lg:hidden z-50 shadow-2xl">
+        <div className="flex items-center justify-around">
           {navItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.href);
@@ -32,22 +32,19 @@ export default function MobileNav() {
               <Link
                 key={item.id}
                 href={item.href}
-                className={`flex flex-col items-center justify-center py-2.5 px-3 w-1/4 transition-all duration-300 ${
+                className={`flex flex-col items-center justify-center py-3 px-3 w-1/4 transition-all duration-300 ${
                   active
                     ? 'text-primary bg-primary/5 border-t-2 border-primary'
                     : 'text-foreground/50 border-t-2 border-transparent hover:text-foreground/70 hover:bg-foreground/3'
                 }`}
               >
-                <Icon size={22} />
-                <span className="text-xs mt-1 font-medium text-center leading-tight">{item.label}</span>
+                <Icon size={24} />
+                <span className="text-xs mt-1.5 font-medium text-center leading-tight">{item.label}</span>
               </Link>
             );
           })}
         </div>
       </nav>
-
-      {/* Add padding to body to account for fixed navbar */}
-      <div className="lg:hidden h-20" />
     </>
   );
 }
