@@ -57,7 +57,7 @@ export default function AnimatedCatalogue({ title, description, clothes, gender 
 
   return (
     <motion.div
-      className="mx-auto flex w-full max-w-[1250px] flex-col items-center justify-center gap-12 px-4 py-16 md:px-6"
+      className="mx-auto flex w-full max-w-[1250px] flex-col items-center justify-center gap-8 sm:gap-10 md:gap-12 px-3 sm:px-4 md:px-6 py-8 sm:py-12 md:py-16 pb-28 sm:pb-12"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -68,43 +68,43 @@ export default function AnimatedCatalogue({ title, description, clothes, gender 
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        <h1 className="mb-4 text-pretty text-4xl font-bold md:text-5xl">{title}</h1>
-        <p className="text-lg font-medium text-foreground/70 md:text-xl">{description}</p>
+        <h1 className="mb-3 sm:mb-4 text-pretty text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">{title}</h1>
+        <p className="text-xs sm:text-sm md:text-lg lg:text-xl font-medium text-foreground/70">{description}</p>
 
         {/* Поиск */}
-        <div className="mt-8 flex w-full max-w-2xl items-center gap-2 rounded-full border border-border bg-card p-2 shadow-sm">
+        <div className="mt-6 sm:mt-8 flex w-full max-w-2xl items-center gap-1.5 sm:gap-2 rounded-full border border-border/40 bg-card p-1.5 sm:p-2 shadow-sm">
           <Input
             type="text"
-            placeholder="Поиск по названию или описанию"
+            placeholder="Поиск"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="flex-1 border-0 bg-transparent px-4 outline-none"
+            className="flex-1 border-0 bg-transparent px-3 sm:px-4 text-xs sm:text-sm outline-none"
           />
           <Button
-            className="cursor-pointer rounded-full bg-primary px-4 text-primary-foreground hover:shadow-lg"
+            className="cursor-pointer rounded-full bg-primary px-3 sm:px-4 py-1.5 sm:py-2 text-primary-foreground hover:shadow-lg transition-all"
           >
-            <FaSearch size={18} />
+            <FaSearch size={16} className="sm:w-4.5 sm:h-4.5" />
           </Button>
         </div>
 
         {/* Переключатели пола */}
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 lg:flex-row lg:gap-4">
+        <div className="mt-6 sm:mt-8 flex w-full flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 lg:gap-4">
           <Button
             onClick={() => handleChangeGender('boy')}
-            className={`cursor-pointer rounded-lg px-6 py-3 font-semibold transition-all duration-200 ${
+            className={`w-full sm:w-auto cursor-pointer rounded-lg px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold transition-all duration-200 ${
               gender === 'boy'
                 ? 'bg-primary text-primary-foreground shadow-lg'
-                : 'border border-border bg-card text-foreground hover:border-primary'
+                : 'border border-border/40 bg-card text-foreground hover:border-primary/60'
             }`}
           >
             Для мальчиков
           </Button>
           <Button
             onClick={() => handleChangeGender('girl')}
-            className={`cursor-pointer rounded-lg px-6 py-3 font-semibold transition-all duration-200 ${
+            className={`w-full sm:w-auto cursor-pointer rounded-lg px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold transition-all duration-200 ${
               gender === 'girl'
                 ? 'bg-primary text-primary-foreground shadow-lg'
-                : 'border border-border bg-card text-foreground hover:border-primary'
+                : 'border border-border/40 bg-card text-foreground hover:border-primary/60'
             }`}
           >
             Для девочек

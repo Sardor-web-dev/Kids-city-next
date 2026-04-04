@@ -94,12 +94,18 @@ const ProductSection = () => {
             ))}
           </CarouselContent>
 
-          <div className="mt-14 flex justify-center gap-3">
-            <CarouselPrevious className="h-11 w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
-            <CarouselNext className="h-11 w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
+          <div className="mt-8 sm:mt-10 lg:mt-14 flex justify-center gap-2 sm:gap-3">
+            <CarouselPrevious className="h-9 sm:h-11 w-9 sm:w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
+            <CarouselNext className="h-9 sm:h-11 w-9 sm:w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
           </div>
         </Carousel>
       </div>
+      <Button
+        onClick={() => router.push('/catalogue')}
+        className="w-full sm:w-auto h-10 sm:h-12 px-6 sm:px-12 cursor-pointer rounded-lg sm:rounded-2xl bg-primary font-semibold text-sm sm:text-base text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-primary/90 lg:flex lg:hidden"
+      >
+        {t('button')}
+      </Button>
       <Button
         onClick={() => router.push('/catalogue')}
         className="hidden h-12 px-12 cursor-pointer rounded-2xl bg-primary font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-primary/90 lg:flex"

@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer
       id="contacts"
-      className="mx-auto mt-16 sm:mt-24 lg:mt-32 w-full bg-gradient-to-b from-primary/3 to-primary/8 py-12 sm:py-16 md:py-20 lg:py-24"
+      className="mx-auto mt-16 sm:mt-24 lg:mt-32 w-full bg-gradient-to-b from-primary/3 to-primary/8 py-12 sm:py-16 md:py-20 lg:py-24 pb-20 sm:pb-12"
     >
       <div className="mx-auto max-w-[1250px] px-3 sm:px-4">
         <div className="mb-12 sm:mb-16 lg:mb-20 grid grid-cols-1 gap-10 sm:gap-12 md:gap-16 lg:grid-cols-3">

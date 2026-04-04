@@ -26,15 +26,15 @@ const Header = () => {
   }
 
   return (
-    <header className="mx-auto w-full bg-background py-3 sm:py-4">
-      <div className="mx-auto px-3 sm:px-4">
-        <div className="rounded-[1.5rem] sm:rounded-[1.75rem] border border-white/20 bg-white/40 backdrop-blur-lg shadow-lg">
-          <div className="flex max-w-[1250px] mx-auto items-center justify-between gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 lg:px-8">
+    <header className="mx-auto w-full bg-background py-2 sm:py-3 lg:py-4">
+      <div className="mx-auto px-2 sm:px-3 lg:px-4">
+        <div className="rounded-2xl sm:rounded-[1.75rem] border border-white/20 bg-white/50 backdrop-blur-lg shadow-md lg:shadow-lg">
+          <div className="flex max-w-[1250px] mx-auto items-center justify-between gap-2 sm:gap-3 lg:gap-4 px-3 sm:px-5 lg:px-8 py-2.5 sm:py-3 lg:py-4">
             <Link href="/" className="flex-shrink-0 group">
               <Image
-                width={75}
-                height={75}
-                className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 cursor-pointer transition-all duration-500 group-hover:opacity-70"
+                width={60}
+                height={60}
+                className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 cursor-pointer transition-all duration-500 group-hover:opacity-70"
                 src="/logo.png"
                 alt="Kids City Logo"
               />
@@ -62,18 +62,18 @@ const Header = () => {
             </nav>
 
             {/* Right Actions */}
-            <div className="flex items-center gap-2 lg:gap-4">
-              <Link className="p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/favorites'}>
-                <span className="text-sm font-medium text-foreground/60 hidden lg:inline hover:text-primary transition-colors">
+            <div className="flex items-center gap-0.5 sm:gap-2 lg:gap-4">
+              <Link className="p-1 sm:p-2 lg:p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full hidden sm:flex" href={'/favorites'}>
+                <span className="text-xs lg:text-sm font-medium text-foreground/60 lg:inline hover:text-primary transition-colors">
                   {t('favorites')}
                 </span>
               </Link>
-              <Link className="p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/profile'}>
-                <MdOutlineAccountCircle size={20} className="text-foreground/70" />
+              <Link className="p-1 sm:p-2 lg:p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/profile'}>
+                <MdOutlineAccountCircle size={16} className="text-foreground/70 sm:w-5 sm:h-5" />
               </Link>
               <DropdownMenu>
-                <DropdownMenuTrigger className="p-2.5 cursor-pointer transition-all duration-300 hover:bg-primary/10 rounded-full">
-                  <MdLanguage size="20" className="text-foreground/70" />
+                <DropdownMenuTrigger className="p-1 sm:p-2 lg:p-2.5 cursor-pointer transition-all duration-300 hover:bg-primary/10 rounded-full">
+                  <MdLanguage size="16" className="text-foreground/70 sm:w-5 sm:h-5" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="pt-2">
                   <DropdownMenuItem className="cursor-pointer" onClick={() => handleChange('ru')}>
@@ -91,8 +91,8 @@ const Header = () => {
               </DropdownMenu>
 
               <DropdownMenu>
-                <DropdownMenuTrigger className="p-2.5 cursor-pointer transition-all duration-300 hover:bg-primary/10 rounded-full lg:hidden">
-                  <IoMenuSharp size="20" className="text-foreground/70" />
+                <DropdownMenuTrigger className="p-1.5 sm:p-2 cursor-pointer transition-all duration-300 hover:bg-primary/10 rounded-full lg:hidden">
+                  <IoMenuSharp size="18" className="text-foreground/70 sm:w-5 sm:h-5" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="pt-2">
                   {[
@@ -113,8 +113,8 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Link className="p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/cart'}>
-                <FiShoppingCart size={20} className="text-foreground/70" />
+              <Link className="p-1 sm:p-2 lg:p-2.5 transition-all duration-300 hover:bg-primary/10 rounded-full" href={'/cart'}>
+                <FiShoppingCart size={16} className="text-foreground/70 sm:w-5 sm:h-5" />
               </Link>
             </div>
           </div>

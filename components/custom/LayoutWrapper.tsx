@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Footer from './Footer';
 import Header from './Header';
+import MobileNav from './MobileNav';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -15,6 +16,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
         {children}
       </main>
       {!inAdmin && <Footer />}
+      {!inAdmin && <MobileNav />}
     </div>
   );
 }

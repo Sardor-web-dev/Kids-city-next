@@ -11,11 +11,11 @@ const FirstSection = () => {
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/32 to-black/45" />
-      <div className="relative flex h-full w-full flex-col items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 p-4 sm:p-5 md:p-6">
-        <h1 className="text-pretty text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-tight">
+      <div className="relative flex h-full w-full flex-col items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 p-4 sm:p-6 md:p-8">
+        <h1 className="text-pretty text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-tight drop-shadow-lg">
           {t('title')}
         </h1>
-        <p className="max-w-xl sm:max-w-2xl text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/85 font-light leading-relaxed">
+        <p className="max-w-xl sm:max-w-2xl text-center text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl text-white font-light leading-relaxed drop-shadow-md">
           {t('description')}
         </p>
       </div>

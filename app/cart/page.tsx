@@ -48,36 +48,36 @@ export default function CartPage() {
 
   return (
     <motion.div
-      className="mx-auto w-full max-w-[1250px] px-4 py-12 md:py-16"
+      className="mx-auto w-full max-w-[1250px] px-3 sm:px-4 py-8 sm:py-12 md:py-16"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <motion.div
-        className="mb-12 flex items-center justify-between"
+        className="mb-8 sm:mb-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        <h1 className="text-pretty text-3xl font-bold md:text-4xl">{t('title')}</h1>
+        <h1 className="text-pretty text-2xl sm:text-3xl md:text-4xl font-bold">{t('title')}</h1>
         <button 
           onClick={clearCart}
-          className="rounded-lg px-4 py-2 font-medium text-destructive transition-all duration-200 hover:bg-destructive/10"
+          className="rounded-lg px-4 py-2 text-sm sm:text-base font-medium text-destructive transition-all duration-200 hover:bg-destructive/10 whitespace-nowrap"
         >
           {t('clear')}
         </button>
       </motion.div>
       {items.length === 0 ? (
-        <div className="flex flex-col items-center justify-center gap-8 py-16">
+        <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 py-12 sm:py-16">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-foreground">{t('empty')}</h2>
-            <p className="mt-2 text-foreground/60">Начните добавлять товары в корзину</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">{t('empty')}</h2>
+            <p className="mt-2 text-sm sm:text-base text-foreground/60">Начните добавлять товары в корзину</p>
           </div>
-          <div className="flex flex-col items-center gap-3 md:flex-row md:gap-4">
-            <Link href={'/catalogue?gender=boy'} className="rounded-lg bg-primary px-6 py-2 font-semibold text-primary-foreground transition-all duration-200 hover:shadow-lg">
+          <div className="flex flex-col items-stretch sm:items-center gap-3 sm:gap-4">
+            <Link href={'/catalogue?gender=boy'} className="rounded-lg bg-primary px-4 sm:px-6 py-2 text-sm sm:text-base font-semibold text-primary-foreground transition-all duration-200 hover:shadow-lg text-center">
               {t('link')} (Для мальчиков)
             </Link>
-            <Link href={'/catalogue?gender=girl'} className="rounded-lg bg-accent px-6 py-2 font-semibold text-accent-foreground transition-all duration-200 hover:shadow-lg">
+            <Link href={'/catalogue?gender=girl'} className="rounded-lg bg-accent px-4 sm:px-6 py-2 text-sm sm:text-base font-semibold text-accent-foreground transition-all duration-200 hover:shadow-lg text-center">
               {t('link')} (Для девочек)
             </Link>
           </div>

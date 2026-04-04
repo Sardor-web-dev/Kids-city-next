@@ -44,14 +44,14 @@ const FavoritesPage = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="mx-auto w-full max-w-[1250px] px-4 py-12 md:py-16"
+      className="mx-auto w-full max-w-[1250px] px-3 sm:px-4 py-8 sm:py-12 md:py-16 pb-28 sm:pb-12"
     >
-      <h1 className="mb-12 text-pretty text-3xl font-bold md:text-4xl">{t('title')}</h1>
+      <h1 className="mb-8 sm:mb-12 text-pretty text-2xl sm:text-3xl lg:text-4xl font-bold">{t('title')}</h1>
 
       {favorites.length === 0 ? (
-        <div className="flex flex-col items-center justify-center gap-6 py-16">
-          <p className="text-lg text-foreground/70">{t('empty')}</p>
-          <a href="/catalogue" className="rounded-lg bg-primary px-6 py-2 font-semibold text-primary-foreground transition-all duration-200 hover:shadow-lg">
+        <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 py-12 sm:py-16">
+          <p className="text-sm sm:text-lg text-foreground/70">{t('empty')}</p>
+          <a href="/catalogue" className="rounded-lg bg-primary px-4 sm:px-6 py-2 text-sm sm:text-base font-semibold text-primary-foreground transition-all duration-200 hover:shadow-lg">
             Перейти к товарам
           </a>
         </div>
