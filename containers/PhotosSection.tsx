@@ -22,16 +22,16 @@ const PhotosSection = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="mt-10 mb-8 flex flex-col text-center">
-        <p className="text-2xl font-bold">{t('title')}</p>
-        <span className="text-xl font-medium">{t('description')}</span>
+      <div className="mb-10 sm:mb-12 md:mb-14 lg:mb-16 flex flex-col gap-3 sm:gap-4 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">{t('title')}</h2>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/50 font-light">{t('description')}</p>
       </div>
 
-      <div className="mt-5 hidden gap-6 lg:flex lg:flex-row">
+      <div className="hidden w-full gap-8 lg:flex lg:flex-row">
         <Carousel
           plugins={[
             Autoplay({
-              delay: 2000,
+              delay: 4000,
             }),
           ]}
           opts={{
@@ -44,7 +44,7 @@ const PhotosSection = () => {
             {images.map((img, i) => (
               <CarouselItem key={i} className="flex w-full max-w-[1200px] basis-1/3 items-center">
                 <img
-                  className="h-[400px] w-[400px] cursor-pointer rounded-2xl object-cover transition-all hover:scale-105"
+                  className="aspect-square h-auto w-full cursor-pointer rounded-3xl object-cover shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
                   src={img.src}
                   alt={img.alt}
                 />
@@ -52,27 +52,27 @@ const PhotosSection = () => {
             ))}
           </CarouselContent>
 
-          <div className="mt-10 flex justify-center gap-1">
-            <CarouselPrevious className="cursor-pointer" />
-            <CarouselNext className="cursor-pointer" />
+          <div className="mt-14 flex justify-center gap-3">
+            <CarouselPrevious className="h-11 w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
+            <CarouselNext className="h-11 w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
           </div>
         </Carousel>
       </div>
 
-      <div className="flex flex-col items-center lg:hidden">
+      <div className="flex w-full flex-col items-center lg:hidden">
         <Carousel
           plugins={[
             Autoplay({
-              delay: 2000,
+              delay: 4000,
             }),
           ]}
-          className="relative flex w-full max-w-xs flex-col items-center justify-center"
+          className="relative flex w-full flex-col items-center justify-center"
         >
           <CarouselContent>
             {images.map((img, i) => (
               <CarouselItem key={i} className="flex justify-center">
                 <img
-                  className="h-[400px] w-[400px] cursor-pointer rounded-2xl object-cover transition-all hover:scale-105"
+                  className="aspect-square h-auto w-full max-w-[280px] cursor-pointer rounded-3xl object-cover shadow-lg transition-all duration-500 hover:shadow-xl hover:scale-[1.02]"
                   src={img.src}
                   alt={img.alt}
                 />
@@ -80,9 +80,9 @@ const PhotosSection = () => {
             ))}
           </CarouselContent>
 
-          <div className="relative mt-10 flex justify-center">
-            <CarouselPrevious className="cursor-pointer" />
-            <CarouselNext className="cursor-pointer" />
+          <div className="relative mt-12 flex justify-center gap-3">
+            <CarouselPrevious className="h-11 w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
+            <CarouselNext className="h-11 w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
           </div>
         </Carousel>
       </div>

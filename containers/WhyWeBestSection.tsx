@@ -27,23 +27,27 @@ export default async function WhyWeBestSection() {
   ];
 
   return (
-    <div id="why_best" className="mt-20 flex w-full flex-col items-center justify-center px-4">
-      <div className="mb-10 flex flex-col gap-2 text-center">
-        <p className="text-4xl font-bold">{t('title')}</p>
-        <span className="text-2xl font-medium">{t('description')}</span>
+    <div id="why_best" className="flex w-full flex-col items-center justify-center">
+      <div className="mb-10 sm:mb-14 md:mb-16 lg:mb-18 flex flex-col gap-3 sm:gap-4 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">{t('title')}</h2>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/50 font-light">{t('description')}</p>
       </div>
 
-      <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-10 lg:flex-row">
+      <div className="grid w-full max-w-7xl gap-4 sm:gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {advantages.map((adv, idx) => {
           const Icon = adv.icon;
           return (
             <div
               key={idx}
-              className="flex max-w-sm cursor-pointer flex-col items-center justify-center gap-4 text-center transition-all hover:scale-105"
+              className="group flex flex-col items-start gap-5 sm:gap-6 rounded-xl sm:rounded-2xl lg:rounded-[2rem] border border-border/20 bg-gradient-to-br from-white to-primary/3 p-5 sm:p-7 md:p-8 lg:p-10 transition-all duration-500 hover:border-primary/40 hover:shadow-xl lg:hover:shadow-2xl hover:from-white hover:to-primary/5"
             >
-              <Icon size={120} />
-              <h3 className="text-xl font-semibold">{adv.title}</h3>
-              <span className="text-muted-foreground text-lg">{adv.description}</span>
+              <div className="rounded-lg sm:rounded-xl lg:rounded-[1.25rem] bg-primary/10 p-3 sm:p-4 transition-all duration-300 group-hover:bg-primary/15 group-hover:scale-110">
+                <Icon size={32} className="text-primary sm:w-11 sm:h-11" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-foreground mb-2 sm:mb-3 leading-tight">{adv.title}</h3>
+                <p className="text-sm sm:text-base leading-relaxed text-foreground/55">{adv.description}</p>
+              </div>
             </div>
           );
         })}

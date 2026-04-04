@@ -63,18 +63,18 @@ const ProductSection = () => {
 
   const router = useRouter();
   return (
-    <div id="clothes" className="mt-12 flex h-full flex-col items-center justify-center gap-10">
-      <div className="flex flex-col gap-3 text-center">
-        <p className="text-4xl font-bold">{t('ourproducts')}</p>
-        <span className="text-2xl font-normal">{t('desc')}</span>
+    <div id="clothes" className="flex h-full flex-col items-center justify-center gap-10 sm:gap-12 md:gap-14 lg:gap-16">
+      <div className="flex flex-col gap-3 sm:gap-4 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">{t('ourproducts')}</h2>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/50 font-light">{t('desc')}</p>
       </div>
 
-      <div className="mt-5 hidden gap-6 lg:flex lg:flex-row">
+      <div className="hidden w-full gap-8 lg:flex lg:flex-row">
         <Carousel
           opts={{ loop: true }}
           plugins={[
             Autoscroll({
-              speed: 2,
+              speed: 1.5,
               direction: 'forward',
               playOnInit: true,
               startDelay: 1000,
@@ -86,7 +86,7 @@ const ProductSection = () => {
             {images.map((img, i) => (
               <CarouselItem key={i} className="flex w-full max-w-[1200px] basis-1/3 items-center">
                 <img
-                  className="h-[400px] w-[400px] cursor-pointer rounded-2xl object-cover transition-all hover:scale-105"
+                  className="aspect-square h-auto w-full cursor-pointer rounded-3xl object-cover shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
                   src={img.src}
                   alt={img.alt}
                 />
@@ -94,38 +94,37 @@ const ProductSection = () => {
             ))}
           </CarouselContent>
 
-          <div className="mt-10 flex justify-center gap-1">
-            <CarouselPrevious className="cursor-pointer" />
-            <CarouselNext className="cursor-pointer" />
+          <div className="mt-8 sm:mt-10 lg:mt-14 flex justify-center gap-2 sm:gap-3">
+            <CarouselPrevious className="h-9 sm:h-11 w-9 sm:w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
+            <CarouselNext className="h-9 sm:h-11 w-9 sm:w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
           </div>
         </Carousel>
       </div>
       <Button
         onClick={() => router.push('/catalogue')}
-        variant={'outline'}
-        className="lg:text-md hidden h-[40px] w-[130px] cursor-pointer rounded-md border-1 border-black bg-gray-800 font-medium text-white lg:flex lg:h-[50px] lg:w-[200px] lg:rounded-lg lg:font-bold"
+        className="hidden h-12 px-12 cursor-pointer rounded-2xl bg-primary font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-primary/90 lg:flex"
       >
         {t('button')}
       </Button>
 
-      <div className="flex flex-col items-center lg:hidden">
+      <div className="flex w-full flex-col items-center lg:hidden">
         <Carousel
           opts={{ loop: true }}
           plugins={[
             AutoScroll({
-              speed: 2,
+              speed: 1.5,
               direction: 'forward',
               playOnInit: true,
               startDelay: 1000,
             }),
           ]}
-          className="relative flex w-full max-w-xs flex-col items-center justify-center"
+          className="relative flex w-full flex-col items-center justify-center"
         >
           <CarouselContent>
             {images.map((img, i) => (
               <CarouselItem key={i} className="flex justify-center">
                 <img
-                  className="h-[400px] w-[400px] cursor-pointer rounded-2xl object-cover transition-all hover:scale-105"
+                  className="aspect-square h-auto w-full max-w-[280px] cursor-pointer rounded-3xl object-cover shadow-lg transition-all duration-500 hover:shadow-xl hover:scale-[1.02]"
                   src={img.src}
                   alt={img.alt}
                 />
@@ -134,15 +133,14 @@ const ProductSection = () => {
           </CarouselContent>
           <Button
             onClick={() => router.push('/catalogue')}
-            variant={'outline'}
-            className="mt-5 h-[40px] w-[130px] cursor-pointer rounded-md border-1 border-black bg-gray-800 font-medium text-white lg:hidden"
+            className="mt-10 h-11 px-10 cursor-pointer rounded-2xl bg-primary font-semibold text-primary-foreground transition-all duration-300 hover:shadow-lg hover:bg-primary/90"
           >
             {t('button')}
           </Button>
 
-          <div className="relative mt-10 flex justify-center">
-            <CarouselPrevious className="cursor-pointer" />
-            <CarouselNext className="cursor-pointer" />
+          <div className="relative mt-12 flex justify-center gap-3">
+            <CarouselPrevious className="h-11 w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
+            <CarouselNext className="h-11 w-11 cursor-pointer rounded-full border-border bg-white hover:bg-muted transition-all" />
           </div>
         </Carousel>
       </div>

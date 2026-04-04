@@ -6,21 +6,25 @@ export default async function AboutSection() {
   return (
     <section
       id="about_us"
-      className="mt-20 flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:justify-between"
+      className="flex w-full flex-col items-center justify-between gap-10 sm:gap-14 md:gap-16 lg:gap-28 lg:flex-row"
     >
-      <div className="flex h-full max-w-[500px] flex-col gap-5 text-left">
-        <h2 className="text-center text-2xl font-bold">{t('title')}</h2>
-        {aboutText.map((paragraph: string, index: any) => (
-          <p key={index} className="text-start text-base leading-relaxed font-medium">
-            {paragraph}
-          </p>
-        ))}
+      <div className="flex h-full w-full max-w-2xl flex-col gap-6 sm:gap-8 md:gap-10 text-left lg:w-auto">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">{t('title')}</h2>
+        <div className="space-y-5 sm:space-y-6 md:space-y-7">
+          {aboutText.map((paragraph: string, index: any) => (
+            <p key={index} className="text-sm sm:text-base md:text-lg leading-loose text-foreground/60 font-light">
+              {paragraph}
+            </p>
+          ))}
+        </div>
       </div>
-      <img
-        className="h-[450px] rounded-2xl transition-transform duration-300 lg:hover:scale-105"
-        src="https://avatars.mds.yandex.net/get-altay/15223195/2a00000194ab8c65ded07e225b5837097cdf/orig"
-        alt="Наш магазин"
-      />
+      <div className="w-full max-w-md lg:max-w-2xl group">
+        <img
+          className="h-auto w-full rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] object-cover shadow-lg lg:shadow-2xl transition-all duration-700 lg:hover:shadow-3xl lg:hover:scale-[1.03]"
+          src="https://avatars.mds.yandex.net/get-altay/15223195/2a00000194ab8c65ded07e225b5837097cdf/orig"
+          alt="Kids City магазин"
+        />
+      </div>
     </section>
   );
 }

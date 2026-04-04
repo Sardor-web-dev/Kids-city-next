@@ -35,18 +35,20 @@ const FAQ = () => {
     <>
       <div
         id="FAQ"
-        className="mx-auto mt-20 mb-10 flex max-w-[350px] flex-col items-center justify-center lg:max-w-[1250px] lg:flex-row lg:items-start lg:justify-between lg:gap-20"
+        className="flex w-full flex-col items-start justify-start gap-10 sm:gap-12 md:gap-14 lg:gap-16"
       >
-        <p className="text-2xl font-black lg:text-4xl">{t('title')}</p>
-        <div>
+        <div className="w-full">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">{t('title')}</h2>
+        </div>
+        <div className="w-full space-y-2 sm:space-y-2.5 md:space-y-3">
           {FAQarr.map((item, i) => (
             <Accordion type="single" collapsible key={i}>
-              <AccordionItem value={`item-${i}`}>
-                <AccordionTrigger className="cursor-pointer">
-                  <p className="text-lg font-bold lg:text-2xl">{item.title}</p>
+              <AccordionItem value={`item-${i}`} className="border-b border-border/20 px-3 sm:px-4 md:px-6 py-0.5">
+                <AccordionTrigger className="cursor-pointer py-4 sm:py-5 md:py-6 text-left hover:no-underline transition-all duration-300 hover:text-primary group">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">{item.title}</p>
                 </AccordionTrigger>
-                <AccordionContent className="max-w-[200px lg:max-w-[400px]">
-                  <p className="text-md lg:text-xl">{item.content}</p>
+                <AccordionContent className="px-0 pb-4 sm:pb-5 md:pb-6 pt-3 sm:pt-4 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-foreground/55 font-light">
+                  {item.content}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

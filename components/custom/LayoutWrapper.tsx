@@ -3,20 +3,20 @@
 import { usePathname } from 'next/navigation';
 import Footer from './Footer';
 import Header from './Header';
+import MobileNav from './MobileNav';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const inAdmin = pathname.startsWith('/admin');
 
   return (
-    <>
-      <div>
-        <section className="pr-2 pl-2">
-          {!inAdmin && <Header />}
-          {children}
-          {!inAdmin && <Footer />}
-        </section>
-      </div>
-    </>
+    <div className="flex min-h-screen flex-col bg-background">
+      {!inAdmin && <Header />}
+      <main className="flex flex-1 flex-col">
+        {children}
+      </main>
+      {!inAdmin && <Footer />}
+      {!inAdmin && <MobileNav />}
+    </div>
   );
 }
