@@ -35,18 +35,18 @@ const ButtonCart = ({ cloth, selectedSize }: any) => {
     <>
       {!isInCart ? (
         <Button
-          className="w-full cursor-pointer rounded-[1rem] sm:rounded-[1.25rem] bg-primary py-2.5 sm:py-3 md:py-3.5 font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-primary/95 active:scale-95 text-sm sm:text-base"
+          className="bg-primary text-primary-foreground hover:bg-primary/95 w-full cursor-pointer rounded-[1rem] py-2.5 text-sm font-semibold shadow-lg transition-all duration-300 hover:shadow-xl active:scale-95 sm:rounded-[1.25rem] sm:py-3 sm:text-base md:py-3.5"
           onClick={handleAdd}
         >
-          <FaCartPlus className="mr-1.5 sm:mr-2" size={14} className="sm:w-4 sm:h-4" />
+          <FaCartPlus className="mr-1.5 sm:mr-2 sm:h-4 sm:w-4" size={14} />
           <span className="hidden sm:inline">Добавить в</span> корзину
         </Button>
       ) : (
         <Button
-          className="w-full cursor-pointer rounded-[1rem] sm:rounded-[1.25rem] border border-destructive/40 bg-destructive/12 py-2.5 sm:py-3 md:py-3.5 font-semibold text-destructive transition-all duration-300 hover:bg-destructive/20 hover:border-destructive/60 active:scale-95 text-sm sm:text-base"
+          className="border-destructive/40 bg-destructive/12 text-destructive hover:bg-destructive/20 hover:border-destructive/60 w-full cursor-pointer rounded-[1rem] border py-2.5 text-sm font-semibold transition-all duration-300 active:scale-95 sm:rounded-[1.25rem] sm:py-3 sm:text-base md:py-3.5"
           onClick={handleRemove}
         >
-          <MdDelete className="mr-1.5 sm:mr-2" size={14} className="sm:w-4 sm:h-4" />
+          <MdDelete className="mr-1.5 sm:mr-2 sm:h-4 sm:w-4" size={14} />
           Убрать
         </Button>
       )}
