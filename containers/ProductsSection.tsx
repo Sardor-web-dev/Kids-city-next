@@ -63,10 +63,10 @@ const ProductSection = () => {
 
   const router = useRouter();
   return (
-    <div id="clothes" className="flex h-full flex-col items-center justify-center gap-14">
-      <div className="flex flex-col gap-3 text-center">
-        <h2 className="text-5xl font-bold tracking-tight text-foreground md:text-6xl">{t('ourproducts')}</h2>
-        <p className="text-lg text-foreground/55 md:text-xl font-light">{t('desc')}</p>
+    <div id="clothes" className="flex h-full flex-col items-center justify-center gap-16">
+      <div className="flex flex-col gap-4 text-center">
+        <h2 className="text-5xl font-bold tracking-tight text-foreground md:text-7xl leading-tight">{t('ourproducts')}</h2>
+        <p className="text-lg text-foreground/50 md:text-xl font-light">{t('desc')}</p>
       </div>
 
       <div className="hidden w-full gap-8 lg:flex lg:flex-row">

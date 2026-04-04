@@ -35,19 +35,19 @@ const ButtonCart = ({ cloth, selectedSize }: any) => {
     <>
       {!isInCart ? (
         <Button
-          className="w-full cursor-pointer rounded-2xl bg-primary py-3 font-medium text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-primary/90"
+          className="w-full cursor-pointer rounded-[1.25rem] bg-primary py-3.5 font-semibold text-primary-foreground shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-primary/95 active:scale-95"
           onClick={handleAdd}
         >
-          <FaCartPlus className="mr-2" size={16} />
-          В корзину
+          <FaCartPlus className="mr-2.5" size={16} />
+          Добавить в корзину
         </Button>
       ) : (
         <Button
-          className="w-full cursor-pointer rounded-2xl border border-destructive/30 bg-destructive/8 py-3 font-medium text-destructive transition-all duration-300 hover:bg-destructive/15"
+          className="w-full cursor-pointer rounded-[1.25rem] border border-destructive/40 bg-destructive/12 py-3.5 font-semibold text-destructive transition-all duration-300 hover:bg-destructive/20 hover:border-destructive/60 active:scale-95"
           onClick={handleRemove}
         >
-          <MdDelete className="mr-2" size={16} />
-          Удалить
+          <MdDelete className="mr-2.5" size={16} />
+          Убрать из корзины
         </Button>
       )}
     </>

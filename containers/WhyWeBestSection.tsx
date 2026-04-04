@@ -28,9 +28,9 @@ export default async function WhyWeBestSection() {
 
   return (
     <div id="why_best" className="flex w-full flex-col items-center justify-center">
-      <div className="mb-16 flex flex-col gap-4 text-center">
-        <h2 className="text-5xl font-bold tracking-tight text-foreground md:text-6xl">{t('title')}</h2>
-        <p className="text-lg text-foreground/55 md:text-xl font-light">{t('description')}</p>
+      <div className="mb-18 flex flex-col gap-4 text-center">
+        <h2 className="text-5xl font-bold tracking-tight text-foreground md:text-7xl leading-tight">{t('title')}</h2>
+        <p className="text-lg text-foreground/50 md:text-xl font-light">{t('description')}</p>
       </div>
 
       <div className="grid w-full max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -39,14 +39,14 @@ export default async function WhyWeBestSection() {
           return (
             <div
               key={idx}
-              className="group flex flex-col items-start gap-6 rounded-3xl border border-border/40 bg-card p-10 transition-all duration-500 hover:border-primary/60 hover:shadow-xl hover:bg-primary/2"
+              className="group flex flex-col items-start gap-7 rounded-[2rem] border border-border/20 bg-gradient-to-br from-white to-primary/3 p-10 transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:from-white hover:to-primary/5"
             >
-              <div className="rounded-2xl bg-primary/8 p-5 transition-all duration-300 group-hover:bg-primary/15">
-                <Icon size={48} className="text-primary" />
+              <div className="rounded-[1.25rem] bg-primary/10 p-4 transition-all duration-300 group-hover:bg-primary/15 group-hover:scale-110">
+                <Icon size={44} className="text-primary" />
               </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-2">{adv.title}</h3>
-                <p className="text-base leading-relaxed text-foreground/60">{adv.description}</p>
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold text-foreground mb-3 leading-tight">{adv.title}</h3>
+                <p className="text-base leading-relaxed text-foreground/55">{adv.description}</p>
               </div>
             </div>
           );
