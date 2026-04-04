@@ -26,9 +26,9 @@ const Header = () => {
   }
 
   return (
-    <header className="mx-auto w-full bg-background py-4 sticky top-4 z-50">
+    <header className="mx-auto w-full bg-background py-4">
       <div className="mx-auto px-4">
-        <div className="rounded-[1.75rem] border border-white/30 bg-white/45 backdrop-blur-xl shadow-2xl">
+        <div className="rounded-[1.75rem] border border-white/20 bg-white/40 backdrop-blur-lg shadow-lg">
           <div className="flex max-w-[1250px] mx-auto items-center justify-between gap-6 px-6 py-4 lg:px-8">
             <Link href="/" className="flex-shrink-0 group">
               <Image
